@@ -1,30 +1,266 @@
 <template>
-  <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </div>
-  <router-view />
+  <nav class="nav-bar horizontal-nav-bar" id="top-nav-bar">
+    <router-link class="nav-item nav-item-free" to="/">Home</router-link>
+    <router-link class="nav-item nav-item-free" to="/people"
+      >People</router-link
+    >
+    <router-link class="nav-item nav-item-free" to="/finances"
+      >Finances</router-link
+    >
+    <router-link class="nav-item nav-item-free" to="/office"
+      >Office</router-link
+    >
+    <router-link class="nav-item nav-item-free" to="/product"
+      >Product</router-link
+    >
+  </nav>
+  <nav class="nav-bar horizontal-nav-bar" id="bottom-nav-bar">
+    <span class="hor-bar-left"><time-toggle></time-toggle></span>
+    <router-link to="/finances">
+      <span
+        v-if="$store.getters.get_trend"
+        class="nav-item color-green nav-item-free"
+        ><b
+          ><i class="fas fa-chevron-up"></i
+          >{{ formatCurrency($store.getters.get_capital) }}</b
+        ></span
+      >
+      <span v-else class="nav-item color-red nav-item-free"
+        ><b
+          ><i class="fas fa-chevron-down"></i
+          >{{ formatCurrency($store.getters.get_capital) }}</b
+        >
+      </span>
+    </router-link>
+  </nav>
+  <nav class="nav-bar vertical-nav-bar" id="left-nav-bar"></nav>
+  <nav class="nav-bar vertical-nav-bar" id="right-nav-bar"></nav>
+  <main id="canvas">
+    <router-view />
+  </main>
 </template>
+<script>
+import timeToggle from "./components/timeToggle.vue";
+import { toCurrency } from "./scripts/tools.js";
+
+export default {
+  components: { "time-toggle": timeToggle },
+  created() {
+    setInterval(this.incrementTime, 1000);
+  },
+  methods: {
+    incrementTime() {
+      if (this.$store.getters.get_worldState.running == true) {
+        this.$store.dispatch("setDate", 5);
+      }
+    },
+    formatCurrency(input) {
+      return toCurrency(input);
+    },
+  },
+};
+</script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+body {
+  padding: 0px;
+  margin: 0px;
+  overflow: hidden;
+  height: 100vh;
+  max-width: 100vw;
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+}
+
+.nav-bar {
+  position: fixed;
+  background-color: white;
+  box-sizing: border-box;
+  line-height: 48px;
+  font-size: 20px;
+  overflow: hidden;
+}
+
+.nav-bar * {
+  box-sizing: border-box;
   text-align: center;
-  color: #2c3e50;
+  border: 0px;
+  border-radius: 8px;
+  line-height: 48px;
 }
 
-#nav {
-  padding: 30px;
+.horizontal-nav-bar {
+  height: 64px;
+  width: 100vw;
+  padding-left: 64px;
+  padding-right: 64px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  display: grid;
+  grid-column-gap: 8px;
 }
 
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
+.hor-bar-left {
+  display: grid;
+  grid-column-gap: 8px;
+  grid-template-columns:
+    minmax(min-content, max-content) minmax(min-content, max-content)
+    minmax(min-content, max-content) minmax(min-content, max-content) minmax(min-content, max-content);
 }
 
-#nav a.router-link-exact-active {
-  color: #42b983;
+.hor-bar-right {
+  display: grid;
+  grid-column-gap: 8px;
+  grid-template-columns: minmax(min-content, max-content);
+}
+
+.vertical-nav-bar {
+  width: 64px;
+  height: 100vw;
+  padding-top: 64px;
+  padding-bottom: 64px;
+  padding-left: 8px;
+  padding-right: 8px;
+}
+
+.ver-bar-top {
+}
+
+.ver-bar-bottom {
+}
+
+#left-nav-bar {
+  top: 0px;
+  left: 0px;
+}
+
+#right-nav-bar {
+  top: 0px;
+  right: 0px;
+}
+
+#top-nav-bar {
+  top: 0px;
+  left: 0px;
+  grid-template-columns:
+    minmax(min-content, max-content) minmax(min-content, max-content)
+    minmax(min-content, max-content) minmax(min-content, max-content) minmax(min-content, max-content);
+}
+
+#bottom-nav-bar {
+  bottom: 0px;
+  right: 0px;
+  justify-content: space-between;
+  grid-template-columns: minmax(min-content, max-content) minmax(
+      min-content,
+      max-content
+    );
+}
+
+#canvas {
+  display: block;
+  margin: 64px;
+  background-color: #eeeeee;
+  padding-left: 15vw;
+  padding-right: 15vw;
+  height: calc(100vh - 128px);
+  width: calc(100vw - 128px);
+  overflow: hidden;
+  overflow-y: auto;
+  box-sizing: border-box;
+  border-radius: 8px;
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.16), 0 0px 6px rgba(0, 0, 0, 0.23);
+}
+
+.nav-item {
+  display: inline-block;
+  min-width: 48px;
+  height: 48px;
+  margin: 0px;
+  padding: 0px;
+  overflow: hidden;
+}
+
+.nav-item:hover {
+  background-color: #616161;
+  color: white;
+  cursor: pointer;
+}
+
+.vertical-nav-item {
+  width: 48px;
+  height: 48px;
+  margin: 0px;
+  padding: 0px;
+}
+
+.horizontal-nav-item {
+}
+
+.nav-item-free {
+  padding-left: 8px;
+  padding-right: 8px;
+}
+
+.nav-item-button {
+  font-size: 26px;
+}
+
+.horizontal-nav-item {
+  height: 48px;
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.vertical-nav-item {
+  width: 48px;
+  height: 48px;
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+a {
+  color: initial;
+  text-decoration: initial;
+}
+
+.card {
+  background-color: white;
+  border-radius: 8px;
+  padding: 16px;
+  margin: 16px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+
+.color-green {
+  color: #27ae60;
+}
+
+.color-red {
+  color: #c0392b;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #bdbdbd;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #757575;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #616161;
 }
 </style>
