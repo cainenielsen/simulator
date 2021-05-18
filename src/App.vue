@@ -26,26 +26,33 @@
   </nav>
   <nav class="nav-bar horizontal-nav-bar" id="bottom-nav-bar">
     <span class="bottom-left"><time-toggle></time-toggle></span>
-    <router-link class="bottom-right" to="/finances">
-      <span
-        v-if="$store.getters.get_trend"
-        class="nav-item color-green nav-item-free"
-        ><b
-          ><i class="fas fa-chevron-up"></i
-          >{{ formatCurrency($store.getters.get_capital) }}</b
-        ></span
-      >
-      <span v-else class="nav-item color-red nav-item-free"
-        ><b
-          ><i class="fas fa-chevron-down"></i
-          >{{ formatCurrency($store.getters.get_capital) }}</b
+    <span class="bottom-right">
+      <router-link to="/product">
+        <span class="nav-item color-amethyst nav-item-free"
+          ><b><i class="fas fa-vial"></i>{{ $store.getters.get_research }}</b>
+        </span>
+      </router-link>
+      <router-link to="/finances">
+        <span
+          v-if="$store.getters.get_trend"
+          class="nav-item color-emerald nav-item-free"
+          ><b
+            ><i class="fas fa-chevron-up"></i
+            >{{ formatCurrency($store.getters.get_capital) }}</b
+          ></span
         >
-      </span>
-    </router-link>
+        <span v-else class="nav-item color-pomegranate nav-item-free"
+          ><b
+            ><i class="fas fa-chevron-down"></i
+            >{{ formatCurrency($store.getters.get_capital) }}</b
+          >
+        </span>
+      </router-link>
+    </span>
   </nav>
   <nav class="nav-bar vertical-nav-bar" id="left-nav-bar"></nav>
   <nav class="nav-bar vertical-nav-bar" id="right-nav-bar"></nav>
-  <main id="canvas">
+  <main id="canvas" class="background-color-silver-50">
     <highlight>{{ $route.name }}</highlight>
     <div id="content">
       <router-view />
@@ -112,16 +119,6 @@ export default {
 </script>
 
 <style>
-body {
-  padding: 0px;
-  margin: 0px;
-  overflow: hidden;
-  height: 100vh;
-  max-width: 100vw;
-  box-sizing: border-box;
-  font-family: "Montserrat", sans-serif;
-}
-
 .nav-bar {
   position: fixed;
   background-color: white;
@@ -178,7 +175,10 @@ body {
 .bottom-right {
   display: grid;
   grid-column-gap: 8px;
-  grid-template-columns: minmax(min-content, max-content);
+  grid-template-columns: minmax(min-content, max-content) minmax(
+      min-content,
+      max-content
+    );
 }
 
 .vertical-nav-bar {
@@ -229,7 +229,6 @@ body {
 #canvas {
   display: block;
   margin: 64px;
-  background-color: #eeeeee;
   height: calc(100vh - 128px);
   width: calc(100vw - 128px);
   overflow: hidden;
@@ -256,7 +255,7 @@ body {
 }
 
 .nav-item:hover {
-  background-color: #616161;
+  background-color: var(--peter-river);
   color: white;
   cursor: pointer;
 }
@@ -295,46 +294,5 @@ body {
   padding: 0px;
   box-sizing: border-box;
   overflow: hidden;
-}
-
-a {
-  color: initial;
-  text-decoration: initial;
-}
-
-.card {
-  background-color: white;
-  border-radius: 8px;
-  padding: 16px;
-  margin: 16px;
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
-}
-
-.color-green {
-  color: #27ae60;
-}
-
-.color-red {
-  color: #c0392b;
-}
-
-/* width */
-::-webkit-scrollbar {
-  width: 10px;
-}
-
-/* Track */
-::-webkit-scrollbar-track {
-  background: #bdbdbd;
-}
-
-/* Handle */
-::-webkit-scrollbar-thumb {
-  background: #757575;
-}
-
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-  background: #616161;
 }
 </style>

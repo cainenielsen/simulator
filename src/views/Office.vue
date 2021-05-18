@@ -5,7 +5,7 @@
       <div
         v-for="office in $store.getters.get_ownedOffices"
         :key="office.id"
-        class="grid-item active"
+        class="grid-item-active"
       >
         {{ office.name }}<br /><br />Capacity: {{ office.capacity
         }}<br /><br /><b>{{ formatCurrency(office.cost) }}</b
@@ -41,24 +41,3 @@ export default {
   },
 };
 </script>
-<style scoped>
-.grid {
-  display: grid;
-  grid-template-columns: 19% 19% 19% 19% 19%;
-  grid-column-gap: 1.25%;
-  grid-row-gap: 16px;
-  padding-bottom: 5vw;
-}
-.grid-item {
-  background-color: rgb(152, 152, 255);
-  aspect-ratio: 1 / 1;
-  border-radius: 8px;
-  box-sizing: border-box;
-  padding: 16px;
-  overflow: hidden;
-  text-align: center;
-}
-.active {
-  background-color: rgb(152, 255, 161);
-}
-</style>

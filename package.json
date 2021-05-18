@@ -30,6 +30,7 @@
     "prettier": "^2.2.1"
   },
   "eslintConfig": {
+    "endOfLine": "auto",
     "root": true,
     "env": {
       "node": true

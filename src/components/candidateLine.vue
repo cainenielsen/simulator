@@ -23,7 +23,7 @@
     <span>{{ formatCurrency(candidate.compensation) }}</span>
 
     <card-menu>
-      <span class="line-button orange" @click="hireCandidate(candidate)"
+      <span class="line-button background-color-orange" @click="hireCandidate(candidate)"
         ><i class="fas fa-plus"></i> Hire Candidate</span
       >
     </card-menu>
@@ -59,17 +59,5 @@ export default {
   padding: 6px;
   cursor: pointer;
   border-radius: 8px;
-}
-
-.red {
-  background-color: rgb(138, 15, 15);
-}
-
-.green {
-  background-color: rgb(15, 138, 36);
-}
-
-.orange {
-  background-color: rgb(138, 89, 15);
 }
 </style>

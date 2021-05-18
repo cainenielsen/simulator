@@ -3,7 +3,7 @@
   <div class="grid">
     <div
       class="grid-item"
-      :class="{ active: $store.getters.get_resources(100).purchased == true }"
+      :class="{ 'grid-item-active': $store.getters.get_resources(100).purchased == true }"
     >
       SuperMeeting<br /><br /><b>$200/m</b><br /><br /><button
         @click="purchaseItem(100)"
@@ -14,7 +14,7 @@
     </div>
     <div
       class="grid-item"
-      :class="{ active: $store.getters.get_resources(101).purchased == true }"
+      :class="{ 'grid-item-active': $store.getters.get_resources(101).purchased == true }"
     >
       JobLister<br /><br /><b>$200/m</b><br /><br /><button
         @click="purchaseItem(101)"
@@ -25,7 +25,7 @@
     </div>
     <div
       class="grid-item"
-      :class="{ active: $store.getters.get_resources(102).purchased == true }"
+      :class="{ 'grid-item-active': $store.getters.get_resources(102).purchased == true }"
     >
       StorageMist<br /><br /><b>$200/m</b><br /><br /><button
         @click="purchaseItem(102)"
@@ -36,7 +36,7 @@
     </div>
     <div
       class="grid-item"
-      :class="{ active: $store.getters.get_resources(103).purchased == true }"
+      :class="{ 'grid-item-active': $store.getters.get_resources(103).purchased == true }"
     >
       Email<br /><br /><b>$200/m</b><br /><br /><button
         @click="purchaseItem(103)"
@@ -47,7 +47,7 @@
     </div>
     <div
       class="grid-item"
-      :class="{ active: $store.getters.get_resources(104).purchased == true }"
+      :class="{ 'grid-item-active': $store.getters.get_resources(104).purchased == true }"
     >
       MegaChat<br /><br /><b>$200/m</b><br /><br /><button
         @click="purchaseItem(104)"
@@ -58,7 +58,7 @@
     </div>
     <div
       class="grid-item"
-      :class="{ active: $store.getters.get_resources(105).purchased == true }"
+      :class="{ 'grid-item-active': $store.getters.get_resources(105).purchased == true }"
     >
       DesignHub<br /><br /><b>$200/m</b><br /><br /><button
         @click="purchaseItem(105)"
@@ -69,7 +69,7 @@
     </div>
     <div
       class="grid-item"
-      :class="{ active: $store.getters.get_resources(106).purchased == true }"
+      :class="{ 'grid-item-active': $store.getters.get_resources(106).purchased == true }"
     >
       CodeBox<br /><br /><b>$200/m</b><br /><br /><button
         @click="purchaseItem(106)"
@@ -80,7 +80,7 @@
     </div>
     <div
       class="grid-item"
-      :class="{ active: $store.getters.get_resources(107).purchased == true }"
+      :class="{ 'grid-item-active': $store.getters.get_resources(107).purchased == true }"
     >
       HelpDex<br /><br /><b>$200/m</b><br /><br /><button
         @click="purchaseItem(107)"
@@ -91,7 +91,7 @@
     </div>
     <div
       class="grid-item"
-      :class="{ active: $store.getters.get_resources(108).purchased == true }"
+      :class="{ 'grid-item-active': $store.getters.get_resources(108).purchased == true }"
     >
       MiniHost<br /><br /><b>$200/m</b><br /><br /><button
         @click="purchaseItem(108)"
@@ -105,7 +105,7 @@
   <div class="grid">
     <div
       class="grid-item"
-      :class="{ active: $store.getters.get_resources(109).purchased == true }"
+      :class="{ 'grid-item-active': $store.getters.get_resources(109).purchased == true }"
     >
       Printer<br /><br /><b>$200/m</b><br /><br /><button
         @click="purchaseItem(109)"
@@ -116,7 +116,7 @@
     </div>
     <div
       class="grid-item"
-      :class="{ active: $store.getters.get_resources(110).purchased == true }"
+      :class="{ 'grid-item-active': $store.getters.get_resources(110).purchased == true }"
     >
       Printer3D<br /><br /><b>$200/m</b><br /><br /><button
         @click="purchaseItem(110)"
@@ -127,7 +127,7 @@
     </div>
     <div
       class="grid-item"
-      :class="{ active: $store.getters.get_resources(111).purchased == true }"
+      :class="{ 'grid-item-active': $store.getters.get_resources(111).purchased == true }"
     >
       FilmCamera<br /><br /><b>$200/m</b><br /><br /><button
         @click="purchaseItem(111)"
@@ -141,7 +141,7 @@
   <div class="grid">
     <div
       class="grid-item"
-      :class="{ active: $store.getters.get_resources(112).purchased == true }"
+      :class="{ 'grid-item-active': $store.getters.get_resources(112).purchased == true }"
     >
       SmallVan<br /><br /><b>$200/m</b><br /><br /><button
         @click="purchaseItem(112)"
@@ -152,7 +152,7 @@
     </div>
     <div
       class="grid-item"
-      :class="{ active: $store.getters.get_resources(113).purchased == true }"
+      :class="{ 'grid-item-active': $store.getters.get_resources(113).purchased == true }"
     >
       UtilityTruck<br /><br /><b>$200/m</b><br /><br /><button
         @click="purchaseItem(113)"
@@ -163,7 +163,7 @@
     </div>
     <div
       class="grid-item"
-      :class="{ active: $store.getters.get_resources(114).purchased == true }"
+      :class="{ 'grid-item-active': $store.getters.get_resources(114).purchased == true }"
     >
       SemiTruck<br /><br /><b>$200/m</b><br /><br /><button
         @click="purchaseItem(114)"
@@ -189,23 +189,5 @@ export default {
 </script>
 
 <style>
-.grid {
-  display: grid;
-  grid-template-columns: 19% 19% 19% 19% 19%;
-  grid-column-gap: 1.25%;
-  grid-row-gap: 16px;
-  padding-bottom: 5vw;
-}
-.grid-item {
-  background-color: rgb(152, 152, 255);
-  aspect-ratio: 1 / 1;
-  border-radius: 8px;
-  box-sizing: border-box;
-  padding: 16px;
-  overflow: hidden;
-  text-align: center;
-}
-.active {
-  background-color: rgb(152, 255, 161);
-}
+
 </style>

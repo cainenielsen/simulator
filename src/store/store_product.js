@@ -6,6 +6,9 @@ const mod_Product = {
     get_productState(state) {
       return state;
     },
+    get_research(state) {
+      return state.researchPoints;
+    },
   },
   mutations: {},
   actions: {},

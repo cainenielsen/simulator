@@ -1,0 +1,1668 @@
+/*  Flat color palette (full) downloaded from
+ *  http://htmlcolorcodes.color-com/.color-charts/
+ *
+ *  Check out our powerful color picker
+ *  http://htmlcolorcodes.color-com/.color-picker/
+ *
+ *  Want to learn more about colors in SCSS?
+ *  http://htmlcolorcodes.color-com/tutorials/
+ *
+ *  - - - - - - - - - - - - - - - - - - 
+ *  Credits:
+ *
+ *  Original color palette by
+ *  http://designmodo.color-github.color-io/Flat-UI/
+ *
+ *  - - - - - - - - - - - - - - - - - -
+
+ *  Note:
+ *
+ *  .color-color and .color-.color-500 are the same, simply there
+ *  for your convenience.color-
+ */
+
+:root {
+  /* Turquoise */
+  --turquoise: #1abc9c;
+  --turquoise-50: #e8f8f5;
+  --turquoise-100: #d1f2eb;
+  --turquoise-200: #a3e4d7;
+  --turquoise-300: #76d7c4;
+  --turquoise-400: #48c9b0;
+  --turquoise-500: #1abc9c;
+  --turquoise-600: #17a589;
+  --turquoise-700: #148f77;
+  --turquoise-800: #117864;
+  --turquoise-900: #0e6251;
+
+  /* Green Sea */
+  --green-sea: #16a085;
+  --green-sea-50: #e8f6f3;
+  --green-sea-100: #d0ece7;
+  --green-sea-200: #a2d9ce;
+  --green-sea-300: #73c6b6;
+  --green-sea-400: #45b39d;
+  --green-sea-500: #16a085;
+  --green-sea-600: #138d75;
+  --green-sea-700: #117a65;
+  --green-sea-800: #0e6655;
+  --green-sea-900: #0b5345;
+
+  /* Emerald */
+  --emerald: #2ecc71;
+  --emerald-50: #eafaf1;
+  --emerald-100: #d5f5e3;
+  --emerald-200: #abebc6;
+  --emerald-300: #82e0aa;
+  --emerald-400: #58d68d;
+  --emerald-500: #2ecc71;
+  --emerald-600: #28b463;
+  --emerald-700: #239b56;
+  --emerald-800: #1d8348;
+  --emerald-900: #186a3b;
+
+  /* Nephritis */
+  --nephritis: #27ae60;
+  --nephritis-50: #e9f7ef;
+  --nephritis-100: #d4efdf;
+  --nephritis-200: #a9dfbf;
+  --nephritis-300: #7dcea0;
+  --nephritis-400: #52be80;
+  --nephritis-500: #27ae60;
+  --nephritis-600: #229954;
+  --nephritis-700: #1e8449;
+  --nephritis-800: #196f3d;
+  --nephritis-900: #145a32;
+
+  /* Peter River */
+  --peter-river: #3498db;
+  --peter-river-50: #ebf5fb;
+  --peter-river-100: #d6eaf8;
+  --peter-river-200: #aed6f1;
+  --peter-river-300: #85c1e9;
+  --peter-river-400: #5dade2;
+  --peter-river-500: #3498db;
+  --peter-river-600: #2e86c1;
+  --peter-river-700: #2874a6;
+  --peter-river-800: #21618c;
+  --peter-river-900: #1b4f72;
+
+  /* Belize Hole */
+  --belize-hole: #2980b9;
+  --belize-hole-50: #eaf2f8;
+  --belize-hole-100: #d4e6f1;
+  --belize-hole-200: #a9cce3;
+  --belize-hole-300: #7fb3d5;
+  --belize-hole-400: #5499c7;
+  --belize-hole-500: #2980b9;
+  --belize-hole-600: #2471a3;
+  --belize-hole-700: #1f618d;
+  --belize-hole-800: #1a5276;
+  --belize-hole-900: #154360;
+
+  /* Amethyst */
+  --amethyst: #9b59b6;
+  --amethyst-50: #f5eef8;
+  --amethyst-100: #ebdef0;
+  --amethyst-200: #d7bde2;
+  --amethyst-300: #c39bd3;
+  --amethyst-400: #af7ac5;
+  --amethyst-500: #9b59b6;
+  --amethyst-600: #884ea0;
+  --amethyst-700: #76448a;
+  --amethyst-800: #633974;
+  --amethyst-900: #512e5f;
+
+  /* Wisteria */
+  --wisteria: #8e44ad;
+  --wisteria-50: #f4ecf7;
+  --wisteria-100: #e8daef;
+  --wisteria-200: #d2b4de;
+  --wisteria-300: #bb8fce;
+  --wisteria-400: #a569bd;
+  --wisteria-500: #8e44ad;
+  --wisteria-600: #7d3c98;
+  --wisteria-700: #6c3483;
+  --wisteria-800: #5b2c6f;
+  --wisteria-900: #4a235a;
+
+  /* Wet Asphalt */
+  --wet-asphalt: #34495e;
+  --wet-asphalt-50: #ebedef;
+  --wet-asphalt-100: #d6dbdf;
+  --wet-asphalt-200: #aeb6bf;
+  --wet-asphalt-300: #85929e;
+  --wet-asphalt-400: #5d6d7e;
+  --wet-asphalt-500: #34495e;
+  --wet-asphalt-600: #2e4053;
+  --wet-asphalt-700: #283747;
+  --wet-asphalt-800: #212f3c;
+  --wet-asphalt-900: #1b2631;
+
+  /* Midnight Blue */
+  --midnight-blue: #2c3e50;
+  --midnight-blue-50: #eaecee;
+  --midnight-blue-100: #d5d8dc;
+  --midnight-blue-200: #abb2b9;
+  --midnight-blue-300: #808b96;
+  --midnight-blue-400: #566573;
+  --midnight-blue-500: #2c3e50;
+  --midnight-blue-600: #273746;
+  --midnight-blue-700: #212f3d;
+  --midnight-blue-800: #1c2833;
+  --midnight-blue-900: #17202a;
+
+  /* Sunflower */
+  --sunflower: #f1c40f;
+  --sunflower-50: #fef9e7;
+  --sunflower-100: #fcf3cf;
+  --sunflower-200: #f9e79f;
+  --sunflower-300: #f7dc6f;
+  --sunflower-400: #f4d03f;
+  --sunflower-500: #f1c40f;
+  --sunflower-600: #d4ac0d;
+  --sunflower-700: #b7950b;
+  --sunflower-800: #9a7d0a;
+  --sunflower-900: #7d6608;
+
+  /* Orange */
+  --orange: #f39c12;
+  --orange-50: #fef5e7;
+  --orange-100: #fdebd0;
+  --orange-200: #fad7a0;
+  --orange-300: #f8c471;
+  --orange-400: #f5b041;
+  --orange-500: #f39c12;
+  --orange-600: #d68910;
+  --orange-700: #b9770e;
+  --orange-800: #9c640c;
+  --orange-900: #7e5109;
+
+  /* Carrot */
+  --carrot: #e67e22;
+  --carrot-50: #fdf2e9;
+  --carrot-100: #fae5d3;
+  --carrot-200: #f5cba7;
+  --carrot-300: #f0b27a;
+  --carrot-400: #eb984e;
+  --carrot-500: #e67e22;
+  --carrot-600: #ca6f1e;
+  --carrot-700: #af601a;
+  --carrot-800: #935116;
+  --carrot-900: #784212;
+
+  /* Pumpkin */
+  --pumpkin: #d35400;
+  --pumpkin-50: #fbeee6;
+  --pumpkin-100: #f6ddcc;
+  --pumpkin-200: #edbb99;
+  --pumpkin-300: #e59866;
+  --pumpkin-400: #dc7633;
+  --pumpkin-500: #d35400;
+  --pumpkin-600: #ba4a00;
+  --pumpkin-700: #a04000;
+  --pumpkin-800: #873600;
+  --pumpkin-900: #6e2c00;
+
+  /* Alizarin */
+  --alizarin: #e74c3c;
+  --alizarin-50: #fdedec;
+  --alizarin-100: #fadbd8;
+  --alizarin-200: #f5b7b1;
+  --alizarin-300: #f1948a;
+  --alizarin-400: #ec7063;
+  --alizarin-500: #e74c3c;
+  --alizarin-600: #cb4335;
+  --alizarin-700: #b03a2e;
+  --alizarin-800: #943126;
+  --alizarin-900: #78281f;
+
+  /* Pomegranate */
+  --pomegranate: #c0392b;
+  --pomegranate-50: #f9ebea;
+  --pomegranate-100: #f2d7d5;
+  --pomegranate-200: #e6b0aa;
+  --pomegranate-300: #d98880;
+  --pomegranate-400: #cd6155;
+  --pomegranate-500: #c0392b;
+  --pomegranate-600: #a93226;
+  --pomegranate-700: #922b21;
+  --pomegranate-800: #7b241c;
+  --pomegranate-900: #641e16;
+
+  /* Clouds */
+  --clouds: #ecf0f1;
+  --clouds-50: #fdfefe;
+  --clouds-100: #fbfcfc;
+  --clouds-200: #f7f9f9;
+  --clouds-300: #f4f6f7;
+  --clouds-400: #f0f3f4;
+  --clouds-500: #ecf0f1;
+  --clouds-600: #d0d3d4;
+  --clouds-700: #b3b6b7;
+  --clouds-800: #979a9a;
+  --clouds-900: #7b7d7d;
+
+  /* Silver */
+  --silver: #bdc3c7;
+  --silver-50: #f8f9f9;
+  --silver-100: #f2f3f4;
+  --silver-200: #e5e7e9;
+  --silver-300: #d7dbdd;
+  --silver-400: #cacfd2;
+  --silver-500: #bdc3c7;
+  --silver-600: #a6acaf;
+  --silver-700: #909497;
+  --silver-800: #797d7f;
+  --silver-900: #626567;
+
+  /* Concrete */
+  --concrete: #95a5a6;
+  --concrete-50: #f4f6f6;
+  --concrete-100: #eaeded;
+  --concrete-200: #d5dbdb;
+  --concrete-300: #bfc9ca;
+  --concrete-400: #aab7b8;
+  --concrete-500: #95a5a6;
+  --concrete-600: #839192;
+  --concrete-700: #717d7e;
+  --concrete-800: #5f6a6a;
+  --concrete-900: #4d5656;
+
+  /* Asbestos */
+  --asbestos: #7f8c8d;
+  --asbestos-50: #f2f4f4;
+  --asbestos-100: #e5e8e8;
+  --asbestos-200: #ccd1d1;
+  --asbestos-300: #b2babb;
+  --asbestos-400: #99a3a4;
+  --asbestos-500: #7f8c8d;
+  --asbestos-600: #707b7c;
+  --asbestos-700: #616a6b;
+  --asbestos-800: #515a5a;
+  --asbestos-900: #424949;
+}
+
+/* Turquoise */
+.color-turquoise {
+  color: var(--turquoise);
+}
+.color-turquoise-50 {
+  color: var(--turquoise-50);
+}
+.color-turquoise-100 {
+  color: var(--turquoise-100);
+}
+.color-turquoise-200 {
+  color: var(--turquoise-200);
+}
+.color-turquoise-300 {
+  color: var(--turquoise-300);
+}
+.color-turquoise-400 {
+  color: var(--turquoise-400);
+}
+.color-turquoise-500 {
+  color: var(--turquoise-500);
+}
+.color-turquoise-600 {
+  color: var(--turquoise-600);
+}
+.color-turquoise-700 {
+  color: var(--turquoise-700);
+}
+.color-turquoise-800 {
+  color: var(--turquoise-800);
+}
+.color-turquoise-900 {
+  color: var(--turquoise-900);
+}
+
+.background-color-turquoise {
+  background-color: var(--turquoise);
+}
+.background-color-turquoise-50 {
+  background-color: var(--turquoise-50);
+}
+.background-color-turquoise-100 {
+  background-color: var(--turquoise-100);
+}
+.background-color-turquoise-200 {
+  background-color: var(--turquoise-200);
+}
+.background-color-turquoise-300 {
+  background-color: var(--turquoise-300);
+}
+.background-color-turquoise-400 {
+  background-color: var(--turquoise-400);
+}
+.background-color-turquoise-500 {
+  background-color: var(--turquoise-500);
+}
+.background-color-turquoise-600 {
+  background-color: var(--turquoise-600);
+}
+.background-color-turquoise-700 {
+  background-color: var(--turquoise-700);
+}
+.background-color-turquoise-800 {
+  background-color: var(--turquoise-800);
+}
+.background-color-turquoise-900 {
+  background-color: var(--turquoise-900);
+}
+
+/* Green Sea */
+.color-green-sea {
+  color: var(--green-sea);
+}
+.color-green-sea-50 {
+  color: var(--green-sea-50);
+}
+.color-green-sea-100 {
+  color: var(--green-sea-100);
+}
+.color-green-sea-200 {
+  color: var(--green-sea-200);
+}
+.color-green-sea-300 {
+  color: var(--green-sea-300);
+}
+.color-green-sea-400 {
+  color: var(--green-sea-400);
+}
+.color-green-sea-500 {
+  color: var(--green-sea-500);
+}
+.color-green-sea-600 {
+  color: var(--green-sea-600);
+}
+.color-green-sea-700 {
+  color: var(--green-sea-700);
+}
+.color-green-sea-800 {
+  color: var(--green-sea-800);
+}
+.color-green-sea-900 {
+  color: var(--green-sea-900);
+}
+
+.background-color-green-sea {
+  background-color: var(--green-sea);
+}
+.background-color-green-sea-50 {
+  background-color: var(--green-sea-50);
+}
+.background-color-green-sea-100 {
+  background-color: var(--green-sea-100);
+}
+.background-color-green-sea-200 {
+  background-color: var(--green-sea-200);
+}
+.background-color-green-sea-300 {
+  background-color: var(--green-sea-300);
+}
+.background-color-green-sea-400 {
+  background-color: var(--green-sea-400);
+}
+.background-color-green-sea-500 {
+  background-color: var(--green-sea-500);
+}
+.background-color-green-sea-600 {
+  background-color: var(--green-sea-600);
+}
+.background-color-green-sea-700 {
+  background-color: var(--green-sea-700);
+}
+.background-color-green-sea-800 {
+  background-color: var(--green-sea-800);
+}
+.background-color-green-sea-900 {
+  background-color: var(--green-sea-900);
+}
+
+/* Emerald */
+.color-emerald {
+  color: var(--emerald);
+}
+.color-emerald-50 {
+  color: var(--emerald-50);
+}
+.color-emerald-100 {
+  color: var(--emerald-100);
+}
+.color-emerald-200 {
+  color: var(--emerald-200);
+}
+.color-emerald-300 {
+  color: var(--emerald-300);
+}
+.color-emerald-400 {
+  color: var(--emerald-400);
+}
+.color-emerald-500 {
+  color: var(--emerald-500);
+}
+.color-emerald-600 {
+  color: var(--emerald-600);
+}
+.color-emerald-700 {
+  color: var(--emerald-700);
+}
+.color-emerald-800 {
+  color: var(--emerald-800);
+}
+.color-emerald-900 {
+  color: var(--emerald-900);
+}
+
+.background-color-emerald {
+  background-color: var(--emerald);
+}
+.background-color-emerald-50 {
+  background-color: var(--emerald-50);
+}
+.background-color-emerald-100 {
+  background-color: var(--emerald-100);
+}
+.background-color-emerald-200 {
+  background-color: var(--emerald-200);
+}
+.background-color-emerald-300 {
+  background-color: var(--emerald-300);
+}
+.background-color-emerald-400 {
+  background-color: var(--emerald-400);
+}
+.background-color-emerald-500 {
+  background-color: var(--emerald-500);
+}
+.background-color-emerald-600 {
+  background-color: var(--emerald-600);
+}
+.background-color-emerald-700 {
+  background-color: var(--emerald-700);
+}
+.background-color-emerald-800 {
+  background-color: var(--emerald-800);
+}
+.background-color-emerald-900 {
+  background-color: var(--emerald-900);
+}
+
+/* Nephritis */
+.color-nephritis {
+  color: var(--nephritis);
+}
+.color-nephritis-50 {
+  color: var(--nephritis-50);
+}
+.color-nephritis-100 {
+  color: var(--nephritis-100);
+}
+.color-nephritis-200 {
+  color: var(--nephritis-200);
+}
+.color-nephritis-300 {
+  color: var(--nephritis-300);
+}
+.color-nephritis-400 {
+  color: var(--nephritis-400);
+}
+.color-nephritis-500 {
+  color: var(--nephritis-500);
+}
+.color-nephritis-600 {
+  color: var(--nephritis-600);
+}
+.color-nephritis-700 {
+  color: var(--nephritis-700);
+}
+.color-nephritis-800 {
+  color: var(--nephritis-800);
+}
+.color-nephritis-900 {
+  color: var(--nephritis-900);
+}
+
+.background-color-nephritis {
+  background-color: var(--nephritis);
+}
+.background-color-nephritis-50 {
+  background-color: var(--nephritis-50);
+}
+.background-color-nephritis-100 {
+  background-color: var(--nephritis-100);
+}
+.background-color-nephritis-200 {
+  background-color: var(--nephritis-200);
+}
+.background-color-nephritis-300 {
+  background-color: var(--nephritis-300);
+}
+.background-color-nephritis-400 {
+  background-color: var(--nephritis-400);
+}
+.background-color-nephritis-500 {
+  background-color: var(--nephritis-500);
+}
+.background-color-nephritis-600 {
+  background-color: var(--nephritis-600);
+}
+.background-color-nephritis-700 {
+  background-color: var(--nephritis-700);
+}
+.background-color-nephritis-800 {
+  background-color: var(--nephritis-800);
+}
+.background-color-nephritis-900 {
+  background-color: var(--nephritis-900);
+}
+
+/* Peter River */
+.color-peter-river {
+  color: var(--peter-river);
+}
+.color-peter-river-50 {
+  color: var(--peter-river-50);
+}
+.color-peter-river-100 {
+  color: var(--peter-river-100);
+}
+.color-peter-river-200 {
+  color: var(--peter-river-200);
+}
+.color-peter-river-300 {
+  color: var(--peter-river-300);
+}
+.color-peter-river-400 {
+  color: var(--peter-river-400);
+}
+.color-peter-river-500 {
+  color: var(--peter-river-500);
+}
+.color-peter-river-600 {
+  color: var(--peter-river-600);
+}
+.color-peter-river-700 {
+  color: var(--peter-river-700);
+}
+.color-peter-river-800 {
+  color: var(--peter-river-800);
+}
+.color-peter-river-900 {
+  color: var(--peter-river-900);
+}
+
+.background-color-peter-river {
+  background-color: var(--peter-river);
+}
+.background-color-peter-river-50 {
+  background-color: var(--peter-river-50);
+}
+.background-color-peter-river-100 {
+  background-color: var(--peter-river-100);
+}
+.background-color-peter-river-200 {
+  background-color: var(--peter-river-200);
+}
+.background-color-peter-river-300 {
+  background-color: var(--peter-river-300);
+}
+.background-color-peter-river-400 {
+  background-color: var(--peter-river-400);
+}
+.background-color-peter-river-500 {
+  background-color: var(--peter-river-500);
+}
+.background-color-peter-river-600 {
+  background-color: var(--peter-river-600);
+}
+.background-color-peter-river-700 {
+  background-color: var(--peter-river-700);
+}
+.background-color-peter-river-800 {
+  background-color: var(--peter-river-800);
+}
+.background-color-peter-river-900 {
+  background-color: var(--peter-river-900);
+}
+
+/* Belize Hole */
+.color-belize-hole {
+  color: var(--belize-hole);
+}
+.color-belize-hole-50 {
+  color: var(--belize-hole-50);
+}
+.color-belize-hole-100 {
+  color: var(--belize-hole-100);
+}
+.color-belize-hole-200 {
+  color: var(--belize-hole-200);
+}
+.color-belize-hole-300 {
+  color: var(--belize-hole-300);
+}
+.color-belize-hole-400 {
+  color: var(--belize-hole-400);
+}
+.color-belize-hole-500 {
+  color: var(--belize-hole-500);
+}
+.color-belize-hole-600 {
+  color: var(--belize-hole-600);
+}
+.color-belize-hole-700 {
+  color: var(--belize-hole-700);
+}
+.color-belize-hole-800 {
+  color: var(--belize-hole-800);
+}
+.color-belize-hole-900 {
+  color: var(--belize-hole-900);
+}
+
+.background-color-belize-hole {
+  background-color: var(--belize-hole);
+}
+.background-color-belize-hole-50 {
+  background-color: var(--belize-hole-50);
+}
+.background-color-belize-hole-100 {
+  background-color: var(--belize-hole-100);
+}
+.background-color-belize-hole-200 {
+  background-color: var(--belize-hole-200);
+}
+.background-color-belize-hole-300 {
+  background-color: var(--belize-hole-300);
+}
+.background-color-belize-hole-400 {
+  background-color: var(--belize-hole-400);
+}
+.background-color-belize-hole-500 {
+  background-color: var(--belize-hole-500);
+}
+.background-color-belize-hole-600 {
+  background-color: var(--belize-hole-600);
+}
+.background-color-belize-hole-700 {
+  background-color: var(--belize-hole-700);
+}
+.background-color-belize-hole-800 {
+  background-color: var(--belize-hole-800);
+}
+.background-color-belize-hole-900 {
+  background-color: var(--belize-hole-900);
+}
+
+/* Amethyst */
+.color-amethyst {
+  color: var(--amethyst);
+}
+.color-amethyst-50 {
+  color: var(--amethyst-50);
+}
+.color-amethyst-100 {
+  color: var(--amethyst-100);
+}
+.color-amethyst-200 {
+  color: var(--amethyst-200);
+}
+.color-amethyst-300 {
+  color: var(--amethyst-300);
+}
+.color-amethyst-400 {
+  color: var(--amethyst-400);
+}
+.color-amethyst-500 {
+  color: var(--amethyst-500);
+}
+.color-amethyst-600 {
+  color: var(--amethyst-600);
+}
+.color-amethyst-700 {
+  color: var(--amethyst-700);
+}
+.color-amethyst-800 {
+  color: var(--amethyst-800);
+}
+.color-amethyst-900 {
+  color: var(--amethyst-900);
+}
+
+.background-color-amethyst {
+  background-color: var(--amethyst);
+}
+.background-color-amethyst-50 {
+  background-color: var(--amethyst-50);
+}
+.background-color-amethyst-100 {
+  background-color: var(--amethyst-100);
+}
+.background-color-amethyst-200 {
+  background-color: var(--amethyst-200);
+}
+.background-color-amethyst-300 {
+  background-color: var(--amethyst-300);
+}
+.background-color-amethyst-400 {
+  background-color: var(--amethyst-400);
+}
+.background-color-amethyst-500 {
+  background-color: var(--amethyst-500);
+}
+.background-color-amethyst-600 {
+  background-color: var(--amethyst-600);
+}
+.background-color-amethyst-700 {
+  background-color: var(--amethyst-700);
+}
+.background-color-amethyst-800 {
+  background-color: var(--amethyst-800);
+}
+.background-color-amethyst-900 {
+  background-color: var(--amethyst-900);
+}
+
+/* Wisteria */
+.color-wisteria {
+  color: var(--wisteria);
+}
+.color-wisteria-50 {
+  color: var(--wisteria-50);
+}
+.color-wisteria-100 {
+  color: var(--wisteria-100);
+}
+.color-wisteria-200 {
+  color: var(--wisteria-200);
+}
+.color-wisteria-300 {
+  color: var(--wisteria-300);
+}
+.color-wisteria-400 {
+  color: var(--wisteria-400);
+}
+.color-wisteria-500 {
+  color: var(--wisteria-500);
+}
+.color-wisteria-600 {
+  color: var(--wisteria-600);
+}
+.color-wisteria-700 {
+  color: var(--wisteria-700);
+}
+.color-wisteria-800 {
+  color: var(--wisteria-800);
+}
+.color-wisteria-900 {
+  color: var(--wisteria-900);
+}
+
+.background-color-wisteria {
+  background-color: var(--wisteria);
+}
+.background-color-wisteria-50 {
+  background-color: var(--wisteria-50);
+}
+.background-color-wisteria-100 {
+  background-color: var(--wisteria-100);
+}
+.background-color-wisteria-200 {
+  background-color: var(--wisteria-200);
+}
+.background-color-wisteria-300 {
+  background-color: var(--wisteria-300);
+}
+.background-color-wisteria-400 {
+  background-color: var(--wisteria-400);
+}
+.background-color-wisteria-500 {
+  background-color: var(--wisteria-500);
+}
+.background-color-wisteria-600 {
+  background-color: var(--wisteria-600);
+}
+.background-color-wisteria-700 {
+  background-color: var(--wisteria-700);
+}
+.background-color-wisteria-800 {
+  background-color: var(--wisteria-800);
+}
+.background-color-wisteria-900 {
+  background-color: var(--wisteria-900);
+}
+
+/* Wet Asphalt */
+.color-wet-asphalt {
+  color: var(--wet-asphalt);
+}
+.color-wet-asphalt-50 {
+  color: var(--wet-asphalt-50);
+}
+.color-wet-asphalt-100 {
+  color: var(--wet-asphalt-100);
+}
+.color-wet-asphalt-200 {
+  color: var(--wet-asphalt-200);
+}
+.color-wet-asphalt-300 {
+  color: var(--wet-asphalt-300);
+}
+.color-wet-asphalt-400 {
+  color: var(--wet-asphalt-400);
+}
+.color-wet-asphalt-500 {
+  color: var(--wet-asphalt-500);
+}
+.color-wet-asphalt-600 {
+  color: var(--wet-asphalt-600);
+}
+.color-wet-asphalt-700 {
+  color: var(--wet-asphalt-700);
+}
+.color-wet-asphalt-800 {
+  color: var(--wet-asphalt-800);
+}
+.color-wet-asphalt-900 {
+  color: var(--wet-asphalt-900);
+}
+
+.background-color-wet-asphalt {
+  background-color: var(--wet-asphalt);
+}
+.background-color-wet-asphalt-50 {
+  background-color: var(--wet-asphalt-50);
+}
+.background-color-wet-asphalt-100 {
+  background-color: var(--wet-asphalt-100);
+}
+.background-color-wet-asphalt-200 {
+  background-color: var(--wet-asphalt-200);
+}
+.background-color-wet-asphalt-300 {
+  background-color: var(--wet-asphalt-300);
+}
+.background-color-wet-asphalt-400 {
+  background-color: var(--wet-asphalt-400);
+}
+.background-color-wet-asphalt-500 {
+  background-color: var(--wet-asphalt-500);
+}
+.background-color-wet-asphalt-600 {
+  background-color: var(--wet-asphalt-600);
+}
+.background-color-wet-asphalt-700 {
+  background-color: var(--wet-asphalt-700);
+}
+.background-color-wet-asphalt-800 {
+  background-color: var(--wet-asphalt-800);
+}
+.background-color-wet-asphalt-900 {
+  background-color: var(--wet-asphalt-900);
+}
+
+/* Midnight Blue */
+.color-midnight-blue {
+  color: var(--midnight-blue);
+}
+.color-midnight-blue-50 {
+  color: var(--midnight-blue-50);
+}
+.color-midnight-blue-100 {
+  color: var(--midnight-blue-100);
+}
+.color-midnight-blue-200 {
+  color: var(--midnight-blue-200);
+}
+.color-midnight-blue-300 {
+  color: var(--midnight-blue-300);
+}
+.color-midnight-blue-400 {
+  color: var(--midnight-blue-400);
+}
+.color-midnight-blue-500 {
+  color: var(--midnight-blue-500);
+}
+.color-midnight-blue-600 {
+  color: var(--midnight-blue-600);
+}
+.color-midnight-blue-700 {
+  color: var(--midnight-blue-700);
+}
+.color-midnight-blue-800 {
+  color: var(--midnight-blue-800);
+}
+.color-midnight-blue-900 {
+  color: var(--midnight-blue-900);
+}
+
+.background-color-midnight-blue {
+  background-color: var(--midnight-blue);
+}
+.background-color-midnight-blue-50 {
+  background-color: var(--midnight-blue-50);
+}
+.background-color-midnight-blue-100 {
+  background-color: var(--midnight-blue-100);
+}
+.background-color-midnight-blue-200 {
+  background-color: var(--midnight-blue-200);
+}
+.background-color-midnight-blue-300 {
+  background-color: var(--midnight-blue-300);
+}
+.background-color-midnight-blue-400 {
+  background-color: var(--midnight-blue-400);
+}
+.background-color-midnight-blue-500 {
+  background-color: var(--midnight-blue-500);
+}
+.background-color-midnight-blue-600 {
+  background-color: var(--midnight-blue-600);
+}
+.background-color-midnight-blue-700 {
+  background-color: var(--midnight-blue-700);
+}
+.background-color-midnight-blue-800 {
+  background-color: var(--midnight-blue-800);
+}
+.background-color-midnight-blue-900 {
+  background-color: var(--midnight-blue-900);
+}
+
+/* Sunflower */
+.color-sunflower {
+  color: var(--sunflower);
+}
+.color-sunflower-50 {
+  color: var(--sunflower-50);
+}
+.color-sunflower-100 {
+  color: var(--sunflower-100);
+}
+.color-sunflower-200 {
+  color: var(--sunflower-200);
+}
+.color-sunflower-300 {
+  color: var(--sunflower-300);
+}
+.color-sunflower-400 {
+  color: var(--sunflower-400);
+}
+.color-sunflower-500 {
+  color: var(--sunflower-500);
+}
+.color-sunflower-600 {
+  color: var(--sunflower-600);
+}
+.color-sunflower-700 {
+  color: var(--sunflower-700);
+}
+.color-sunflower-800 {
+  color: var(--sunflower-800);
+}
+.color-sunflower-900 {
+  color: var(--sunflower-900);
+}
+
+.background-color-sunflower {
+  background-color: var(--sunflower);
+}
+.background-color-sunflower-50 {
+  background-color: var(--sunflower-50);
+}
+.background-color-sunflower-100 {
+  background-color: var(--sunflower-100);
+}
+.background-color-sunflower-200 {
+  background-color: var(--sunflower-200);
+}
+.background-color-sunflower-300 {
+  background-color: var(--sunflower-300);
+}
+.background-color-sunflower-400 {
+  background-color: var(--sunflower-400);
+}
+.background-color-sunflower-500 {
+  background-color: var(--sunflower-500);
+}
+.background-color-sunflower-600 {
+  background-color: var(--sunflower-600);
+}
+.background-color-sunflower-700 {
+  background-color: var(--sunflower-700);
+}
+.background-color-sunflower-800 {
+  background-color: var(--sunflower-800);
+}
+.background-color-sunflower-900 {
+  background-color: var(--sunflower-900);
+}
+
+/* Orange */
+.color-orange {
+  color: var(--orange);
+}
+.color-orange-50 {
+  color: var(--orange-50);
+}
+.color-orange-100 {
+  color: var(--orange-100);
+}
+.color-orange-200 {
+  color: var(--orange-200);
+}
+.color-orange-300 {
+  color: var(--orange-300);
+}
+.color-orange-400 {
+  color: var(--orange-400);
+}
+.color-orange-500 {
+  color: var(--orange-500);
+}
+.color-orange-600 {
+  color: var(--orange-600);
+}
+.color-orange-700 {
+  color: var(--orange-700);
+}
+.color-orange-800 {
+  color: var(--orange-800);
+}
+.color-orange-900 {
+  color: var(--orange-900);
+}
+
+.background-color-orange {
+  background-color: var(--orange);
+}
+.background-color-orange-50 {
+  background-color: var(--orange-50);
+}
+.background-color-orange-100 {
+  background-color: var(--orange-100);
+}
+.background-color-orange-200 {
+  background-color: var(--orange-200);
+}
+.background-color-orange-300 {
+  background-color: var(--orange-300);
+}
+.background-color-orange-400 {
+  background-color: var(--orange-400);
+}
+.background-color-orange-500 {
+  background-color: var(--orange-500);
+}
+.background-color-orange-600 {
+  background-color: var(--orange-600);
+}
+.background-color-orange-700 {
+  background-color: var(--orange-700);
+}
+.background-color-orange-800 {
+  background-color: var(--orange-800);
+}
+.background-color-orange-900 {
+  background-color: var(--orange-900);
+}
+
+/* Carrot */
+.color-carrot {
+  color: var(--carrot);
+}
+.color-carrot-50 {
+  color: var(--carrot-50);
+}
+.color-carrot-100 {
+  color: var(--carrot-100);
+}
+.color-carrot-200 {
+  color: var(--carrot-200);
+}
+.color-carrot-300 {
+  color: var(--carrot-300);
+}
+.color-carrot-400 {
+  color: var(--carrot-400);
+}
+.color-carrot-500 {
+  color: var(--carrot-500);
+}
+.color-carrot-600 {
+  color: var(--carrot-600);
+}
+.color-carrot-700 {
+  color: var(--carrot-700);
+}
+.color-carrot-800 {
+  color: var(--carrot-800);
+}
+.color-carrot-900 {
+  color: var(--carrot-900);
+}
+
+.background-color-carrot {
+  background-color: var(--carrot);
+}
+.background-color-carrot-50 {
+  background-color: var(--carrot-50);
+}
+.background-color-carrot-100 {
+  background-color: var(--carrot-100);
+}
+.background-color-carrot-200 {
+  background-color: var(--carrot-200);
+}
+.background-color-carrot-300 {
+  background-color: var(--carrot-300);
+}
+.background-color-carrot-400 {
+  background-color: var(--carrot-400);
+}
+.background-color-carrot-500 {
+  background-color: var(--carrot-500);
+}
+.background-color-carrot-600 {
+  background-color: var(--carrot-600);
+}
+.background-color-carrot-700 {
+  background-color: var(--carrot-700);
+}
+.background-color-carrot-800 {
+  background-color: var(--carrot-800);
+}
+.background-color-carrot-900 {
+  background-color: var(--carrot-900);
+}
+
+/* Pumpkin */
+.color-pumpkin {
+  color: var(--pumpkin);
+}
+.color-pumpkin-50 {
+  color: var(--pumpkin-50);
+}
+.color-pumpkin-100 {
+  color: var(--pumpkin-100);
+}
+.color-pumpkin-200 {
+  color: var(--pumpkin-200);
+}
+.color-pumpkin-300 {
+  color: var(--pumpkin-300);
+}
+.color-pumpkin-400 {
+  color: var(--pumpkin-700);
+}
+.color-pumpkin-500 {
+  color: var(--pumpkin-800);
+}
+.color-pumpkin-600 {
+  color: var(--pumpkin-900);
+}
+.color-pumpkin-700 {
+  color: var(--pumpkin-700);
+}
+.color-pumpkin-800 {
+  color: var(--pumpkin-800);
+}
+.color-pumpkin-900 {
+  color: var(--pumpkin-900);
+}
+
+.background-color-pumpkin {
+  background-color: var(--pumpkin);
+}
+.background-color-pumpkin-50 {
+  background-color: var(--pumpkin-50);
+}
+.background-color-pumpkin-100 {
+  background-color: var(--pumpkin-100);
+}
+.background-color-pumpkin-200 {
+  background-color: var(--pumpkin-200);
+}
+.background-color-pumpkin-300 {
+  background-color: var(--pumpkin-300);
+}
+.background-color-pumpkin-400 {
+  background-color: var(--pumpkin-700);
+}
+.background-color-pumpkin-500 {
+  background-color: var(--pumpkin-800);
+}
+.background-color-pumpkin-600 {
+  background-color: var(--pumpkin-900);
+}
+.background-color-pumpkin-700 {
+  background-color: var(--pumpkin-700);
+}
+.background-color-pumpkin-800 {
+  background-color: var(--pumpkin-800);
+}
+.background-color-pumpkin-900 {
+  background-color: var(--pumpkin-900);
+}
+
+/* Alizarin */
+.color-alizarin {
+  color: var(--alizarin);
+}
+.color-alizarin-50 {
+  color: var(--alizarin-50);
+}
+.color-alizarin-100 {
+  color: var(--alizarin-100);
+}
+.color-alizarin-200 {
+  color: var(--alizarin-200);
+}
+.color-alizarin-300 {
+  color: var(--alizarin-300);
+}
+.color-alizarin-400 {
+  color: var(--alizarin-400);
+}
+.color-alizarin-500 {
+  color: var(--alizarin-500);
+}
+.color-alizarin-600 {
+  color: var(--alizarin-600);
+}
+.color-alizarin-700 {
+  color: var(--alizarin-700);
+}
+.color-alizarin-800 {
+  color: var(--alizarin-800);
+}
+.color-alizarin-900 {
+  color: var(--alizarin-900);
+}
+
+.background-color-alizarin {
+  background-color: var(--alizarin);
+}
+.background-color-alizarin-50 {
+  background-color: var(--alizarin-50);
+}
+.background-color-alizarin-100 {
+  background-color: var(--alizarin-100);
+}
+.background-color-alizarin-200 {
+  background-color: var(--alizarin-200);
+}
+.background-color-alizarin-300 {
+  background-color: var(--alizarin-300);
+}
+.background-color-alizarin-400 {
+  background-color: var(--alizarin-400);
+}
+.background-color-alizarin-500 {
+  background-color: var(--alizarin-500);
+}
+.background-color-alizarin-600 {
+  background-color: var(--alizarin-600);
+}
+.background-color-alizarin-700 {
+  background-color: var(--alizarin-700);
+}
+.background-color-alizarin-800 {
+  background-color: var(--alizarin-800);
+}
+.background-color-alizarin-900 {
+  background-color: var(--alizarin-900);
+}
+
+/* Pomegranate */
+.color-pomegranate {
+  color: var(--pomegranate);
+}
+.color-pomegranate-50 {
+  color: var(--pomegranate-50);
+}
+.color-pomegranate-100 {
+  color: var(--pomegranate-100);
+}
+.color-pomegranate-200 {
+  color: var(--pomegranate-200);
+}
+.color-pomegranate-300 {
+  color: var(--pomegranate-300);
+}
+.color-pomegranate-400 {
+  color: var(--pomegranate-700);
+}
+.color-pomegranate-500 {
+  color: var(--pomegranate-800);
+}
+.color-pomegranate-600 {
+  color: var(--pomegranate-900);
+}
+.color-pomegranate-700 {
+  color: var(--pomegranate-700);
+}
+.color-pomegranate-800 {
+  color: var(--pomegranate-800);
+}
+.color-pomegranate-900 {
+  color: var(--pomegranate-900);
+}
+
+.background-color-pomegranate {
+  background-color: var(--pomegranate);
+}
+.background-color-pomegranate-50 {
+  background-color: var(--pomegranate-50);
+}
+.background-color-pomegranate-100 {
+  background-color: var(--pomegranate-100);
+}
+.background-color-pomegranate-200 {
+  background-color: var(--pomegranate-200);
+}
+.background-color-pomegranate-300 {
+  background-color: var(--pomegranate-300);
+}
+.background-color-pomegranate-400 {
+  background-color: var(--pomegranate-700);
+}
+.background-color-pomegranate-500 {
+  background-color: var(--pomegranate-800);
+}
+.background-color-pomegranate-600 {
+  background-color: var(--pomegranate-900);
+}
+.background-color-pomegranate-700 {
+  background-color: var(--pomegranate-700);
+}
+.background-color-pomegranate-800 {
+  background-color: var(--pomegranate-800);
+}
+.background-color-pomegranate-900 {
+  background-color: var(--pomegranate-900);
+}
+
+/* Clouds */
+.color-clouds {
+  color: var(--clouds);
+}
+.color-clouds-50 {
+  color: var(--clouds-50);
+}
+.color-clouds-100 {
+  color: var(--clouds-100);
+}
+.color-clouds-200 {
+  color: var(--clouds-200);
+}
+.color-clouds-300 {
+  color: var(--clouds-300);
+}
+.color-clouds-400 {
+  color: var(--clouds-400);
+}
+.color-clouds-500 {
+  color: var(--clouds-500);
+}
+.color-clouds-600 {
+  color: var(--clouds-600);
+}
+.color-clouds-700 {
+  color: var(--clouds-700);
+}
+.color-clouds-800 {
+  color: var(--clouds-800);
+}
+.color-clouds-900 {
+  color: var(--clouds-900);
+}
+
+.background-color-clouds {
+  background-color: var(--clouds);
+}
+.background-color-clouds-50 {
+  background-color: var(--clouds-50);
+}
+.background-color-clouds-100 {
+  background-color: var(--clouds-100);
+}
+.background-color-clouds-200 {
+  background-color: var(--clouds-200);
+}
+.background-color-clouds-300 {
+  background-color: var(--clouds-300);
+}
+.background-color-clouds-400 {
+  background-color: var(--clouds-400);
+}
+.background-color-clouds-500 {
+  background-color: var(--clouds-500);
+}
+.background-color-clouds-600 {
+  background-color: var(--clouds-600);
+}
+.background-color-clouds-700 {
+  background-color: var(--clouds-700);
+}
+.background-color-clouds-800 {
+  background-color: var(--clouds-800);
+}
+.background-color-clouds-900 {
+  background-color: var(--clouds-900);
+}
+
+/* Silver */
+.color-silver {
+  color: var(--silver);
+}
+.color-silver-50 {
+  color: var(--silver-50);
+}
+.color-silver-100 {
+  color: var(--silver-100);
+}
+.color-silver-200 {
+  color: var(--silver-200);
+}
+.color-silver-300 {
+  color: var(--silver-300);
+}
+.color-silver-400 {
+  color: var(--silver-400);
+}
+.color-silver-500 {
+  color: var(--silver-500);
+}
+.color-silver-600 {
+  color: var(--silver-600);
+}
+.color-silver-700 {
+  color: var(--silver-700);
+}
+.color-silver-800 {
+  color: var(--silver-800);
+}
+.color-silver-900 {
+  color: var(--silver-900);
+}
+
+.background-color-silver {
+  background-color: var(--silver);
+}
+.background-color-silver-50 {
+  background-color: var(--silver-50);
+}
+.background-color-silver-100 {
+  background-color: var(--silver-100);
+}
+.background-color-silver-200 {
+  background-color: var(--silver-200);
+}
+.background-color-silver-300 {
+  background-color: var(--silver-300);
+}
+.background-color-silver-400 {
+  background-color: var(--silver-400);
+}
+.background-color-silver-500 {
+  background-color: var(--silver-500);
+}
+.background-color-silver-600 {
+  background-color: var(--silver-600);
+}
+.background-color-silver-700 {
+  background-color: var(--silver-700);
+}
+.background-color-silver-800 {
+  background-color: var(--silver-800);
+}
+.background-color-silver-900 {
+  background-color: var(--silver-900);
+}
+
+/* Concrete */
+.color-concrete {
+  color: var(--concrete);
+}
+.color-concrete-50 {
+  color: var(--concrete-50);
+}
+.color-concrete-100 {
+  color: var(--concrete-100);
+}
+.color-concrete-200 {
+  color: var(--concrete-200);
+}
+.color-concrete-300 {
+  color: var(--concrete-300);
+}
+.color-concrete-400 {
+  color: var(--concrete-400);
+}
+.color-concrete-500 {
+  color: var(--concrete-500);
+}
+.color-concrete-600 {
+  color: var(--concrete-600);
+}
+.color-concrete-700 {
+  color: var(--concrete-700);
+}
+.color-concrete-800 {
+  color: var(--concrete-800);
+}
+.color-concrete-900 {
+  color: var(--concrete-900);
+}
+
+.background-color-concrete {
+  background-color: var(--concrete);
+}
+.background-color-concrete-50 {
+  background-color: var(--concrete-50);
+}
+.background-color-concrete-100 {
+  background-color: var(--concrete-100);
+}
+.background-color-concrete-200 {
+  background-color: var(--concrete-200);
+}
+.background-color-concrete-300 {
+  background-color: var(--concrete-300);
+}
+.background-color-concrete-400 {
+  background-color: var(--concrete-400);
+}
+.background-color-concrete-500 {
+  background-color: var(--concrete-500);
+}
+.background-color-concrete-600 {
+  background-color: var(--concrete-600);
+}
+.background-color-concrete-700 {
+  background-color: var(--concrete-700);
+}
+.background-color-concrete-800 {
+  background-color: var(--concrete-800);
+}
+.background-color-concrete-900 {
+  background-color: var(--concrete-900);
+}
+
+/* Asbestos */
+.color-asbestos {
+  color: var(--asbestos);
+}
+.color-asbestos-50 {
+  color: var(--asbestos-50);
+}
+.color-asbestos-100 {
+  color: var(--asbestos-100);
+}
+.color-asbestos-200 {
+  color: var(--asbestos-200);
+}
+.color-asbestos-300 {
+  color: var(--asbestos-300);
+}
+.color-asbestos-400 {
+  color: var(--asbestos-400);
+}
+.color-asbestos-500 {
+  color: var(--asbestos-500);
+}
+.color-asbestos-600 {
+  color: var(--asbestos-600);
+}
+.color-asbestos-700 {
+  color: var(--asbestos-700);
+}
+.color-asbestos-800 {
+  color: var(--asbestos-800);
+}
+.color-asbestos-900 {
+  color: var(--asbestos-900);
+}
+
+.background-color-asbestos {
+  background-color: var(--asbestos);
+}
+.background-color-asbestos-50 {
+  background-color: var(--asbestos-50);
+}
+.background-color-asbestos-100 {
+  background-color: var(--asbestos-100);
+}
+.background-color-asbestos-200 {
+  background-color: var(--asbestos-200);
+}
+.background-color-asbestos-300 {
+  background-color: var(--asbestos-300);
+}
+.background-color-asbestos-400 {
+  background-color: var(--asbestos-400);
+}
+.background-color-asbestos-500 {
+  background-color: var(--asbestos-500);
+}
+.background-color-asbestos-600 {
+  background-color: var(--asbestos-600);
+}
+.background-color-asbestos-700 {
+  background-color: var(--asbestos-700);
+}
+.background-color-asbestos-800 {
+  background-color: var(--asbestos-800);
+}
+.background-color-asbestos-900 {
+  background-color: var(--asbestos-900);
+}
+
+/*  Want more? Check our our other color palettes at
+ *  http://htmlcolorcodes.color-com/.color-charts/
+ */

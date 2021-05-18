@@ -16,13 +16,13 @@
     <card-menu>
       <span
         v-if="position.holder !== null"
-        class="line-button red"
+        class="line-button background-color-pomegranate"
         @click="removeTeamMember(position.id, position.holder)"
         ><i class="fas fa-times"></i> Remove Team Member</span
       >
       <span
         v-if="addingTeamMember == false && position.holder === null"
-        class="line-button green"
+        class="line-button background-color-emerald"
         @click="addTeamMember(position.id, position.type)"
         ><i class="fas fa-plus"></i> Add Team Member</span
       >
@@ -38,7 +38,7 @@
       </select>
       <span
         v-if="addingTeamMember"
-        class="line-button orange"
+        class="line-button background-color-orange"
         @click="selectTeamMember(position.id, position.type)"
         ><i class="fas fa-plus"></i> Select Team Member</span
       >
@@ -51,14 +51,14 @@
         <span
         v-if="position.listed === false"
           @click="toggleListing(position.id)"
-          class="line-button green"
+          class="line-button background-color-emerald"
           style="float: right"
           ><i class="fas fa-plus"></i> List this Job</span
         >
         <span
           v-else
           @click="toggleListing(position.id)"
-          class="line-button green"
+          class="line-button background-color-emerald"
           style="float: right"
           ><i class="fas fa-minus"></i> Remove Listing</span
         >
@@ -123,17 +123,5 @@ export default {
   padding: 6px;
   cursor: pointer;
   border-radius: 8px;
-}
-
-.red {
-  background-color: rgb(138, 15, 15);
-}
-
-.green {
-  background-color: rgb(15, 138, 36);
-}
-
-.orange {
-  background-color: rgb(138, 89, 15);
 }
 </style>
