@@ -10,11 +10,8 @@
       </li>
     </ul>
     <h2>Compensation</h2>
-    <span v-if="position.compensation.compensationType == 'hourly'"
-      >{{ formatCurrency(position.compensation.hourlyCompensation) }}/hr</span
-    >
-    <span v-else
-      >{{ formatCurrency(position.compensation.salaryCompensation) }}/yr</span
+    <span 
+      >{{ formatCurrency(position.compensation) }}</span
     >
     <card-menu>
       <span
@@ -45,6 +42,27 @@
         @click="selectTeamMember(position.id, position.type)"
         ><i class="fas fa-plus"></i> Select Team Member</span
       >
+      <span
+        v-if="
+          $store.getters.get_resources(101).purchased == true &&
+          position.holder === null
+        "
+      >
+        <span
+        v-if="position.listed === false"
+          @click="toggleListing(position.id)"
+          class="line-button green"
+          style="float: right"
+          ><i class="fas fa-plus"></i> List this Job</span
+        >
+        <span
+          v-else
+          @click="toggleListing(position.id)"
+          class="line-button green"
+          style="float: right"
+          ><i class="fas fa-minus"></i> Remove Listing</span
+        >
+      </span>
     </card-menu>
   </div>
 </template>
@@ -85,6 +103,9 @@ export default {
     removeTeamMember(positionId, memberId) {
       this.$store.dispatch("removePositionHolder", positionId);
       this.$store.dispatch("removeMemberRole", memberId);
+    },
+    toggleListing(position) {
+      this.$store.dispatch("togglePositionListing", position);
     },
   },
 };

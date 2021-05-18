@@ -47,6 +47,7 @@ class Position {
     this.startDate = startDate;
     this.status = status;
     this.holder = holder;
+    this.listed = false;
   }
   getFirstName() {
     return this.firstName[0].toUpperCase() + this.firstName.substring(1);
@@ -60,7 +61,16 @@ class Position {
 }
 
 class Candidate {
-  constructor(id, gender, age, firstName, lastName, compensation, skills) {
+  constructor(
+    id,
+    gender,
+    age,
+    firstName,
+    lastName,
+    compensation,
+    skills,
+    listing
+  ) {
     this.id = id;
     this.gender = gender;
     this.age = age;
@@ -68,6 +78,7 @@ class Candidate {
     this.lastName = lastName;
     this.compensation = compensation;
     this.skills = skills;
+    this.listing = listing;
   }
   getFirstName() {
     return this.firstName[0].toUpperCase() + this.firstName.substring(1);
@@ -90,11 +101,7 @@ const mod_People = {
         "Caine",
         "Nielsen",
         "CEO",
-        {
-          compensationType: "salary",
-          hourlyCompensation: 0,
-          salaryCompensation: 80000,
-        },
+        3000,
         {
           technical: 74,
           strategic: 21,
@@ -115,27 +122,21 @@ const mod_People = {
     positions: [
       new Position(
         55555823,
-        "manager",
-        {
-          compensationType: "salary",
-          salaryCompensation: 300,
-          hourlyCompensation: 0,
-        },
+        "Manager",
+        3000,
         "this is a string, not a date",
         "open",
-        null
+        null,
+        false
       ),
       new Position(
         66261201,
-        "recruiter",
-        {
-          compensationType: "salary",
-          salaryCompensation: 300,
-          hourlyCompensation: 0,
-        },
+        "Recruiter",
+        3000,
         "this is a string, not a date",
         "filled",
-        10000000
+        10000000,
+        false
       ),
     ],
     candidates: [],
@@ -145,10 +146,26 @@ const mod_People = {
       return state;
     },
     get_staffMembersWithoutPostions(state) {
-      return state.staff.filter((element) => element.role.id == null);
+      return state.staff.filter((element) => element.role.id === null);
+    },
+    get_listedPositions(state) {
+      return state.positions.filter((element) => element.listed === true);
+    },
+    get_activePositions(state) {
+      return state.positions.filter((element) => element.status === "filled");
+    },
+    get_totalPayRollCost(state) {
+      let payRollCost = 0;
+      const positions = state.positions.filter(
+        (element) => element.status === "filled"
+      );
+      positions.forEach((position) => {
+        payRollCost = payRollCost + position.compensation;
+      });
+      return payRollCost;
     },
     get_staffMember: (state) => (id) => {
-      return state.staff.find((element) => element.id == id);
+      return state.staff.find((element) => element.id === id);
     },
   },
   mutations: {
@@ -182,6 +199,12 @@ const mod_People = {
         state.staff.splice(index, 1);
       }
     },
+    toggleListing(state, position) {
+      let index = state.positions.findIndex(
+        (element) => element.id == position
+      );
+      state.positions[index].listed = !state.positions[index].listed;
+    },
   },
   actions: {
     addMemberRole({ state, commit }, data) {
@@ -199,8 +222,9 @@ const mod_People = {
     createPosition() {
       console.log("");
     },
-    fireStaffMember({ commit }, data) {
-      commit("deleteStaff", data);
+    fireStaffMember({ dispatch, commit }, data) {
+      dispatch("removePositionHolder", data.positionId)
+      commit("deleteStaff", data.memberId);
     },
     removePosition() {
       console.log("");
@@ -211,6 +235,7 @@ const mod_People = {
       );
       position.holder = data.memberId;
       position.status = "filled";
+      position.listed = false;
       commit("updatePosition", position);
     },
     removePositionHolder({ state, commit }, positionId) {
@@ -221,16 +246,10 @@ const mod_People = {
       position.status = "open";
       commit("updatePosition", position);
     },
-    createPositionListing() {
-      console.log("");
+    togglePositionListing({ commit }, position) {
+      commit("toggleListing", position);
     },
-    removePositionListing() {
-      console.log("");
-    },
-    updatePositionListing() {
-      console.log("");
-    },
-    createCandidate({ commit, rootState }) {
+    createCandidate({ commit, rootState }, data) {
       const generator = new idGenerator();
       const id = generator.generate();
       const gender = selectRandom(rootState.random_genders);
@@ -245,20 +264,20 @@ const mod_People = {
           firstName = selectRandom(rootState.random_femaleFirstNames);
           break;
       }
-      const compensation = {
-        desiredCompensationType: "hourly",
-        desiredHourlyCompensation: 180,
-        desiredSalaryCompensation: 0,
-      };
+      const compensation = randomNumberBetween(1500, 6000);;
       const skills = {
-        technical: 74,
-        strategic: 21,
-        leadership: 5,
-        communication: -36,
-        financial: -82,
-        analytical: 79,
-        creative: 18,
-        promotional: -6,
+        technical: randomNumberBetween(-100, 100),
+        strategic: randomNumberBetween(-100, 100),
+        leadership: randomNumberBetween(-100, 100),
+        communication: randomNumberBetween(-100, 100),
+        financial: randomNumberBetween(-100, 100),
+        analytical: randomNumberBetween(-100, 100),
+        creative: randomNumberBetween(-100, 100),
+        promotional: randomNumberBetween(-100, 100),
+      };
+      const listing = {
+        id: data.listingId,
+        type: data.listingType,
       };
       const candidate = new Candidate(
         id,
@@ -267,7 +286,8 @@ const mod_People = {
         firstName,
         lastName,
         compensation,
-        skills
+        skills,
+        listing
       );
       commit("saveCandidate", candidate);
     },
@@ -279,11 +299,7 @@ const mod_People = {
       const firstName = data.firstName;
       const lastName = data.lastName;
       const title = null;
-      const compensation = {
-        compensationType: data.compensation.desiredCompensationType,
-        hourlyCompensation: data.compensation.desiredHourlyCompensation,
-        salaryCompensation: data.compensation.desiredSalaryCompensation,
-      };
+      const compensation = data.compensation;
       const skills = data.skills;
       const role = {
         type: null,

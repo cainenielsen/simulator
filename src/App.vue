@@ -1,22 +1,32 @@
 <template>
   <nav class="nav-bar horizontal-nav-bar" id="top-nav-bar">
-    <router-link class="nav-item nav-item-free" to="/">Home</router-link>
-    <router-link class="nav-item nav-item-free" to="/people"
-      >People</router-link
-    >
-    <router-link class="nav-item nav-item-free" to="/finances"
-      >Finances</router-link
-    >
-    <router-link class="nav-item nav-item-free" to="/office"
-      >Office</router-link
-    >
-    <router-link class="nav-item nav-item-free" to="/product"
-      >Product</router-link
-    >
+    <span class="top-left">
+      <router-link class="nav-item nav-item-free" to="/"
+        ><i class="fas fa-home"></i> Home</router-link
+      >
+      <router-link class="nav-item nav-item-free" to="/people"
+        ><i class="fas fa-user-friends"></i> People</router-link
+      >
+      <router-link class="nav-item nav-item-free" to="/finances"
+        ><i class="fas fa-money-bill"></i> Finances</router-link
+      >
+      <router-link class="nav-item nav-item-free" to="/office"
+        ><i class="fas fa-building"></i> Office</router-link
+      >
+      <router-link class="nav-item nav-item-free" to="/resources"
+        ><i class="fas fa-database"></i> Resources</router-link
+      >
+      <router-link class="nav-item nav-item-free" to="/product"
+        ><i class="fab fa-buffer"></i> Product</router-link
+      >
+    </span>
+    <span class="top-right"
+      ><span class="nav-item"><i class="fas fa-bars"></i></span
+    ></span>
   </nav>
   <nav class="nav-bar horizontal-nav-bar" id="bottom-nav-bar">
-    <span class="hor-bar-left"><time-toggle></time-toggle></span>
-    <router-link to="/finances">
+    <span class="bottom-left"><time-toggle></time-toggle></span>
+    <router-link class="bottom-right" to="/finances">
       <span
         v-if="$store.getters.get_trend"
         class="nav-item color-green nav-item-free"
@@ -36,26 +46,66 @@
   <nav class="nav-bar vertical-nav-bar" id="left-nav-bar"></nav>
   <nav class="nav-bar vertical-nav-bar" id="right-nav-bar"></nav>
   <main id="canvas">
-    <router-view />
+    <highlight>{{ $route.name }}</highlight>
+    <div id="content">
+      <router-view />
+    </div>
   </main>
 </template>
 <script>
 import timeToggle from "./components/timeToggle.vue";
-import { toCurrency } from "./scripts/tools.js";
+import highlight from "./components/highlight.vue";
+import { toCurrency, randomNumberBetween } from "./scripts/tools.js";
 
 export default {
-  components: { "time-toggle": timeToggle },
+  components: { "time-toggle": timeToggle, highlight: highlight },
+  data() {
+    return {
+      increment: null,
+    };
+  },
   created() {
-    setInterval(this.incrementTime, 1000);
+    this.increment = setInterval(this.incrementTime, 1000);
+  },
+  computed: {
+    localTime() {
+      return this.$store.getters.get_worldState.currentTime;
+    },
   },
   methods: {
     incrementTime() {
       if (this.$store.getters.get_worldState.running == true) {
         this.$store.dispatch("setDate", 5);
+        this.scout();
       }
     },
     formatCurrency(input) {
       return toCurrency(input);
+    },
+    stopIncrement() {
+      clearInterval(this.increment);
+    },
+    scout() {
+      this.$store.getters.get_listedPositions.forEach((listing) => {
+        if (this.$store.getters.get_resources(101).purchased === true) {
+          if (randomNumberBetween(1, 10) === 1) {
+            this.$store.dispatch("createCandidate", {
+              listingId: listing.id,
+              listingType: listing.type,
+            });
+          }
+        }
+      });
+    },
+    collect() {
+      this.$store.dispatch("collectCosts");
+    },
+  },
+  watch: {
+    localTime: function (val) {
+      if (val.getHours() == 0 && val.getMinutes() == 0) {
+        this.collect();
+      }
     },
   },
 };
@@ -100,7 +150,24 @@ body {
   grid-column-gap: 8px;
 }
 
-.hor-bar-left {
+.top-left {
+  display: grid;
+  grid-column-gap: 8px;
+  grid-template-columns:
+    minmax(min-content, max-content) minmax(min-content, max-content) minmax(
+      min-content,
+      max-content
+    )
+    minmax(min-content, max-content) minmax(min-content, max-content) minmax(min-content, max-content);
+}
+
+.top-right {
+  display: grid;
+  grid-column-gap: 8px;
+  grid-template-columns: minmax(min-content, max-content);
+}
+
+.bottom-left {
   display: grid;
   grid-column-gap: 8px;
   grid-template-columns:
@@ -108,7 +175,7 @@ body {
     minmax(min-content, max-content) minmax(min-content, max-content) minmax(min-content, max-content);
 }
 
-.hor-bar-right {
+.bottom-right {
   display: grid;
   grid-column-gap: 8px;
   grid-template-columns: minmax(min-content, max-content);
@@ -142,9 +209,11 @@ body {
 #top-nav-bar {
   top: 0px;
   left: 0px;
-  grid-template-columns:
-    minmax(min-content, max-content) minmax(min-content, max-content)
-    minmax(min-content, max-content) minmax(min-content, max-content) minmax(min-content, max-content);
+  justify-content: space-between;
+  grid-template-columns: minmax(min-content, max-content) minmax(
+      min-content,
+      max-content
+    );
 }
 
 #bottom-nav-bar {
@@ -161,8 +230,6 @@ body {
   display: block;
   margin: 64px;
   background-color: #eeeeee;
-  padding-left: 15vw;
-  padding-right: 15vw;
   height: calc(100vh - 128px);
   width: calc(100vw - 128px);
   overflow: hidden;
@@ -170,6 +237,13 @@ body {
   box-sizing: border-box;
   border-radius: 8px;
   box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.16), 0 0px 6px rgba(0, 0, 0, 0.23);
+}
+
+#content {
+  padding-top: 5vw;
+  padding-bottom: 5vw;
+  padding-left: 15vw;
+  padding-right: 15vw;
 }
 
 .nav-item {

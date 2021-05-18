@@ -1,17 +1,75 @@
 <template>
-  <div class="home">
-    <Dashboard msg="Startup" />
+  <div class="layout">
+    <div class="left card">
+      <h1>Costs</h1>
+      <h2>Payroll:</h2>
+      <list>
+        <line-item
+          v-for="position in $store.getters.get_activePositions"
+          :key="position.id"
+        >
+          <span>{{ position.type }}</span>
+          <span>{{ currencyDisplay(position.compensation) }}</span>
+        </line-item>
+      </list>
+      Total: {{ currencyDisplay($store.getters.get_totalPayRollCost) }}
+      <h2>Resources:</h2>
+      <list>
+        <line-item
+          v-for="resource in $store.getters.get_activeResources"
+          :key="resource.id"
+        >
+          <span>{{ resource.name }}</span>
+          <span>{{ currencyDisplay(resource.cost) }}</span>
+        </line-item>
+      </list>
+      Total: {{ currencyDisplay($store.getters.get_totalResourceCost) }}
+      <h2>Office:</h2>
+      <list>
+        <line-item
+          v-for="office in $store.getters.get_ownedOffices"
+          :key="office.id"
+        >
+          <span>{{ office.name }}</span>
+          <span>{{ currencyDisplay(office.cost) }}</span>
+        </line-item>
+      </list>
+      Total: {{ currencyDisplay($store.getters.get_totalOfficeCost) }}
+      <h3>Total: {{ currencyDisplay($store.getters.get_totalCosts) }}</h3>
+    </div>
+    <div class="right card">
+      <h1>Income</h1>
+      <ul>
+        <li>Product 1:</li>
+        <li>Product 2:</li>
+        <li>Product 3:</li>
+        <li>Product 4:</li>
+      </ul>
+      <h3>Total:</h3>
+    </div>
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import Dashboard from "@/components/Dashboard.vue";
-
+import List from "../components/list.vue";
+import lineItem from "../components/line-item.vue";
+import { toCurrency } from "../scripts/tools.js";
 export default {
-  name: "Home",
+  name: "Finance",
   components: {
-    Dashboard,
+    "line-item": lineItem,
+    list: List,
+  },
+  methods: {
+    currencyDisplay(number) {
+      return toCurrency(number);
+    },
   },
 };
 </script>
+<style scoped>
+.layout {
+  display: grid;
+  grid-template-columns: 50% 50%;
+}
+</style>

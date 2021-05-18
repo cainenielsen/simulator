@@ -22,18 +22,13 @@
     }}</span
     ><span v-else> No role applied</span>
     <h2>Compensation</h2>
-    Earning:
-    <span v-if="member.compensation.compensationType == 'hourly'"
-      >{{ formatCurrency(member.compensation.hourlyCompensation) }}/hr</span
-    >
-    <span v-else
-      >{{ formatCurrency(member.compensation.salaryCompensation) }}/yr</span
-    >
+    Desires:
+    <span>{{ formatCurrency(member.compensation) }}</span>
     <card-menu>
       <span
         v-if="member.restricted === false"
         class="line-button red"
-        @click="fireStaff(member.id)"
+        @click="fireStaff(member)"
         ><i class="fas fa-fire"></i> Fire Staff Member</span
       >
       <span v-else>This person cannot be deleted</span>
@@ -51,8 +46,8 @@ export default {
     formatCurrency(input) {
       return toCurrency(input);
     },
-    fireStaff(memberId) {
-      this.$store.dispatch("fireStaffMember", memberId);
+    fireStaff(member) {
+      this.$store.dispatch("fireStaffMember", {memberId: member.id, positionId: member.role.id});
     },
   },
 };

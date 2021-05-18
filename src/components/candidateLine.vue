@@ -16,18 +16,11 @@
       <li>Creative: {{ candidate.skills.creative }}</li>
       <li>Promotional: {{ candidate.skills.promotional }}</li>
     </ul>
+    <h2>Listing</h2>
+    <span :title="candidate.listing.id">{{ candidate.listing.type }}</span>
     <h2>Compensation</h2>
     Expecting:
-    <span v-if="candidate.compensation.desiredCompensationType == 'hourly'"
-      >{{
-        formatCurrency(candidate.compensation.desiredHourlyCompensation)
-      }}/hr</span
-    >
-    <span v-else
-      >{{
-        formatCurrency(candidate.compensation.desiredSalaryCompensation)
-      }}/yr</span
-    ><br /><br />
+    <span>{{ formatCurrency(candidate.compensation) }}</span>
 
     <card-menu>
       <span class="line-button orange" @click="hireCandidate(candidate)"

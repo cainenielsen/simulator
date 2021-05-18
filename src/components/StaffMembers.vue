@@ -1,14 +1,14 @@
 <template>
   <div class="hello">
     <h1>{{ msg }}</h1>
-    <h2>people</h2>
+    <h2>People</h2>
     <staffmember-line
       v-for="member in $store.getters.get_peopleState.staff"
       :key="member"
       :member="member"
     ></staffmember-line>
     <h2>Recruiting</h2>
-    <h3>positions</h3>
+    <h3>Positions</h3>
     <button @click="positionModalOpen = !positionModalOpen">
       Open Position
     </button>
@@ -18,8 +18,7 @@
       :key="position"
       :position="position"
     ></position-line>
-    <h3>candidates</h3>
-    <button @click="recruit">Recruit Candidates</button>
+    <h3>Candidates</h3>
     <candidate-line
       v-for="candidate in $store.getters.get_peopleState.candidates"
       :key="candidate"
@@ -53,9 +52,6 @@ export default {
   methods: {
     formatCurrency(input) {
       return toCurrency(input);
-    },
-    recruit() {
-      this.$store.dispatch("createCandidate");
     },
   },
 };

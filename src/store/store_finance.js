@@ -10,8 +10,12 @@ const mod_Finance = {
     ],
   }),
   getters: {
-    get_bills(state) {
-      return state.bills;
+    get_totalCosts(state, getters) {
+      var totalCosts = 0;
+      totalCosts = totalCosts + getters.get_totalOfficeCost;
+      totalCosts = totalCosts + getters.get_totalResourceCost;
+      totalCosts = totalCosts + getters.get_totalPayRollCost;
+      return totalCosts;
     },
     get_capital(state) {
       return state.capital;
@@ -20,8 +24,15 @@ const mod_Finance = {
       return state.trend;
     },
   },
-  mutations: {},
+  mutations: {
+    withdrawFunds(state, cost) {
+      state.capital = state.capital - cost;
+    },
+  },
   actions: {
+    collectCosts({ commit, getters }) {
+      commit("withdrawFunds", getters.get_totalCosts);
+    },
     addBill() {
       console.log("");
     },

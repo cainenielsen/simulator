@@ -4,22 +4,22 @@
     v-if="$store.getters.get_worldState.running === true"
     @click="toggleRun"
   >
-    <i class="fas fa-play-circle"></i>
+    <i class="fas fa-pause-circle"></i>
   </span>
   <span v-else class="nav-item nav-item-button pause" @click="toggleRun">
-    <i class="fas fa-pause-circle"></i>
+    <i class="fas fa-play-circle"></i>
   </span>
   <span class="nav-item nav-item-button"
     ><i class="fas fa-chevron-circle-right"></i
   ></span>
   <span class="nav-item nav-item-button"><i class="fas fa-sync-alt"></i></span>
   <span class="nav-item nav-item-free">
-      <i class="fas fa-clock"></i>
-      {{ toTimeFormat($store.getters.get_worldState.currentTime) }}
-    </span>
+    <i class="fas fa-clock"></i>
+    {{ toTimeFormat($store.getters.get_worldState.currentTime) }}
+  </span>
   <span class="nav-item nav-item-free">
     <i class="fas fa-calendar"></i>
-    {{getWeekDay($store.getters.get_worldState.currentTime)}}, 
+    {{ getWeekDay($store.getters.get_worldState.currentTime) }},
     {{
       $store.getters.get_worldState.currentTime.toLocaleString("default", {
         month: "long",
@@ -51,7 +51,7 @@ export default {
     },
     getWeekDay(date) {
       return findWeekDay(date);
-    }
+    },
   },
 };
 </script>
