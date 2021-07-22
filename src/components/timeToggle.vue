@@ -6,7 +6,11 @@
   >
     <i class="fas fa-pause-circle"></i>
   </span>
-  <span v-else class=" background-color-emerald color-emerald-50 nav-item nav-item-button pause" @click="toggleRun">
+  <span
+    v-else
+    class="background-color-emerald color-emerald-50 nav-item nav-item-button pause"
+    @click="toggleRun"
+  >
     <i class="fas fa-play-circle"></i>
   </span>
   <span class="nav-item nav-item-button"
@@ -38,6 +42,14 @@ export default {
     return {
       running: false,
     };
+  },
+  created() {
+    const self = this;
+    window.addEventListener("keyup", function (ev) {
+      if (ev.code === "Space") {
+        self.toggleRun();
+      }
+    });
   },
   methods: {
     toggleRun() {

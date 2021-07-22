@@ -1,23 +1,29 @@
+import {
+  idGenerator,
+} from "../scripts/tools.js";
+
+const generator = new idGenerator();
+
 const mod_Office = {
   state: () => ({
     rent: 3000,
     offices: [
       {
-        id: 100, 
+        id: generator.generate(), 
         name: "Basement",
         cost: 1500,
         capacity: 5,
         status: "owned"
       },
       {
-        id: 102, 
+        id: generator.generate(), 
         name: "Small Office",
         cost: 5000,
         capacity: 10,
         status: "available"
       },
       {
-        id: 103, 
+        id: generator.generate(), 
         name: "Cottonwood Suites",
         cost: 10000,
         capacity: 25,
@@ -141,6 +147,19 @@ const mod_Office = {
     },
     get_ownedOffices(state) {
       return state.offices.filter((element) => element.status === "owned");
+    },
+    get_capacity: (state) => (id) => {
+      return state.offices.find((element) => element.id === id).capacity;
+    },
+    get_officeByName: (state) => (name) => {
+      return state.offices.find((element) => element.name === name);
+    },
+    get_officeById: (state) => (id) => {
+      return state.offices.find((element) => element.id === id);
+    },
+    // State is required here for whatever reason
+    get_remainingCapacity: (state, getters) => (id) => {
+      return getters.get_capacity(id) - getters.get_positionsInLocation(id);
     },
     get_resources: (state) => (id) => {
       return state.resources.find((element) => element.id == id);

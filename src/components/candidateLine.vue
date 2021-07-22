@@ -17,24 +17,27 @@
       <li>Promotional: {{ candidate.skills.promotional }}</li>
     </ul>
     <h2>Listing</h2>
-    <span :title="candidate.listing.id">{{ candidate.listing.type }}</span>
+    <span :title="candidate.listing">{{
+      $store.getters.get_typeById(
+        $store.getters.get_positionById(candidate.listing).type
+      ).name
+    }}</span>
     <h2>Compensation</h2>
     Expecting:
     <span>{{ formatCurrency(candidate.compensation) }}</span>
 
-    <card-menu>
-      <span class="line-button background-color-orange" @click="hireCandidate(candidate)"
-        ><i class="fas fa-plus"></i> Hire Candidate</span
-      >
-    </card-menu>
+    <span
+      class="line-button background-color-orange"
+      @click="hireCandidate(candidate)"
+      ><i class="fas fa-plus"></i> Hire Candidate</span
+    >
   </div>
 </template>
 
 <script>
 import { toCurrency } from "../scripts/tools.js";
-import cardMenu from "./cardMenu.vue";
+
 export default {
-  components: { "card-menu": cardMenu },
   props: ["candidate"],
   methods: {
     formatCurrency(input) {

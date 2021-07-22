@@ -33,7 +33,7 @@ function idGenerator() {
       id += parts[index];
     }
 
-    return id;
+    return parseInt(id);
   };
 }
 

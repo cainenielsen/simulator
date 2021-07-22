@@ -1,32 +1,21 @@
-               import {
+import {
   selectRandom,
   idGenerator,
   randomNumberBetween,
 } from "../scripts/tools.js";
 
+const generator = new idGenerator();
 class staffMember {
-  constructor(
-    id,
-    gender,
-    age,
-    firstName,
-    lastName,
-    title,
-    compensation,
-    skills,
-    role,
-    restricted
-  ) {
-    this.id = id;
-    this.gender = gender;
-    this.age = age;
-    this.firstName = firstName;
-    this.lastName = lastName;
-    this.title = title;
-    this.compensation = compensation;
-    this.skills = skills;
-    this.role = role;
-    this.restricted = restricted || false;
+  constructor(data) {
+    this.id = generator.generate();
+    this.gender = data.gender;
+    this.age = data.age;
+    this.firstName = data.firstName;
+    this.lastName = data.lastName;
+    this.skills = data.skills;
+    this.role = data.role;
+    this.restricted = data.restricted || false;
+    this.self = data.self || false;
   }
   getFirstName() {
     return this.firstName[0].toUpperCase() + this.firstName.substring(1);
@@ -40,45 +29,30 @@ class staffMember {
 }
 
 class Position {
-  constructor(id, type, compensation, startDate, status, holder) {
-    this.id = id;
-    this.type = type;
-    this.compensation = compensation;
-    this.startDate = startDate;
-    this.status = status;
-    this.holder = holder;
+  constructor(data) {
+    this.compensation = data.compensation;
+    this.type = data.type;
+    this.level = data.level;
+    this.location = data.location;
+    this.status = data.status;
+    this.holder = data.holder;
+    this.id = generator.generate();
     this.listed = false;
-  }
-  getFirstName() {
-    return this.firstName[0].toUpperCase() + this.firstName.substring(1);
-  }
-  getLastName() {
-    return this.lastName[0].toUpperCase() + this.lastName.substring(1);
-  }
-  getFullName() {
-    return this.getFirstName() + " " + this.getLastName();
+    this.restricted = data.restricted || false;
+    this.selectedTask = data.selectedTask || null;
   }
 }
 
 class Candidate {
-  constructor(
-    id,
-    gender,
-    age,
-    firstName,
-    lastName,
-    compensation,
-    skills,
-    listing
-  ) {
-    this.id = id;
-    this.gender = gender;
-    this.age = age;
-    this.firstName = firstName;
-    this.lastName = lastName;
-    this.compensation = compensation;
-    this.skills = skills;
-    this.listing = listing;
+  constructor(data) {
+    this.id = data.id;
+    this.gender = data.gender;
+    this.age = data.age;
+    this.firstName = data.firstName;
+    this.lastName = data.lastName;
+    this.compensation = data.compensation;
+    this.skills = data.skills;
+    this.listing = data.listing;
   }
   getFirstName() {
     return this.firstName[0].toUpperCase() + this.firstName.substring(1);
@@ -94,15 +68,12 @@ class Candidate {
 const mod_People = {
   state: () => ({
     staff: [
-      new staffMember(
-        10000000,
-        "male",
-        18,
-        "Caine",
-        "Nielsen",
-        "CEO",
-        3000,
-        {
+      new staffMember({
+        gender: "male",
+        age: 18,
+        firstName: "Caine",
+        lastName: "Nielsen",
+        skills: {
           technical: 74,
           strategic: 21,
           leadership: 5,
@@ -112,33 +83,12 @@ const mod_People = {
           creative: 18,
           promotional: -6,
         },
-        {
-          type: "recruiter",
-          id: "66261201",
-        },
-        true
-      ),
+        role: null,
+        restricted: true,
+        self: true,
+      }),
     ],
-    positions: [
-      new Position(
-        55555823,
-        "Manager",
-        3000,
-        "this is a string, not a date",
-        "open",
-        null,
-        false
-      ),
-      new Position(
-        66261201,
-        "Recruiter",
-        3000,
-        "this is a string, not a date",
-        "filled",
-        10000000,
-        false
-      ),
-    ],
+    positions: [],
     candidates: [],
   }),
   getters: {
@@ -146,13 +96,20 @@ const mod_People = {
       return state;
     },
     get_staffMembersWithoutPostions(state) {
-      return state.staff.filter((element) => element.role.id === null);
+      return state.staff.filter((element) => element.role === null);
     },
     get_listedPositions(state) {
       return state.positions.filter((element) => element.listed === true);
     },
     get_activePositions(state) {
       return state.positions.filter((element) => element.status === "filled");
+    },
+    get_positionById: (state) => (id) => {
+      return state.positions.find((element) => element.id === id);
+    },
+    get_positionsInLocation: (state) => (location) => {
+      return state.positions.filter((element) => element.location === location)
+        .length;
     },
     get_totalPayRollCost(state) {
       let payRollCost = 0;
@@ -166,6 +123,9 @@ const mod_People = {
     },
     get_staffMember: (state) => (id) => {
       return state.staff.find((element) => element.id === id);
+    },
+    get_self(state) {
+      return state.staff.find((element) => element.self === true);
     },
   },
   mutations: {
@@ -199,35 +159,58 @@ const mod_People = {
         state.staff.splice(index, 1);
       }
     },
+    deletePosition(state, position) {
+      let index = state.positions.findIndex(
+        (element) => element.id == position
+      );
+      if (index > -1) {
+        state.positions.splice(index, 1);
+      }
+    },
     toggleListing(state, position) {
       let index = state.positions.findIndex(
         (element) => element.id == position
       );
       state.positions[index].listed = !state.positions[index].listed;
     },
+    setLocation(state, position) {
+      state.positions.push(position);
+    },
   },
   actions: {
     addMemberRole({ state, commit }, data) {
       let member = state.staff.find((element) => element.id == data.memberId);
-      member.role.type = data.positionType;
-      member.role.id = data.positionId;
+      member.role = data.positionId;
       commit("updateStaff", member);
     },
     removeMemberRole({ state, commit }, memberId) {
       let member = state.staff.find((element) => element.id == memberId);
-      member.role.type = null;
-      member.role.id = null;
+      member.role = null;
       commit("updateStaff", member);
     },
-    createPosition() {
-      console.log("");
+    createPosition({ commit }, data) {
+      let position = new Position({
+        compensation: data.compensation,
+        type: data.type,
+        level: data.level,
+        location: data.location,
+        status: "open",
+        holder: null,
+        restricted: data.restricted,
+      });
+      commit("setLocation", position);
     },
     fireStaffMember({ dispatch, commit }, data) {
-      dispatch("removePositionHolder", data.positionId)
+      if (data.positionId) {
+        dispatch("removePositionHolder", data.positionId);
+      }
       commit("deleteStaff", data.memberId);
     },
-    removePosition() {
-      console.log("");
+    closePosition({ dispatch, commit }, data) {
+      if(data.memberId) {
+        dispatch("removeHolderPosition", data.memberId);
+      }
+      commit("deletePosition", data.positionId);
     },
     addPositionHolder({ state, commit }, data) {
       let position = state.positions.find(
@@ -246,15 +229,16 @@ const mod_People = {
       position.status = "open";
       commit("updatePosition", position);
     },
+    removeHolderPosition({ state, commit }, memberId) {
+      let member = state.staff.find((element) => element.id == memberId);
+      member.role = null;
+      commit("updateStaff", member);
+    },
     togglePositionListing({ commit }, position) {
       commit("toggleListing", position);
     },
     createCandidate({ commit, rootState }, data) {
-      const generator = new idGenerator();
-      const id = generator.generate();
-      const gender = selectRandom(rootState.random_genders);
-      const age = randomNumberBetween(18, 100);
-      const lastName = selectRandom(rootState.random_lastNames);
+      let gender = selectRandom(rootState.random_genders);
       let firstName = null;
       switch (gender) {
         case "male":
@@ -264,72 +248,43 @@ const mod_People = {
           firstName = selectRandom(rootState.random_femaleFirstNames);
           break;
       }
-      const compensation = randomNumberBetween(1500, 6000);;
-      const skills = {
-        technical: randomNumberBetween(-100, 100),
-        strategic: randomNumberBetween(-100, 100),
-        leadership: randomNumberBetween(-100, 100),
-        communication: randomNumberBetween(-100, 100),
-        financial: randomNumberBetween(-100, 100),
-        analytical: randomNumberBetween(-100, 100),
-        creative: randomNumberBetween(-100, 100),
-        promotional: randomNumberBetween(-100, 100),
-      };
-      const listing = {
-        id: data.listingId,
-        type: data.listingType,
-      };
-      const candidate = new Candidate(
-        id,
-        gender,
-        age,
-        firstName,
-        lastName,
-        compensation,
-        skills,
-        listing
-      );
+      const candidate = new Candidate({
+        gender: gender,
+        age: randomNumberBetween(18, 100),
+        firstName: firstName,
+        lastName: selectRandom(rootState.random_lastNames),
+        compensation: randomNumberBetween(1500, 6000),
+        skills: {
+          technical: randomNumberBetween(-100, 100),
+          strategic: randomNumberBetween(-100, 100),
+          leadership: randomNumberBetween(-100, 100),
+          communication: randomNumberBetween(-100, 100),
+          financial: randomNumberBetween(-100, 100),
+          analytical: randomNumberBetween(-100, 100),
+          creative: randomNumberBetween(-100, 100),
+          promotional: randomNumberBetween(-100, 100),
+        },
+        listing: data.listingId,
+      });
       commit("saveCandidate", candidate);
     },
     acceptCandidate({ commit }, data) {
-      const generator = new idGenerator();
-      const id = generator.generate();
-      const gender = data.gender;
-      const age = data.age;
-      const firstName = data.firstName;
-      const lastName = data.lastName;
-      const title = null;
-      const compensation = data.compensation;
-      const skills = data.skills;
-      const role = {
-        type: null,
-        id: null,
-      };
-      const teamMember = new staffMember(
-        id,
-        gender,
-        age,
-        firstName,
-        lastName,
-        title,
-        compensation,
-        skills,
-        role
-      );
+      const teamMember = new staffMember({
+        id: generator.generate(),
+        gender: data.gender,
+        age: data.age,
+        firstName: data.firstName,
+        lastName: data.lastName,
+        title: null,
+        compensation: data.compensation,
+        skills: data.skills,
+        role: null,
+        restricted: false,
+      });
       commit("saveTeamMember", teamMember);
       commit("deleteCandidate", data.id);
     },
-    removeCandidate() {
-      console.log("");
-    },
-    interviewCandidate() {
-      console.log("");
-    },
-    denyCandidate() {
-      console.log("");
-    },
   },
-  modules: {},
 };
 
 export default mod_People;

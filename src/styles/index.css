@@ -62,3 +62,7 @@ a {
 .grid-item-active {
   background-color: var(--emerald-300);
 }
+
+.text-align-center {
+  text-align: center;
+}

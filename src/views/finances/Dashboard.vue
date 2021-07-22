@@ -8,7 +8,7 @@
           v-for="position in $store.getters.get_activePositions"
           :key="position.id"
         >
-          <span>{{ position.type }}</span>
+          <span>{{ $store.getters.get_typeById(position.type).name }}</span>
           <span>{{ currencyDisplay(position.compensation) }}</span>
         </line-item>
       </list>
@@ -51,9 +51,9 @@
 </template>
 
 <script>
-import List from "../components/list.vue";
-import lineItem from "../components/line-item.vue";
-import { toCurrency } from "../scripts/tools.js";
+import List from "@/components/list.vue";
+import lineItem from "@/components/line-item.vue";
+import { toCurrency } from "@/scripts/tools.js";
 export default {
   name: "Finance",
   components: {

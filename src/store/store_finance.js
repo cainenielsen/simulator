@@ -1,9 +1,14 @@
+import { idGenerator } from "../scripts/tools.js";
+
+const generator = new idGenerator();
+
 const mod_Finance = {
   state: () => ({
     capital: 50000,
     trend: false,
     bills: [
       {
+        id: generator.generate(),
         name: "Rent",
         cost: 3000,
       },

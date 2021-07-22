@@ -1,8 +1,11 @@
 <template>
   <div class="card">
-    <h1 :title="position.id">{{ position.type }}</h1>
+    <h1 :title="position.id">
+      {{ $store.getters.get_typeById(position.type).name }}
+      -
+      {{ $store.getters.get_levelById(position.level).name }}
+    </h1>
     <ul>
-      <li>Start Date: {{ position.startDate }}</li>
       <li>Status: {{ position.status }}</li>
       <li v-if="position.holder !== null" :title="position.holder">
         Holder:
@@ -10,68 +13,44 @@
       </li>
     </ul>
     <h2>Compensation</h2>
-    <span 
-      >{{ formatCurrency(position.compensation) }}</span
+    <span>{{ $store.getters.getCurrencyFormat(position.compensation) }}</span>
+    <span
+      v-if="
+        $store.getters.get_resources(101).purchased == true &&
+        position.holder === null
+      "
     >
-    <card-menu>
       <span
-        v-if="position.holder !== null"
-        class="line-button background-color-pomegranate"
-        @click="removeTeamMember(position.id, position.holder)"
-        ><i class="fas fa-times"></i> Remove Team Member</span
-      >
-      <span
-        v-if="addingTeamMember == false && position.holder === null"
-        class="line-button background-color-emerald"
-        @click="addTeamMember(position.id, position.type)"
-        ><i class="fas fa-plus"></i> Add Team Member</span
-      >
-      <select v-if="addingTeamMember" v-model="selectedTeamMember">
-        <option disabled value="">...</option>
-        <option
-          :value="staff.id"
-          v-for="staff in $store.getters.get_staffMembersWithoutPostions"
-          :key="staff"
-        >
-          {{ staff.firstName }}
-        </option>
-      </select>
-      <span
-        v-if="addingTeamMember"
-        class="line-button background-color-orange"
-        @click="selectTeamMember(position.id, position.type)"
-        ><i class="fas fa-plus"></i> Select Team Member</span
-      >
-      <span
-        v-if="
-          $store.getters.get_resources(101).purchased == true &&
-          position.holder === null
-        "
-      >
-        <span
         v-if="position.listed === false"
-          @click="toggleListing(position.id)"
-          class="line-button background-color-emerald"
-          style="float: right"
-          ><i class="fas fa-plus"></i> List this Job</span
-        >
-        <span
-          v-else
-          @click="toggleListing(position.id)"
-          class="line-button background-color-emerald"
-          style="float: right"
-          ><i class="fas fa-minus"></i> Remove Listing</span
-        >
-      </span>
-    </card-menu>
+        @click="toggleListing(position.id)"
+        class="line-button background-color-emerald"
+        style="float: right"
+        ><i class="fas fa-plus"></i> List this Job</span
+      >
+      <span
+        v-else
+        @click="toggleListing(position.id)"
+        class="line-button background-color-emerald"
+        style="float: right"
+        ><i class="fas fa-minus"></i> Remove Listing</span
+      >
+    </span>
+    <br />
+    <router-link :to="`/work/positions/position/${position.id}`">
+      <Button
+        backgroundColor="var(--emerald)"
+        textColor="var(--white)"
+        name="Edit"
+      ></Button>
+    </router-link>
   </div>
 </template>
 
 <script>
-import { toCurrency } from "../scripts/tools.js";
-import cardMenu from "./cardMenu.vue";
+import button from "@/components/button.vue";
+
 export default {
-  components: { "card-menu": cardMenu },
+  components: { Button: button },
   props: ["position"],
   data() {
     return {
@@ -80,30 +59,6 @@ export default {
     };
   },
   methods: {
-    formatCurrency(input) {
-      return toCurrency(input);
-    },
-    addTeamMember() {
-      this.addingTeamMember = !this.addingTeamMember;
-    },
-    selectTeamMember(positionId, positionType) {
-      if (this.selectedTeamMember !== "") {
-        this.$store.dispatch("addPositionHolder", {
-          positionId: positionId,
-          memberId: this.selectedTeamMember,
-        });
-        this.$store.dispatch("addMemberRole", {
-          positionId: positionId,
-          positionType: positionType,
-          memberId: this.selectedTeamMember,
-        });
-        this.addingTeamMember = !this.addingTeamMember;
-      }
-    },
-    removeTeamMember(positionId, memberId) {
-      this.$store.dispatch("removePositionHolder", positionId);
-      this.$store.dispatch("removeMemberRole", memberId);
-    },
     toggleListing(position) {
       this.$store.dispatch("togglePositionListing", position);
     },

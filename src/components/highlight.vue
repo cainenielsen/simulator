@@ -7,12 +7,12 @@ export default {};
 </script>
 <style scoped>
 .highlight {
-  height: 30vh;
-  line-height: 30vh;
-  padding-left: 15vw;
-  padding-right: 15vw;
+  height: 64px;
+  line-height: 60px;
+  padding-left: 64px;
+  padding-right: 64px;
   color: white;
   overflow: hidden;
-  font-size: 30px;
+  font-size: 20px;
 }
 </style>
