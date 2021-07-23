@@ -16,10 +16,10 @@
     <li>{{ $store.getters.get_officeById(positionData.location).name }}</li>
     <hr />
     <h2>Work</h2>
-    {{
-      $store.getters.get_taskByTag(positionData.selectedTask) ||
-      "No task selected"
-    }}
+    <span v-if="$store.getters.get_taskById(positionData.selectedTask)">{{
+      $store.getters.get_taskById(positionData.selectedTask).name
+    }}</span>
+    <span v-else><i>No task selected</i></span>
     <Select
       v-model="selectedTask"
       name="Selected Task"
@@ -37,7 +37,7 @@
       textColor="var(--white)"
       name="Set Task"
       v-if="selectedTask.id !== null"
-      @click="setTask(selectedTask.id)"
+      @click="setTask(positionData.id, selectedTask.id)"
     ></Button>
     <hr />
     <h2>Holder</h2>
@@ -145,9 +145,9 @@ export default {
     },
   },
   methods: {
-    setTask() {
-      
-    }, 
+    setTask(positionId, taskId) {
+      this.$store.dispatch("setSelectedTask", { positionId, taskId });
+    },
     pullData() {
       this.positionData = this.$store.getters.get_positionById(
         parseInt(this.$route.params.id)

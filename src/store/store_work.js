@@ -246,7 +246,7 @@ const mod_Work = {
       return state.tasks;
     },
     get_taskById: (state) => (id) => {
-      return state.positionTypes.find((element) => element.id === id);
+      return state.tasks.find((element) => element.id === id);
     },
     get_taskByTag: (state) => (tag) => {
       return state.tasks.find((element) => element.tag === tag);
@@ -301,6 +301,16 @@ const mod_Work = {
       } else {
         return "Error";
       }
+    },
+    setSelectedTask({ state, commit }, data) {
+      console.log(data);
+
+      let position = state.positions.find(
+        (element) => element.id == data.positionId
+      );
+      position.selectedTask = data.taskId;
+
+      commit("updatePosition", position);
     },
   },
 };

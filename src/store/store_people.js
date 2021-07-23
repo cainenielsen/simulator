@@ -207,7 +207,7 @@ const mod_People = {
       commit("deleteStaff", data.memberId);
     },
     closePosition({ dispatch, commit }, data) {
-      if(data.memberId) {
+      if (data.memberId) {
         dispatch("removeHolderPosition", data.memberId);
       }
       commit("deletePosition", data.positionId);
