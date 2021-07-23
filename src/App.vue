@@ -124,7 +124,6 @@ export default {
     work() {
       this.$store.getters.get_activePositions.forEach((position) => {
         if (position.selectedTask) {
-          console.log(position);
           this.$store.dispatch("workTask", position);
         }
       });

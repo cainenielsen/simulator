@@ -1,0 +1,1 @@
+to give each task systematic actions, create vuex actions and in app.vue trigger specific action using dispatch with a customer string based off the task object. 

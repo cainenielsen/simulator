@@ -14,52 +14,52 @@ const mod_Work = {
       }),
       new Role({
         name: "Recruiter",
-        researchCost: 3000,
+        researchCost: 300,
         tasks: ["recruit-candidates"],
       }),
       new Role({
         name: "Manager",
-        researchCost: 3500,
+        researchCost: 350,
         tasks: [""],
       }),
       new Role({
         name: "Analyst",
-        researchCost: 2500,
+        researchCost: 250,
         tasks: ["research"],
       }),
       new Role({
         name: "Product Manager",
-        researchCost: 2500,
+        researchCost: 250,
         tasks: ["research"],
       }),
       new Role({
         name: "Support",
-        researchCost: 1500,
+        researchCost: 150,
         tasks: [""],
       }),
       new Role({
         name: "Engineer",
-        researchCost: 4000,
+        researchCost: 400,
         tasks: [""],
       }),
       new Role({
         name: "Researcher",
-        researchCost: 2500,
+        researchCost: 250,
         tasks: [""],
       }),
       new Role({
         name: "Marketeer",
-        researchCost: 2000,
+        researchCost: 200,
         tasks: [""],
       }),
       new Role({
         name: "Salesmen",
-        researchCost: 1500,
+        researchCost: 150,
         tasks: [""],
       }),
       new Role({
         name: "Admin",
-        researchCost: 5000,
+        researchCost: 500,
         tasks: [""],
       }),
     ],
@@ -194,6 +194,9 @@ const mod_Work = {
         return "Error";
       }
     },
+    task_research({ commit }) {
+      commit("addResearchPoint");
+    }
   },
 };
 

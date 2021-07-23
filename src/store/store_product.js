@@ -4,7 +4,7 @@ import Script from "@/defs/script.js";
 
 const mod_Product = {
   state: () => ({
-    researchPoints: 0,
+    researchPoints: 250,
     research: [
       new Material({
         name: "Metals 1",
@@ -201,6 +201,9 @@ const mod_Product = {
   mutations: {
     chargeResearch(state, cost) {
       state.researchPoints = state.researchPoints - cost;
+    },
+    addResearchPoint(state) {
+      state.researchPoints++;
     },
     setResearchPurchased(state, id) {
       let index = state.research.findIndex((element) => element.id == id);

@@ -10,8 +10,6 @@ import staffMember from "@/defs/staffMember.js";
 import Position from "@/defs/position.js";
 import Candidate from "@/defs/candidate.js";
 
-
-
 const mod_People = {
   state: () => ({
     staff: [
@@ -238,12 +236,13 @@ const mod_People = {
       position.selectedTask = data.taskId;
       commit("updatePosition", position);
     },
-    workTask({ state, commit }, data) {
+    workTask({ state, commit, dispatch, getters }, data) {
       let position = state.positions.find((element) => element.id == data.id);
       const skill = 5;
       position.taskComplete = position.taskComplete + skill;
       if (position.taskComplete > 100) {
         console.log("task complete");
+        dispatch(`task_${getters.get_taskById(position.selectedTask).tag}`);
         position.taskComplete = 0;
       }
       commit("updatePosition", position);
