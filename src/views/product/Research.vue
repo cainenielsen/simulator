@@ -6,7 +6,7 @@
         v-for="position in $store.getters.get_researchablePosition"
         :key="position.id"
         class="grid-item"
-        :class="{ 'grid-item-active': position.researched == true }"
+        :class="{ 'grid-item-active': position.researched === true }"
       >
         {{ position.name }}<br /><br /><b><i class="fas fa-vial"></i> {{ position.researchCost }}</b
         ><br /><br /><button v-if="position.researched === false" @click="this.researchPosition(position.id)">Research</button>

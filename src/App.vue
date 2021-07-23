@@ -131,7 +131,9 @@ export default {
     },
     scout() {
       this.$store.getters.get_listedPositions.forEach((listing) => {
-        if (this.$store.getters.get_resources(101).purchased === true) {
+        if (
+          this.$store.getters.get_resourceByTag("job-lister").purchased === true
+        ) {
           if (randomNumberBetween(1, 10) === 1) {
             this.$store.dispatch("createCandidate", {
               listingId: listing.id,

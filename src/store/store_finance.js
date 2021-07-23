@@ -1,18 +1,7 @@
-import { idGenerator } from "../scripts/tools.js";
-
-const generator = new idGenerator();
-
 const mod_Finance = {
   state: () => ({
     capital: 50000,
     trend: false,
-    bills: [
-      {
-        id: generator.generate(),
-        name: "Rent",
-        cost: 3000,
-      },
-    ],
   }),
   getters: {
     get_totalCosts(state, getters) {
@@ -37,21 +26,6 @@ const mod_Finance = {
   actions: {
     collectCosts({ commit, getters }) {
       commit("withdrawFunds", getters.get_totalCosts);
-    },
-    addBill() {
-      console.log("");
-    },
-    removeBill() {
-      console.log("");
-    },
-    updateBill() {
-      console.log("");
-    },
-    updateCaptial() {
-      console.log("");
-    },
-    processBills() {
-      console.log("");
     },
   },
   modules: {},

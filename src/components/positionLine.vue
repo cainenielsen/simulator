@@ -16,7 +16,7 @@
     <span>{{ $store.getters.getCurrencyFormat(position.compensation) }}</span>
     <span
       v-if="
-        $store.getters.get_resources(101).purchased == true &&
+        $store.getters.get_resourceByTag('job-lister').purchased == true &&
         position.holder === null
       "
     >

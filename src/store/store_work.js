@@ -1,244 +1,136 @@
-import { idGenerator } from "../scripts/tools.js";
-
-const generator = new idGenerator();
+import Role from "@/defs/role.js";
+import Rank from "@/defs/rank.js";
+import Task from "@/defs/task.js";
 
 const mod_Work = {
   state: () => ({
     positionTypes: [
-      {
-        id: generator.generate(),
+      new Role({
         name: "Founder",
-        skills: {
-          test: "",
-        },
         selectable: false,
-        researched: false,
         researchCost: 0,
         researchable: false,
         tasks: ["research", "manage-employees", "recruit-candidates"],
-        selectedTask: "research",
-      },
-      {
-        id: generator.generate(),
+      }),
+      new Role({
         name: "Recruiter",
-        skills: {
-          test: "",
-        },
-        selectable: true,
-        researched: false,
         researchCost: 3000,
-        researchable: true,
         tasks: ["recruit-candidates"],
-        selectedTask: "",
-      },
-      {
-        id: generator.generate(),
+      }),
+      new Role({
         name: "Manager",
-        skills: {
-          test: "",
-        },
-        selectable: true,
-        researched: false,
         researchCost: 3500,
-        researchable: true,
         tasks: [""],
-        selectedTask: "",
-      },
-      {
-        id: generator.generate(),
+      }),
+      new Role({
         name: "Analyst",
-        skills: {
-          test: "",
-        },
-        selectable: true,
-        researched: false,
         researchCost: 2500,
-        researchable: true,
         tasks: ["research"],
-        selectedTask: "",
-      },
-      {
-        id: generator.generate(),
+      }),
+      new Role({
         name: "Product Manager",
-        skills: {
-          test: "",
-        },
-        selectable: true,
-        researched: false,
         researchCost: 2500,
-        researchable: true,
         tasks: ["research"],
-        selectedTask: "",
-      },
-      {
-        id: generator.generate(),
+      }),
+      new Role({
         name: "Support",
-        skills: {
-          test: "",
-        },
-        selectable: true,
-        researched: false,
         researchCost: 1500,
-        researchable: true,
         tasks: [""],
-        selectedTask: "",
-      },
-      {
-        id: generator.generate(),
+      }),
+      new Role({
         name: "Engineer",
-        skills: {
-          test: "",
-        },
-        selectable: true,
-        researched: false,
         researchCost: 4000,
-        researchable: true,
         tasks: [""],
-        selectedTask: "",
-      },
-      {
-        id: generator.generate(),
+      }),
+      new Role({
         name: "Researcher",
-        skills: {
-          test: "",
-        },
-        selectable: true,
-        researched: false,
         researchCost: 2500,
-        researchable: true,
         tasks: [""],
-        selectedTask: "",
-      },
-      {
-        id: generator.generate(),
+      }),
+      new Role({
         name: "Marketeer",
-        skills: {
-          test: "",
-        },
-        selectable: true,
-        researched: false,
         researchCost: 2000,
-        researchable: true,
         tasks: [""],
-        selectedTask: "",
-      },
-      {
-        id: generator.generate(),
+      }),
+      new Role({
         name: "Salesmen",
-        skills: {
-          test: "",
-        },
-        selectable: true,
-        researched: false,
         researchCost: 1500,
-        researchable: true,
         tasks: [""],
-        selectedTask: "",
-      },
-      {
-        id: generator.generate(),
+      }),
+      new Role({
         name: "Admin",
-        skills: {
-          test: "",
-        },
-        selectable: true,
-        researched: false,
         researchCost: 5000,
-        researchable: true,
         tasks: [""],
-        selectedTask: "",
-      },
+      }),
     ],
     positionLevels: [
-      {
-        id: generator.generate(),
+      new Rank({
         name: "Beginner",
-      },
-      {
-        id: generator.generate(),
+      }),
+      new Rank({
         name: "Novice",
-      },
-      {
-        id: generator.generate(),
+      }),
+      new Rank({
         name: "Adept",
-      },
-      {
-        id: generator.generate(),
-        name: "Advanced",
-      },
-      {
-        id: generator.generate(),
+      }),
+      new Rank({
         name: "Senior",
-      },
-      {
-        id: generator.generate(),
+      }),
+      new Rank({
         name: "Expert",
-      },
-      {
-        id: generator.generate(),
+      }),
+      new Rank({
         name: "Master",
-      },
-      {
-        id: generator.generate(),
+      }),
+      new Rank({
         name: "Legend",
-      },
+      }),
     ],
     tasks: [
-      {
-        id: generator.generate(),
+      new Task({
         tag: "write-code",
         name: "Write Code",
-      },
-      {
-        id: generator.generate(),
+      }),
+      new Task({
         tag: "manage-job-listing",
         name: "Manage Job Listings",
-      },
-      {
-        id: generator.generate(),
+      }),
+      new Task({
         tag: "recruit-candidates",
         name: "Recruit Candidates",
-      },
-      {
-        id: generator.generate(),
+      }),
+      new Task({
         tag: "manage-servers",
         name: "Manage Servers",
-      },
-      {
-        id: generator.generate(),
+      }),
+      new Task({
         tag: "build-components",
         name: "Build Components",
-      },
-      {
-        id: generator.generate(),
+      }),
+      new Task({
         tag: "manage-employees",
         name: "Manage Employees",
-      },
-      {
-        id: generator.generate(),
+      }),
+      new Task({
         tag: "send-marketing-emails",
         name: "Send Marketing Emails",
-      },
-      {
-        id: generator.generate(),
+      }),
+      new Task({
         tag: "support-clients",
         name: "Support Clients",
-      },
-      {
-        id: generator.generate(),
+      }),
+      new Task({
         tag: "make-sales-calls",
         name: "Make Sales Calls",
-      },
-      {
-        id: generator.generate(),
+      }),
+      new Task({
         tag: "drive-vehicles",
         name: "Drive Vehicles",
-      },
-      {
-        id: generator.generate(),
+      }),
+      new Task({
         tag: "research",
         name: "Research",
-      },
+      }),
     ],
   }),
   getters: {

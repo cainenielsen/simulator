@@ -1,141 +1,127 @@
-import {
-  idGenerator,
-} from "../scripts/tools.js";
-
-const generator = new idGenerator();
+import Facility from "@/defs/facility.js";
+import Resource from "@/defs/resource.js";
 
 const mod_Office = {
   state: () => ({
     rent: 3000,
     offices: [
-      {
-        id: generator.generate(), 
+      new Facility({
         name: "Basement",
         cost: 1500,
         capacity: 5,
-        status: "owned"
-      },
-      {
-        id: generator.generate(), 
+        status: "owned",
+      }),
+      new Facility({
         name: "Small Office",
         cost: 5000,
         capacity: 10,
-        status: "available"
-      },
-      {
-        id: generator.generate(), 
+        status: "available",
+      }),
+      new Facility({
         name: "Cottonwood Suites",
         cost: 10000,
         capacity: 25,
-        status: "available"
-      },
+        status: "available",
+      }),
     ],
     resources: [
-      {
+      new Resource({
         name: "SuperMeeting",
         cost: 200,
         purchased: false,
-        id: 100,
         type: "apps",
-      },
-      {
+      }),
+      new Resource({
+        name: "SuperMeeting",
+        cost: 200,
+        purchased: false,
+        type: "apps",
+      }),
+      new Resource({
+        tag: "job-lister",
         name: "JobLister",
         cost: 200,
         purchased: false,
-        id: 101,
         type: "apps",
-      },
-      {
+      }),
+      new Resource({
         name: "StorageMist",
         cost: 200,
         purchased: false,
-        id: 102,
         type: "apps",
-      },
-      {
+      }),
+      new Resource({
         name: "Email",
         cost: 200,
         purchased: false,
-        id: 103,
         type: "apps",
-      },
-      {
+      }),
+      new Resource({
         name: "MegaChat",
         cost: 200,
         purchased: false,
-        id: 104,
         type: "apps",
-      },
-      {
+      }),
+      new Resource({
         name: "DesignHub",
         cost: 200,
         purchased: false,
-        id: 105,
         type: "apps",
-      },
-      {
+      }),
+      new Resource({
         name: "CodeBox",
         cost: 200,
         purchased: false,
-        id: 106,
         type: "apps",
-      },
-      {
+      }),
+      new Resource({
         name: "HelpDex",
         cost: 200,
         purchased: false,
-        id: 107,
         type: "apps",
-      },
-      {
+      }),
+      new Resource({
         name: "MiniHost",
         cost: 200,
         purchased: false,
-        id: 108,
         type: "apps",
-      },
-      {
+      }),
+      new Resource({
         name: "Printer",
         cost: 200,
         purchased: false,
-        id: 109,
         type: "appliances",
-      },
-      {
+      }),
+      new Resource({
         name: "3D Printer",
         cost: 200,
         purchased: false,
-        id: 110,
         type: "appliances",
-      },
-      {
+      }),
+      new Resource({
         name: "Film Camera",
         cost: 200,
         purchased: false,
-        id: 111,
         type: "appliances",
-      },
-      {
+      }),
+      new Resource({
         name: "Small Van",
         cost: 200,
         purchased: false,
-        id: 112,
         type: "vehicles",
-      },
-      {
+      }),
+      new Resource({
         name: "Utility Truck",
         cost: 200,
         purchased: false,
-        id: 113,
         type: "vehicles",
-      },
-      {
+      }),
+      new Resource({
         name: "Semi Truck",
         cost: 200,
         purchased: false,
-        id: 114,
         type: "vehicles",
-      },
+      }),
     ],
   }),
   getters: {
@@ -161,8 +147,17 @@ const mod_Office = {
     get_remainingCapacity: (state, getters) => (id) => {
       return getters.get_capacity(id) - getters.get_positionsInLocation(id);
     },
-    get_resources: (state) => (id) => {
+    get_resourceById: (state) => (id) => {
       return state.resources.find((element) => element.id == id);
+    },
+    get_resourceByTag: (state) => (tag) => {
+      return state.resources.find((element) => element.tag == tag);
+    },
+    list_resources(state) {
+      return state.resources;
+    },
+    list_resourcesByType: (state) => (type) => {
+      return state.resources.filter((element) => element.type === type);
     },
     get_activeResources(state) {
       return state.resources.filter((element) => element.purchased === true);

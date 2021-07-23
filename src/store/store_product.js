@@ -1,305 +1,181 @@
-import { idGenerator } from "../scripts/tools.js";
-
-const generator = new idGenerator();
+import Material from "@/defs/material.js";
+import Component from "@/defs/component.js";
+import Script from "@/defs/script.js";
 
 const mod_Product = {
   state: () => ({
     researchPoints: 0,
     research: [
-      {
-        name: "Salesmen",
-        id: generator.generate(),
-        cost: 1500,
-        researched: false,
-        type: "position",
-      },
-      {
-        name: "Support",
-        id: generator.generate(),
-        cost: 1500,
-        researched: false,
-        type: "position",
-      },
-      {
-        name: "Marketeer",
-        id: generator.generate(),
-        cost: 2000,
-        researched: false,
-        type: "position",
-      },
-      {
-        name: "Researcher",
-        id: generator.generate(),
-        cost: 2500,
-        researched: false,
-        type: "position",
-      },
-      {
-        name: "Analyst",
-        id: generator.generate(),
-        cost: 2500,
-        researched: false,
-        type: "position",
-      },
-      {
-        name: "Recruiter",
-        id: generator.generate(),
-        cost: 3000,
-        researched: false,
-        type: "position",
-      },
-      {
-        name: "Manager",
-        id: generator.generate(),
-        cost: 3500,
-        researched: false,
-        type: "position",
-      },
-      {
-        name: "Engineer",
-        id: generator.generate(),
-        cost: 4000,
-        researched: false,
-        type: "position",
-      },
-      {
-        name: "Admin",
-        id: generator.generate(),
-        cost: 5000,
-        researched: false,
-        type: "position",
-      },
-      {
+      new Material({
         name: "Metals 1",
-        id: generator.generate(),
         cost: 500,
-        researched: false,
         type: "material",
-      },
-      {
+      }),
+      new Material({
+        name: "Metals 1",
+        cost: 500,
+        type: "material",
+      }),
+      new Material({
         name: "Plastics 1",
-        id: generator.generate(),
         cost: 500,
-        researched: false,
         type: "material",
-      },
-      {
+      }),
+      new Material({
         name: "Earth 1",
-        id: generator.generate(),
         cost: 500,
-        researched: false,
         type: "material",
-      },
-      {
+      }),
+      new Material({
         name: "Paper 1",
-        id: generator.generate(),
         cost: 500,
-        researched: false,
         type: "material",
-      },
-      {
+      }),
+      new Component({
         name: "Lenses",
-        id: generator.generate(),
         cost: 500,
-        researched: false,
         type: "component",
-      },
-      {
+      }),
+      new Component({
         name: "Batteries",
-        id: generator.generate(),
         cost: 500,
-        researched: false,
         type: "component",
-      },
-      {
+      }),
+      new Component({
         name: "Wheels",
-        id: generator.generate(),
         cost: 500,
-        researched: false,
         type: "component",
-      },
-      {
+      }),
+      new Component({
         name: "Displays",
-        id: generator.generate(),
         cost: 500,
-        researched: false,
         type: "component",
-      },
-      {
+      }),
+      new Script({
         name: "Server Management",
-        id: generator.generate(),
         cost: 500,
-        researched: false,
         type: "software",
-      },
-      {
+      }),
+      new Script({
         name: "Web Server",
-        id: generator.generate(),
         cost: 500,
-        researched: false,
         type: "software",
-      },
-      {
+      }),
+      new Script({
         name: "Database",
-        id: generator.generate(),
         cost: 500,
-        researched: false,
         type: "software",
-      },
-      {
+      }),
+      new Script({
         name: "Web Application",
-        id: generator.generate(),
         cost: 500,
-        researched: false,
         type: "software",
-      },
-      {
+      }),
+      new Script({
         name: "Mobile Application",
-        id: generator.generate(),
         cost: 500,
-        researched: false,
         type: "software",
-      },
-      {
+      }),
+      new Script({
         name: "Networking",
-        id: generator.generate(),
         cost: 500,
-        researched: false,
         type: "software",
-      },
-      {
+      }),
+      new Script({
         name: "DNS",
-        id: generator.generate(),
         cost: 500,
-        researched: false,
         type: "software",
-      },
-      {
+      }),
+      new Script({
         name: "Storage Area Networks",
-        id: generator.generate(),
         cost: 500,
-        researched: false,
         type: "software",
-      },
-      {
+      }),
+      new Script({
         name: "Networking Cache",
-        id: generator.generate(),
         cost: 500,
-        researched: false,
         type: "software",
-      },
-      {
+      }),
+      new Script({
         name: "Containerization",
-        id: generator.generate(),
         cost: 500,
-        researched: false,
         type: "software",
-      },
-      {
+      }),
+      new Script({
         name: "Serverless",
-        id: generator.generate(),
         cost: 500,
-        researched: false,
         type: "software",
-      },
-      {
+      }),
+      new Script({
         name: "Programming",
-        id: generator.generate(),
         cost: 500,
-        researched: false,
         type: "software",
-      },
-      {
+      }),
+      new Script({
         name: "Satelite Networks",
-        id: generator.generate(),
         cost: 500,
-        researched: false,
         type: "software",
-      },
-      {
+      }),
+      new Script({
         name: "Media Encoding",
-        id: generator.generate(),
         cost: 500,
-        researched: false,
         type: "software",
-      },
-      {
+      }),
+      new Script({
         name: "Cybersecurity",
-        id: generator.generate(),
         cost: 500,
-        researched: false,
         type: "software",
-      },
-      {
+      }),
+      new Script({
         name: "Encrpytion",
-        id: generator.generate(),
         cost: 500,
-        researched: false,
         type: "software",
-      },
-      {
+      }),
+      new Script({
         name: "System Shell",
-        id: generator.generate(),
         cost: 500,
-        researched: false,
         type: "software",
-      },
-      {
+      }),
+      new Script({
         name: "Distributed Networks",
-        id: generator.generate(),
         cost: 500,
-        researched: false,
         type: "software",
-      },
-      {
+      }),
+      new Script({
         name: "Progressive Web Apps",
-        id: generator.generate(),
         cost: 500,
-        researched: false,
         type: "software",
-      },
-      {
+      }),
+      new Script({
         name: "Search Engine Optimization",
-        id: generator.generate(),
         cost: 500,
-        researched: false,
         type: "software",
-      },
-      {
+      }),
+      new Script({
         name: "Web Application Firewall",
-        id: generator.generate(),
         cost: 500,
-        researched: false,
         type: "software",
-      },
-      {
+      }),
+      new Script({
         name: "i18n",
-        id: generator.generate(),
         cost: 500,
-        researched: false,
         type: "software",
-      },
-      {
+      }),
+      new Script({
         name: "Server Side Code",
-        id: generator.generate(),
         cost: 500,
-        researched: false,
         type: "software",
-      },
-      {
+      }),
+      new Script({
         name: "Software Frameworks",
-        id: generator.generate(),
         cost: 500,
-        researched: false,
         type: "software",
-      },
-      {
+      }),
+      new Script({
         name: "Pub Sub",
-        id: generator.generate(),
         cost: 500,
-        researched: false,
         type: "software",
-      },
+      }),
     ],
   }),
   getters: {
@@ -342,7 +218,6 @@ const mod_Product = {
       }
     },
   },
-  modules: {},
 };
 
 export default mod_Product;
