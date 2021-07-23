@@ -9,15 +9,18 @@ export default {
 
   meta: {
     subNavItems: [
-      { name: "Output", to: "/work/output" },
-      { name: "Positions", to: "/work/positions" },
-      { name: "Tasks", to: "/work/tasks" },
+      { name: "Output", icon: "far fa-lightbulb", to: "/work/output" },
+      { name: "Positions", icon: "far fa-id-badge", to: "/work/positions" },
+      { name: "Tasks", icon: "fas fa-check-double", to: "/work/tasks" },
     ],
   },
   children: [
     {
       path: "output",
       name: "Output",
+      meta: {
+        icon: "far fa-lightbulb",
+      },
       // route level code-splitting
       // this generates a separate chunk (about.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
@@ -27,6 +30,9 @@ export default {
     {
       path: "positions",
       name: "Positions",
+      meta: {
+        icon: "far fa-id-badge",
+      },
       // route level code-splitting
       // this generates a separate chunk (about.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
@@ -42,7 +48,8 @@ export default {
       component: () =>
         import(/* webpackChunkName: "about" */ "@/views/work/NewPosition.vue"),
       meta: {
-        subNavItems: [{ name: "Back", to: "./" }],
+        subNavItems: [{ name: "Back", icon: "far fa-id-badge", to: "./" }],
+        icon: "far fa-id-badge",
       },
     },
     {
@@ -55,16 +62,24 @@ export default {
         import(/* webpackChunkName: "about" */ "@/views/work/position.vue"),
       meta: {
         subNavItems: [{ name: "Back", to: "/work/positions" }],
+        icon: "far fa-id-badge",
       },
     },
     {
       path: "tasks",
       name: "Tasks",
+      meta: {
+        icon: "fas fa-check-double",
+      },
       // route level code-splitting
       // this generates a separate chunk (about.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
       component: () =>
         import(/* webpackChunkName: "about" */ "@/views/work/Tasks.vue"),
+    },
+    {
+      path: "",
+      redirect: "/work/positions"
     },
   ],
 };

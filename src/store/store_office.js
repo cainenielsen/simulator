@@ -26,7 +26,7 @@ const mod_Office = {
     ],
     resources: [
       new Resource({
-        name: "SuperMeeting",
+        name: "RosterIt",
         cost: 200,
         purchased: false,
         type: "apps",

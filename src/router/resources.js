@@ -9,16 +9,27 @@ export default {
 
   meta: {
     subNavItems: [
-      { name: "Inventory", to: "/resources/inventory" },
-      { name: "Storage", to: "/resources/storage" },
-      { name: "Catalouge", to: "/resources/catalouge" },
-      { name: "Logistics", to: "/resources/logistics" },
+      { name: "Inventory", icon: "fas fa-boxes", to: "/resources/inventory" },
+      { name: "Storage", icon: "fas fa-warehouse", to: "/resources/storage" },
+      {
+        name: "Catalouge",
+        icon: "fas fa-grip-horizontal",
+        to: "/resources/catalouge",
+      },
+      {
+        name: "Logistics",
+        icon: "fas fa-truck-loading",
+        to: "/resources/logistics",
+      },
     ],
   },
   children: [
     {
       path: "catalouge",
       name: "Catalouge",
+      meta: {
+        icon: "fas fa-grip-horizontal",
+      },
       // route level code-splitting
       // this generates a separate chunk (about.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
@@ -30,6 +41,9 @@ export default {
     {
       path: "logistics",
       name: "Logistics",
+      meta: {
+        icon: "fas fa-truck-loading",
+      },
       // route level code-splitting
       // this generates a separate chunk (about.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
@@ -41,6 +55,9 @@ export default {
     {
       path: "inventory",
       name: "Inventory",
+      meta: {
+        icon: "fas fa-boxes",
+      },
       // route level code-splitting
       // this generates a separate chunk (about.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
@@ -52,11 +69,18 @@ export default {
     {
       path: "storage",
       name: "Storage",
+      meta: {
+        icon: "fas fa-warehouse",
+      },
       // route level code-splitting
       // this generates a separate chunk (about.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
       component: () =>
         import(/* webpackChunkName: "about" */ "@/views/resources/Storage.vue"),
+    },
+    {
+      path: "",
+      redirect: "/resources/catalouge",
     },
   ],
 };

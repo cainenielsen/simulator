@@ -45,7 +45,7 @@ const mod_Work = {
       new Role({
         name: "Researcher",
         researchCost: 250,
-        tasks: [""],
+        tasks: ["research"],
       }),
       new Role({
         name: "Marketeer",

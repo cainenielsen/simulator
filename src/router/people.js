@@ -5,16 +5,27 @@ export default {
     import(/* webpackChunkName: "about" */ "@/views/people/index.vue"),
   meta: {
     subNavItems: [
-      { name: "Staff", to: "/people/staff" },
-      { name: "Candidates", to: "/people/candidates" },
-      { name: "Customers", to: "/people/customers" },
-      { name: "Investors", to: "/people/investors" },
+      { name: "Staff", icon: "fas fa-user-tie", to: "/people/staff" },
+      {
+        name: "Candidates",
+        icon: "fas fa-user-check",
+        to: "/people/candidates",
+      },
+      { name: "Customers", icon: "fas fa-user-tag", to: "/people/customers" },
+      {
+        name: "Investors",
+        icon: "fas fa-hand-holding-usd",
+        to: "/people/investors",
+      },
     ],
   },
   children: [
     {
       path: "staff",
       name: "Staff",
+      meta: {
+        icon: "fas fa-user-tie",
+      },
       // route level code-splitting
       // this generates a separate chunk (about.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
@@ -33,11 +44,15 @@ export default {
         ),
       meta: {
         subNavItems: [{ name: "Back", to: "/people/staff" }],
+        icon: "fas fa-user-tag",
       },
     },
     {
       path: "candidates",
       name: "Candidates",
+      meta: {
+        icon: "fas fa-user-check",
+      },
       // route level code-splitting
       // this generates a separate chunk (about.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
@@ -47,6 +62,9 @@ export default {
     {
       path: "customers",
       name: "Customers",
+      meta: {
+        icon: "fas fa-user-tag",
+      },
       // route level code-splitting
       // this generates a separate chunk (about.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
@@ -56,11 +74,18 @@ export default {
     {
       path: "investors",
       name: "Investors",
+      meta: {
+        icon: "fas fa-hand-holding-usd",
+      },
       // route level code-splitting
       // this generates a separate chunk (about.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
       component: () =>
         import(/* webpackChunkName: "about" */ "@/views/people/Investors.vue"),
+    },
+    {
+      path: "",
+      redirect: "/people/staff",
     },
   ],
 };

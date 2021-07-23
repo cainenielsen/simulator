@@ -1,12 +1,12 @@
 <template>
   <router-link :to="to" class="sub-bar-item">
-    {{ name }}
+    <i v-if="icon" :class="icon"></i> {{ name }}
   </router-link>
 </template>
 
 <script>
 export default {
-  props: ["to", "name"],
+  props: ["to", "name", "icon"],
 };
 </script>
 

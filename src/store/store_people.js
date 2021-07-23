@@ -238,7 +238,7 @@ const mod_People = {
     },
     workTask({ state, commit, dispatch, getters }, data) {
       let position = state.positions.find((element) => element.id == data.id);
-      const skill = 5;
+      const skill = 50;
       position.taskComplete = position.taskComplete + skill;
       if (position.taskComplete > 100) {
         console.log("task complete");

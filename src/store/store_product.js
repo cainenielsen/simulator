@@ -179,9 +179,6 @@ const mod_Product = {
     ],
   }),
   getters: {
-    get_positionResearch(state) {
-      return state.research.filter((element) => element.type === "position");
-    },
     get_materialResearch(state) {
       return state.research.filter((element) => element.type === "material");
     },

@@ -2,22 +2,22 @@
   <div>
     <nav class="nav-bar horizontal-nav-bar" id="top-nav-bar">
       <span class="top-left">
-        <router-link class="nav-item nav-item-free" to="/people/staff"
+        <router-link class="nav-item nav-item-free" to="/people"
           ><i class="fas fa-user-friends"></i> People</router-link
         >
-        <router-link class="nav-item nav-item-free" to="/work/positions"
+        <router-link class="nav-item nav-item-free" to="/work"
           ><i class="fas fa-briefcase"></i> Work</router-link
         >
-        <router-link class="nav-item nav-item-free" to="/finances/dashboard"
+        <router-link class="nav-item nav-item-free" to="/finances"
           ><i class="fas fa-money-bill"></i> Finances</router-link
         >
-        <router-link class="nav-item nav-item-free" to="/office/real-estate"
+        <router-link class="nav-item nav-item-free" to="/office"
           ><i class="fas fa-building"></i> Office</router-link
         >
-        <router-link class="nav-item nav-item-free" to="/resources/catalouge"
+        <router-link class="nav-item nav-item-free" to="/resources"
           ><i class="fas fa-database"></i> Resources</router-link
         >
-        <router-link class="nav-item nav-item-free" to="/product/research"
+        <router-link class="nav-item nav-item-free" to="/product"
           ><i class="fab fa-buffer"></i> Product</router-link
         >
       </span>
@@ -56,12 +56,13 @@
     <nav class="nav-bar vertical-nav-bar" id="left-nav-bar"></nav>
     <nav class="nav-bar vertical-nav-bar" id="right-nav-bar"></nav>
     <main id="canvas" class="background-color-silver-50">
-      <highlight>{{ $route.name }}</highlight>
+      <highlight><i :class="$route.meta.icon"></i> {{ $route.name }}</highlight>
       <div id="page">
         <div id="sub-navigation-bar">
           <Button
             :to="item.to"
             :name="item.name"
+            :icon="item.icon"
             v-for="item in $route.meta.subNavItems"
             :key="item"
           ></Button>
@@ -314,12 +315,12 @@ export default {
   background-color: var(--clouds);
 }
 
-.nav-item.router-link-exact-active {
-  background-color: var(--clouds-700);
+.nav-item.router-link-active {
+  background-color: var(--peter-river-100);
 }
 
 .nav-item:active {
-  background-color: var(--clouds-600);
+  background-color: var(--peter-river-200);
 }
 
 .vertical-nav-item {
