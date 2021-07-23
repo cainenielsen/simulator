@@ -1,5 +1,8 @@
 <template>
   <div>
+    <p class="text-align-center">
+      Here you can rent or purchase additional facilities.
+    </p>
     <h1>Owned Locations</h1>
     <div class="grid">
       <div

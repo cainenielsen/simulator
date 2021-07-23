@@ -1,4 +1,7 @@
 <template>
+  <p class="text-align-center">
+    The many positions available in your company will appear here.
+  </p>
   <router-link to="/work/positions/new">
     <Button name="New Position"></Button>
   </router-link>

@@ -1,5 +1,9 @@
 <template>
-  <div></div>
+  <div>
+    <p class="text-align-center">
+      Below is a list of all your active investments.
+    </p>
+  </div>
 </template>
 
 <script>

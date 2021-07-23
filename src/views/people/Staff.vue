@@ -1,5 +1,8 @@
 <template>
-  <div class="hello">
+  <div>
+    <p class="text-align-center">
+      People who have been hired by your company will appear here.
+    </p>
     <staffmember-line
       v-for="member in $store.getters.get_peopleState.staff"
       :key="member"

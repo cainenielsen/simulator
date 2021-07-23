@@ -1,4 +1,7 @@
 <template>
+<p class="text-align-center">
+      Here is a catalouge of available resources you can purchase.
+    </p>
   <h1>Apps</h1>
   <div class="grid">
     <div

@@ -1,5 +1,5 @@
 <template>
-  <div
+  <p
     class="text-align-center"
     v-if="$store.getters.get_peopleState.candidates.length === 0"
   >
@@ -16,7 +16,7 @@
       >job listing website</router-link
     >
     to atract some.
-  </div>
+  </p>
   <candidate-line
     v-for="candidate in $store.getters.get_peopleState.candidates"
     :key="candidate"

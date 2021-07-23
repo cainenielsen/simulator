@@ -1,5 +1,10 @@
 <template>
-  <div></div>
+  <div>
+    <p class="text-align-center">
+      Here you can see your logistics tools which allow you to sell products
+      through shipping.
+    </p>
+  </div>
 </template>
 
 <script>

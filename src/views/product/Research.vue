@@ -1,5 +1,8 @@
 <template>
   <div>
+    <p class="text-align-center">
+      This is your research catalouge where you can use research points to unlock features.
+    </p>
     <h1>Positions</h1>
     <div class="grid">
       <div
