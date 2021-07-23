@@ -23,7 +23,6 @@ export default {
       // which is lazy-loaded when the route is visited.
       component: () =>
         import(/* webpackChunkName: "about" */ "@/views/product/Research.vue"),
-
     },
     {
       path: "products",
@@ -33,7 +32,6 @@ export default {
       // which is lazy-loaded when the route is visited.
       component: () =>
         import(/* webpackChunkName: "about" */ "@/views/product/Products.vue"),
-
     },
     {
       path: "features",
@@ -43,7 +41,6 @@ export default {
       // which is lazy-loaded when the route is visited.
       component: () =>
         import(/* webpackChunkName: "about" */ "@/views/product/Features.vue"),
-
     },
   ],
 };

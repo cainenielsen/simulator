@@ -196,7 +196,7 @@ const mod_Work = {
     },
     task_research({ commit }) {
       commit("addResearchPoint");
-    }
+    },
   },
 };
 

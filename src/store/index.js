@@ -106,7 +106,7 @@ export default createStore({
     },
     getCurrencyFormat: () => (num) => {
       return toCurrency(num);
-    }
+    },
   },
   mutations: {},
   modules: {

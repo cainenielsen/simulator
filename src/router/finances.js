@@ -25,8 +25,6 @@ export default {
         import(
           /* webpackChunkName: "about" */ "@/views/finances/Dashboard.vue"
         ),
-
-
     },
     {
       path: "investments",
@@ -38,8 +36,6 @@ export default {
         import(
           /* webpackChunkName: "about" */ "@/views/finances/Investments.vue"
         ),
-
-
     },
     {
       path: "transactions",
@@ -51,8 +47,6 @@ export default {
         import(
           /* webpackChunkName: "about" */ "@/views/finances/Transactions.vue"
         ),
-
-
     },
   ],
 };

@@ -3,7 +3,7 @@
     <label v-if="name">{{ name }}</label
     ><br />
     <span class="input">
-      {{extra}}
+      {{ extra }}
       <input
         :type="type"
         :disabled="disabled === true"

@@ -18,21 +18,18 @@ export default {
       name: "Load Game",
       component: () =>
         import(/* webpackChunkName: "about" */ "@/views/home/LoadGame.vue"),
-
     },
     {
       path: "new-game",
       name: "New Game",
       component: () =>
         import(/* webpackChunkName: "about" */ "@/views/home/NewGame.vue"),
-
     },
     {
       path: "settings",
       name: "Settings",
       component: () =>
         import(/* webpackChunkName: "about" */ "@/views/home/Settings.vue"),
-
     },
   ],
 };

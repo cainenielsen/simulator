@@ -23,8 +23,6 @@ export default {
       // which is lazy-loaded when the route is visited.
       component: () =>
         import(/* webpackChunkName: "about" */ "@/views/office/Utilities.vue"),
-
-
     },
     {
       path: "capacity",
@@ -34,8 +32,6 @@ export default {
       // which is lazy-loaded when the route is visited.
       component: () =>
         import(/* webpackChunkName: "about" */ "@/views/office/Capacity.vue"),
-
-
     },
     {
       path: "real-estate",
@@ -45,8 +41,6 @@ export default {
       // which is lazy-loaded when the route is visited.
       component: () =>
         import(/* webpackChunkName: "about" */ "@/views/office/RealEstate.vue"),
-
-
     },
   ],
 };

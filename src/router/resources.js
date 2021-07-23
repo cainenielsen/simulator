@@ -26,7 +26,6 @@ export default {
         import(
           /* webpackChunkName: "about" */ "@/views/resources/Catalouge.vue"
         ),
-
     },
     {
       path: "logistics",
@@ -38,7 +37,6 @@ export default {
         import(
           /* webpackChunkName: "about" */ "@/views/resources/Logistics.vue"
         ),
-
     },
     {
       path: "inventory",
@@ -50,7 +48,6 @@ export default {
         import(
           /* webpackChunkName: "about" */ "@/views/resources/Inventory.vue"
         ),
-
     },
     {
       path: "storage",
@@ -60,7 +57,6 @@ export default {
       // which is lazy-loaded when the route is visited.
       component: () =>
         import(/* webpackChunkName: "about" */ "@/views/resources/Storage.vue"),
-
     },
   ],
 };

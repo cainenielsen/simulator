@@ -8,8 +8,14 @@
         class="grid-item"
         :class="{ 'grid-item-active': position.researched === true }"
       >
-        {{ position.name }}<br /><br /><b><i class="fas fa-vial"></i> {{ position.researchCost }}</b
-        ><br /><br /><button v-if="position.researched === false" @click="this.researchPosition(position.id)">Research</button>
+        {{ position.name }}<br /><br /><b
+          ><i class="fas fa-vial"></i> {{ position.researchCost }}</b
+        ><br /><br /><button
+          v-if="position.researched === false"
+          @click="this.researchPosition(position.id)"
+        >
+          Research
+        </button>
       </div>
     </div>
     <h1>Materials</h1>
@@ -20,8 +26,14 @@
         class="grid-item"
         :class="{ 'grid-item-active': research.researched == true }"
       >
-        {{ research.name }}<br /><br /><b><i class="fas fa-vial"></i> {{ research.cost }}</b
-        ><br /><br /><button v-if="research.researched === false" @click="this.research(research.id)">Research</button>
+        {{ research.name }}<br /><br /><b
+          ><i class="fas fa-vial"></i> {{ research.cost }}</b
+        ><br /><br /><button
+          v-if="research.researched === false"
+          @click="this.research(research.id)"
+        >
+          Research
+        </button>
       </div>
     </div>
     <h1>Components</h1>
@@ -32,8 +44,14 @@
         class="grid-item"
         :class="{ 'grid-item-active': research.researched == true }"
       >
-        {{ research.name }}<br /><br /><b><i class="fas fa-vial"></i> {{ research.cost }}</b
-        ><br /><br /><button v-if="research.researched === false" @click="this.research(research.id)">Research</button>
+        {{ research.name }}<br /><br /><b
+          ><i class="fas fa-vial"></i> {{ research.cost }}</b
+        ><br /><br /><button
+          v-if="research.researched === false"
+          @click="this.research(research.id)"
+        >
+          Research
+        </button>
       </div>
     </div>
     <h1>Software</h1>
@@ -44,8 +62,14 @@
         class="grid-item"
         :class="{ 'grid-item-active': research.researched == true }"
       >
-        {{ research.name }}<br /><br /><b><i class="fas fa-vial"></i> {{ research.cost }}</b
-        ><br /><br /><button v-if="research.researched === false" @click="this.research(research.id)">Research</button>
+        {{ research.name }}<br /><br /><b
+          ><i class="fas fa-vial"></i> {{ research.cost }}</b
+        ><br /><br /><button
+          v-if="research.researched === false"
+          @click="this.research(research.id)"
+        >
+          Research
+        </button>
       </div>
     </div>
   </div>
@@ -56,15 +80,15 @@ export default {
   name: "Office",
   methods: {
     research(id) {
-      this.$store.dispatch("researchItem", {id: id}).then((resp) => {
-        if(resp === "Error") {
+      this.$store.dispatch("researchItem", { id: id }).then((resp) => {
+        if (resp === "Error") {
           alert("Error: Not enough research");
         }
       });
     },
     researchPosition(id) {
       this.$store.dispatch("unlockPosition", id).then((resp) => {
-        if(resp === "Error") {
+        if (resp === "Error") {
           alert("Error: Not enough research");
         }
       });

@@ -59,11 +59,15 @@
 
     <p>{{ location.display }}</p>
   </div>
-  <div style="text-align:center;" v-else>No position types researched. <router-link
+  <div style="text-align: center" v-else>
+    No position types researched.
+    <router-link
       style="color: var(--peter-river); font-weight: bold"
       to="/product/research"
       >Research new position types</router-link
-    > then create new positions.</div>
+    >
+    then create new positions.
+  </div>
 </template>
 <script>
 import input from "@/components/input.vue";
@@ -109,21 +113,21 @@ export default {
     positionNames() {
       let positions = [];
       this.$store.getters.get_selectablePositionTypes.forEach((position) => {
-        positions.push({id: position.id, display: position.name});
+        positions.push({ id: position.id, display: position.name });
       });
       return positions;
     },
     positionLevels() {
       let levels = [];
       this.$store.getters.positionLevels.forEach((level) => {
-        levels.push({id: level.id, display: level.name});
+        levels.push({ id: level.id, display: level.name });
       });
       return levels;
     },
     locationNames() {
       let locations = [];
       this.$store.getters.get_ownedOffices.forEach((location) => {
-        locations.push({id: location.id, display: location.name});
+        locations.push({ id: location.id, display: location.name });
       });
       return locations;
     },

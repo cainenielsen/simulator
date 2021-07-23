@@ -1,6 +1,7 @@
 <template>
   <div>
-    <label v-if="name">{{ name }}</label><br />
+    <label v-if="name">{{ name }}</label
+    ><br />
     <div class="custom-select" :tabindex="tabindex" @blur="open = false">
       <div class="selected" :class="{ open: open }" @click="open = !open">
         {{ selected.display }}
