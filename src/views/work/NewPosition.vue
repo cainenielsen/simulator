@@ -59,7 +59,7 @@
 
     <p>{{ location.display }}</p>
   </div>
-  <div v-else>No position types researched. <router-link
+  <div style="text-align:center;" v-else>No position types researched. <router-link
       style="color: var(--peter-river); font-weight: bold"
       to="/product/research"
       >Research new position types</router-link

@@ -296,12 +296,20 @@ export default {
   padding: 0px;
   overflow: hidden;
   user-select: none;
+  cursor: pointer;
+  line-height: 48px;
 }
 
 .nav-item:hover {
-  background-color: var(--peter-river);
-  color: white;
-  cursor: pointer;
+  background-color: var(--clouds);
+}
+
+.nav-item.router-link-exact-active {
+  background-color: var(--clouds-700);
+}
+
+.nav-item:active {
+  background-color: var(--clouds-600);
 }
 
 .vertical-nav-item {
@@ -315,8 +323,8 @@ export default {
 }
 
 .nav-item-free {
-  padding-left: 8px;
-  padding-right: 8px;
+  padding-left: 16px;
+  padding-right: 16px;
 }
 
 .nav-item-button {
