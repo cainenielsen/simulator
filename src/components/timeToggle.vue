@@ -1,6 +1,6 @@
 <template>
   <span
-    class="play background-color-orange color-orange-50 nav-item nav-item-button"
+    class="time background-color-orange color-orange-50 nav-item nav-item-button"
     v-if="$store.getters.get_worldState.running === true"
     @click="toggleRun"
   >
@@ -8,7 +8,7 @@
   </span>
   <span
     v-else
-    class="background-color-emerald color-emerald-50 nav-item nav-item-button pause"
+    class="time background-color-emerald color-emerald-50 nav-item nav-item-button pause"
     @click="toggleRun"
   >
     <i class="fas fa-play-circle"></i>
@@ -67,3 +67,8 @@ export default {
   },
 };
 </script>
+<style scoped>
+.time:hover {
+  background-color: var(--clouds-900) !important;
+}
+</style>

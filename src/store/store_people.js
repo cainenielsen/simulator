@@ -5,65 +5,12 @@ import {
 } from "../scripts/tools.js";
 
 const generator = new idGenerator();
-class staffMember {
-  constructor(data) {
-    this.id = generator.generate();
-    this.gender = data.gender;
-    this.age = data.age;
-    this.firstName = data.firstName;
-    this.lastName = data.lastName;
-    this.skills = data.skills;
-    this.role = data.role;
-    this.restricted = data.restricted || false;
-    this.self = data.self || false;
-  }
-  getFirstName() {
-    return this.firstName[0].toUpperCase() + this.firstName.substring(1);
-  }
-  getLastName() {
-    return this.lastName[0].toUpperCase() + this.lastName.substring(1);
-  }
-  getFullName() {
-    return this.getFirstName() + " " + this.getLastName();
-  }
-}
 
-class Position {
-  constructor(data) {
-    this.compensation = data.compensation;
-    this.type = data.type;
-    this.level = data.level;
-    this.location = data.location;
-    this.status = data.status;
-    this.holder = data.holder;
-    this.id = generator.generate();
-    this.listed = false;
-    this.restricted = data.restricted || false;
-    this.selectedTask = data.selectedTask || null;
-  }
-}
+import staffMember from "@/defs/staffMember.js";
+import Position from "@/defs/position.js";
+import Candidate from "@/defs/candidate.js";
 
-class Candidate {
-  constructor(data) {
-    this.id = data.id;
-    this.gender = data.gender;
-    this.age = data.age;
-    this.firstName = data.firstName;
-    this.lastName = data.lastName;
-    this.compensation = data.compensation;
-    this.skills = data.skills;
-    this.listing = data.listing;
-  }
-  getFirstName() {
-    return this.firstName[0].toUpperCase() + this.firstName.substring(1);
-  }
-  getLastName() {
-    return this.lastName[0].toUpperCase() + this.lastName.substring(1);
-  }
-  getFullName() {
-    return this.getFirstName() + " " + this.getLastName();
-  }
-}
+
 
 const mod_People = {
   state: () => ({
@@ -283,6 +230,23 @@ const mod_People = {
       });
       commit("saveTeamMember", teamMember);
       commit("deleteCandidate", data.id);
+    },
+    setSelectedTask({ state, commit }, data) {
+      let position = state.positions.find(
+        (element) => element.id == data.positionId
+      );
+      position.selectedTask = data.taskId;
+      commit("updatePosition", position);
+    },
+    workTask({ state, commit }, data) {
+      let position = state.positions.find((element) => element.id == data.id);
+      const skill = 5;
+      position.taskComplete = position.taskComplete + skill;
+      if (position.taskComplete > 100) {
+        console.log("task complete");
+        position.taskComplete = 0;
+      }
+      commit("updatePosition", position);
     },
   },
 };

@@ -4,7 +4,7 @@ const generator = new idGenerator();
 
 const mod_Product = {
   state: () => ({
-    researchPoints: 5000,
+    researchPoints: 0,
     research: [
       {
         name: "Salesmen",

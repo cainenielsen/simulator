@@ -112,6 +112,7 @@ export default {
       if (this.$store.getters.get_worldState.running == true) {
         this.$store.dispatch("setDate", 5);
         this.scout();
+        this.work();
       }
     },
     formatCurrency(input) {
@@ -119,6 +120,14 @@ export default {
     },
     stopIncrement() {
       clearInterval(this.increment);
+    },
+    work() {
+      this.$store.getters.get_activePositions.forEach((position) => {
+        if (position.selectedTask) {
+          console.log(position);
+          this.$store.dispatch("workTask", position);
+        }
+      });
     },
     scout() {
       this.$store.getters.get_listedPositions.forEach((listing) => {

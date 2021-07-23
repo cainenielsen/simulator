@@ -1,12 +1,10 @@
 <template>
   <div v-if="positionData">
-    <router-link :to="`/people/staff/member/${positionData.id}`"
-      ><h1>
-        {{ $store.getters.get_typeById(positionData.type).name }}
-        -
-        {{ $store.getters.get_levelById(positionData.level).name }}
-      </h1></router-link
-    >
+    <h1>
+      {{ $store.getters.get_typeById(positionData.type).name }}
+      -
+      {{ $store.getters.get_levelById(positionData.level).name }}
+    </h1>
     <h2>Details</h2>
     <h3>Compensation</h3>
 
@@ -16,9 +14,15 @@
     <li>{{ $store.getters.get_officeById(positionData.location).name }}</li>
     <hr />
     <h2>Work</h2>
-    <span v-if="$store.getters.get_taskById(positionData.selectedTask)">{{
-      $store.getters.get_taskById(positionData.selectedTask).name
-    }}</span>
+    <span v-if="$store.getters.get_taskById(positionData.selectedTask)"
+      >{{ $store.getters.get_taskById(positionData.selectedTask).name }}
+      <label for="work"></label>
+      <br />
+      <progress id="work" max="100" :value="positionData.taskComplete">
+        70%
+      </progress>
+    </span>
+
     <span v-else><i>No task selected</i></span>
     <Select
       v-model="selectedTask"

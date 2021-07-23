@@ -302,16 +302,6 @@ const mod_Work = {
         return "Error";
       }
     },
-    setSelectedTask({ state, commit }, data) {
-      console.log(data);
-
-      let position = state.positions.find(
-        (element) => element.id == data.positionId
-      );
-      position.selectedTask = data.taskId;
-
-      commit("updatePosition", position);
-    },
   },
 };
 
