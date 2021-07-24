@@ -3,7 +3,7 @@
   <nav-bar-left />
   <nav-bar-right />
   <nav-bar-top />
-  <main id="canvas" class="background-color-silver-50">
+  <main id="canvas">
     <slot />
     <div id="canvas-overlay"></div>
   </main>

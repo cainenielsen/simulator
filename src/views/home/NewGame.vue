@@ -1,7 +1,21 @@
 <template>
-  <div></div>
+  <card>
+    Business name
+
+    Difficulty
+
+    Player
+
+    Skills
+
+    Money
+  </card>
 </template>
 
 <script>
-export default {};
+import card from "@/components/card.vue";
+
+export default {
+  components: { card },
+};
 </script>

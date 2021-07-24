@@ -6,19 +6,32 @@ export default {
   component: Home,
   meta: {
     subNavItems: [
-      { name: "Continue", to: "/people/staff" },
-      { name: "Load Game", to: "/load-game" },
-      { name: "New Game", to: "/new-game" },
-      { name: "Settings", to: "/settings" },
+      { name: "Welcome", icon: "fas fa-door-open", to: "/welcome" },
+      { name: "Continue", icon: "fas fa-rocket", to: "/people/staff" },
+      { name: "Load Game", icon: "fas fa-upload", to: "/load-game" },
+      { name: "New Game", icon: "fas fa-plus", to: "/new-game" },
+      { name: "Settings", icon: "fas fa-cogs", to: "/settings" },
     ],
     layout: "landing",
+    icon: "fas fa-door-open"
   },
   children: [
+    {
+      path: "welcome",
+      name: "Welcome",
+      meta: {
+        layout: "landing",
+        icon: "fas fa-door-open",
+      },
+      component: () =>
+        import(/* webpackChunkName: "about" */ "@/views/home/Welcome.vue"),
+    },
     {
       path: "load-game",
       name: "Load Game",
       meta: {
         layout: "landing",
+        icon: "fas fa-upload",
       },
       component: () =>
         import(/* webpackChunkName: "about" */ "@/views/home/LoadGame.vue"),
@@ -28,6 +41,7 @@ export default {
       name: "New Game",
       meta: {
         layout: "landing",
+        icon: "fas fa-plus",
       },
       component: () =>
         import(/* webpackChunkName: "about" */ "@/views/home/NewGame.vue"),
@@ -37,9 +51,14 @@ export default {
       name: "Settings",
       meta: {
         layout: "landing",
+        icon: "fas fa-cogs",
       },
       component: () =>
         import(/* webpackChunkName: "about" */ "@/views/home/Settings.vue"),
+    },
+    {
+      path: "",
+      redirect: "/welcome",
     },
   ],
 };
