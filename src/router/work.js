@@ -13,6 +13,7 @@ export default {
       { name: "Positions", icon: "far fa-id-badge", to: "/work/positions" },
       { name: "Tasks", icon: "fas fa-check-double", to: "/work/tasks" },
     ],
+    layout: "dashboard",
   },
   children: [
     {
@@ -32,6 +33,7 @@ export default {
       name: "Positions",
       meta: {
         icon: "far fa-id-badge",
+        layout: "dashboard",
       },
       // route level code-splitting
       // this generates a separate chunk (about.[hash].js) for this route
@@ -50,6 +52,7 @@ export default {
       meta: {
         subNavItems: [{ name: "Back", icon: "far fa-id-badge", to: "./" }],
         icon: "far fa-id-badge",
+        layout: "dashboard",
       },
     },
     {
@@ -70,6 +73,7 @@ export default {
       name: "Tasks",
       meta: {
         icon: "fas fa-check-double",
+        layout: "dashboard",
       },
       // route level code-splitting
       // this generates a separate chunk (about.[hash].js) for this route
@@ -79,7 +83,7 @@ export default {
     },
     {
       path: "",
-      redirect: "/work/positions"
+      redirect: "/work/positions",
     },
   ],
 };

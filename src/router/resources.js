@@ -22,6 +22,7 @@ export default {
         to: "/resources/logistics",
       },
     ],
+    layout: "dashboard",
   },
   children: [
     {
@@ -29,6 +30,7 @@ export default {
       name: "Catalouge",
       meta: {
         icon: "fas fa-grip-horizontal",
+        layout: "dashboard",
       },
       // route level code-splitting
       // this generates a separate chunk (about.[hash].js) for this route
@@ -43,6 +45,7 @@ export default {
       name: "Logistics",
       meta: {
         icon: "fas fa-truck-loading",
+        layout: "dashboard",
       },
       // route level code-splitting
       // this generates a separate chunk (about.[hash].js) for this route
@@ -57,6 +60,7 @@ export default {
       name: "Inventory",
       meta: {
         icon: "fas fa-boxes",
+        layout: "dashboard",
       },
       // route level code-splitting
       // this generates a separate chunk (about.[hash].js) for this route
@@ -71,6 +75,7 @@ export default {
       name: "Storage",
       meta: {
         icon: "fas fa-warehouse",
+        layout: "dashboard",
       },
       // route level code-splitting
       // this generates a separate chunk (about.[hash].js) for this route

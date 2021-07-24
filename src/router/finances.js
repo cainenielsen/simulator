@@ -21,6 +21,7 @@ export default {
         to: "/finances/investments",
       },
     ],
+    layout: "dashboard",
   },
   children: [
     {
@@ -28,6 +29,7 @@ export default {
       name: "Dashboard",
       meta: {
         icon: "fas fa-columns",
+        layout: "dashboard",
       },
       // route level code-splitting
       // this generates a separate chunk (about.[hash].js) for this route
@@ -42,6 +44,7 @@ export default {
       name: "Investments",
       meta: {
         icon: "fas fa-chart-area",
+        layout: "dashboard",
       },
       // route level code-splitting
       // this generates a separate chunk (about.[hash].js) for this route
@@ -56,6 +59,7 @@ export default {
       name: "Transactions",
       meta: {
         icon: "far fa-list-alt",
+        layout: "dashboard",
       },
       // route level code-splitting
       // this generates a separate chunk (about.[hash].js) for this route

@@ -1,13 +1,13 @@
 import { createStore } from "vuex";
 
-import mod_World from "./store_world";
-import mod_People from "./store_people";
-import mod_Finance from "./store_finance";
-import mod_Facilities from "./store_facilities";
-import mod_Product from "./store_product";
-import mod_Work from "./store_work";
+import mod_World from "@/store/store_world";
+import mod_People from "@/store/store_people";
+import mod_Finance from "@/store/store_finance";
+import mod_Facilities from "@/store/store_facilities";
+import mod_Product from "@/store/store_product";
+import mod_Work from "@/store/store_work";
 
-import { toCurrency } from "../scripts/tools.js";
+import { toCurrency } from "@/scripts/tools.js";
 
 export default createStore({
   state: {

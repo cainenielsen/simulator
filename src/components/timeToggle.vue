@@ -1,23 +1,23 @@
 <template>
-  <span
-    class="time background-color-orange color-orange-50 nav-item nav-item-button"
+  <nav-item
+    type="button"
+    class="time background-color-orange color-orange-50"
     v-if="$store.getters.get_worldState.running === true"
     @click="toggleRun"
   >
     <i class="fas fa-pause-circle"></i>
-  </span>
-  <span
+  </nav-item>
+  <nav-item
+    type="button"
     v-else
-    class="time background-color-emerald color-emerald-50 nav-item nav-item-button pause"
+    class="time background-color-emerald color-emerald-50 pause"
     @click="toggleRun"
   >
     <i class="fas fa-play-circle"></i>
-  </span>
-  <span class="nav-item nav-item-button"
-    ><i class="fas fa-chevron-circle-right"></i
-  ></span>
-  <span class="nav-item nav-item-button"><i class="fas fa-sync-alt"></i></span>
-  <span class="nav-item nav-item-free">
+  </nav-item>
+  <nav-item type="button"><i class="fas fa-chevron-circle-right"></i></nav-item>
+  <nav-item type="button"><i class="fas fa-sync-alt"></i></nav-item>
+  <nav-item>
     <i class="fas fa-calendar"></i>
     {{ getWeekDay($store.getters.get_worldState.currentTime) }},
     {{
@@ -28,16 +28,19 @@
     {{ $store.getters.get_worldState.currentTime.getDate()
     }}{{ toMonthFormat($store.getters.get_worldState.currentTime.getDate()) }}
     {{ $store.getters.get_worldState.currentTime.getFullYear() }}
-  </span>
-  <span class="nav-item nav-item-free">
+  </nav-item>
+  <nav-item>
     <i class="fas fa-clock"></i>
     {{ toTimeFormat($store.getters.get_worldState.currentTime) }}
-  </span>
+  </nav-item>
 </template>
 
 <script>
-import { formatTime, formatMonth, findWeekDay } from "../scripts/dates.js";
+import { formatTime, formatMonth, findWeekDay } from "@/scripts/dates.js";
+import navItem from "@/components/navigation/nav-item.vue";
+
 export default {
+  components: { "nav-item": navItem },
   data() {
     return {
       running: false,

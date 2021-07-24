@@ -14,11 +14,7 @@ export default {
   border-radius: 16px;
   padding: 16px;
   margin: 16px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.16), 0 2px 8px rgba(0, 0, 0, 0.24);
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
   transition: box-shadow 0.5s;
-}
-
-.card:hover {
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.24), 0 2px 12px rgba(0, 0, 0, 0.32);
 }
 </style>

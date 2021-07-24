@@ -18,6 +18,7 @@ export default {
         to: "/people/investors",
       },
     ],
+    layout: "dashboard",
   },
   children: [
     {
@@ -25,6 +26,7 @@ export default {
       name: "Staff",
       meta: {
         icon: "fas fa-user-tie",
+        layout: "dashboard",
       },
       // route level code-splitting
       // this generates a separate chunk (about.[hash].js) for this route
@@ -45,6 +47,7 @@ export default {
       meta: {
         subNavItems: [{ name: "Back", to: "/people/staff" }],
         icon: "fas fa-user-tag",
+        layout: "dashboard",
       },
     },
     {
@@ -52,6 +55,7 @@ export default {
       name: "Candidates",
       meta: {
         icon: "fas fa-user-check",
+        layout: "dashboard",
       },
       // route level code-splitting
       // this generates a separate chunk (about.[hash].js) for this route
@@ -64,6 +68,7 @@ export default {
       name: "Customers",
       meta: {
         icon: "fas fa-user-tag",
+        layout: "dashboard",
       },
       // route level code-splitting
       // this generates a separate chunk (about.[hash].js) for this route
@@ -76,6 +81,7 @@ export default {
       name: "Investors",
       meta: {
         icon: "fas fa-hand-holding-usd",
+        layout: "dashboard",
       },
       // route level code-splitting
       // this generates a separate chunk (about.[hash].js) for this route

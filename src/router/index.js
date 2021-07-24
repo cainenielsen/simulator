@@ -1,11 +1,11 @@
 import { createRouter, createWebHistory } from "vue-router";
-import home from "./home.js";
-import people from "./people.js";
-import work from "./work.js";
-import finances from "./finances.js";
-import facilities from "./facilities.js";
-import resources from "./resources.js";
-import product from "./product.js";
+import home from "@/router/home.js";
+import people from "@/router/people.js";
+import work from "@/router/work.js";
+import finances from "@/router/finances.js";
+import facilities from "@/router/facilities.js";
+import resources from "@/router/resources.js";
+import product from "@/router/product.js";
 
 const routes = [home, people, work, finances, facilities, resources, product];
 

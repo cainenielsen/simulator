@@ -13,6 +13,7 @@ export default {
       { name: "Research", icon: "fas fa-vials", to: "/product/research" },
       { name: "Features", icon: "fas fa-star", to: "/product/features" },
     ],
+    layout: "dashboard",
   },
   children: [
     {
@@ -20,6 +21,7 @@ export default {
       name: "Research",
       meta: {
         icon: "fas fa-vials",
+        layout: "dashboard",
       },
       // route level code-splitting
       // this generates a separate chunk (about.[hash].js) for this route
@@ -32,6 +34,7 @@ export default {
       name: "Products",
       meta: {
         icon: "fas fa-compass",
+        layout: "dashboard",
       },
       // route level code-splitting
       // this generates a separate chunk (about.[hash].js) for this route
@@ -44,6 +47,7 @@ export default {
       name: "Features",
       meta: {
         icon: "fas fa-star",
+        layout: "dashboard",
       },
       // route level code-splitting
       // this generates a separate chunk (about.[hash].js) for this route

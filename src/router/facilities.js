@@ -17,6 +17,7 @@ export default {
         to: "/facilities/real-estate",
       },
     ],
+    layout: "dashboard",
   },
   children: [
     {
@@ -24,6 +25,7 @@ export default {
       name: "Utilities",
       meta: {
         icon: "fas fa-plug",
+        layout: "dashboard",
       },
       // route level code-splitting
       // this generates a separate chunk (about.[hash].js) for this route
@@ -38,6 +40,7 @@ export default {
       name: "Capacity",
       meta: {
         icon: "far fa-map",
+        layout: "dashboard",
       },
       // route level code-splitting
       // this generates a separate chunk (about.[hash].js) for this route
@@ -52,6 +55,7 @@ export default {
       name: "Real Estate",
       meta: {
         icon: "fas fa-store-alt",
+        layout: "dashboard",
       },
       // route level code-splitting
       // this generates a separate chunk (about.[hash].js) for this route
