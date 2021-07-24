@@ -80,7 +80,6 @@
 
 <script>
 export default {
-  name: "Office",
   methods: {
     research(id) {
       this.$store.dispatch("researchItem", { id: id }).then((resp) => {

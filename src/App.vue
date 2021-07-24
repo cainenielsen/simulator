@@ -11,8 +11,8 @@
         <router-link class="nav-item nav-item-free" to="/finances"
           ><i class="fas fa-money-bill"></i> Finances</router-link
         >
-        <router-link class="nav-item nav-item-free" to="/office"
-          ><i class="fas fa-building"></i> Office</router-link
+        <router-link class="nav-item nav-item-free" to="/facilities"
+          ><i class="fas fa-building"></i> Facilities</router-link
         >
         <router-link class="nav-item nav-item-free" to="/resources"
           ><i class="fas fa-database"></i> Resources</router-link
@@ -96,9 +96,12 @@ export default {
       compensation: 3000,
       type: this.$store.getters.get_typeByName("Founder").id,
       level: this.$store.getters.get_levelByName("Beginner").id,
-      location: this.$store.getters.get_officeByName("Basement").id,
+      location: this.$store.getters.get_facilityByName("Basement").id,
       restricted: true,
     });
+    for (var i = 1; i < 20; i++) {
+      this.$store.dispatch("createFacility");
+    }
   },
   created() {
     this.increment = setInterval(this.incrementTime, 1000);

@@ -3,7 +3,7 @@ function toCurrency(input) {
     style: "currency",
     currency: "USD",
   });
-  return formatter.format(input);
+  return formatter.format(input).replace(".00", "");
 }
 
 function selectRandom(input) {

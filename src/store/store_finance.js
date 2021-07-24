@@ -6,7 +6,7 @@ const mod_Finance = {
   getters: {
     get_totalCosts(state, getters) {
       var totalCosts = 0;
-      totalCosts = totalCosts + getters.get_totalOfficeCost;
+      totalCosts = totalCosts + getters.get_totalFacilitiesCost;
       totalCosts = totalCosts + getters.get_totalResourceCost;
       totalCosts = totalCosts + getters.get_totalPayRollCost;
       return totalCosts;
@@ -19,13 +19,19 @@ const mod_Finance = {
     },
   },
   mutations: {
-    withdrawFunds(state, cost) {
-      state.capital = state.capital - cost;
+    updateBalance(state, cost) {
+      state.capital = state.capital + cost;
     },
   },
   actions: {
-    collectCosts({ commit, getters }) {
-      commit("withdrawFunds", getters.get_totalCosts);
+    depositFunds({ commit }, cost) {
+      commit("updateBalance", cost);
+    },
+    withdrawFunds({ commit }, cost) {
+      commit("updateBalance", -cost);
+    },
+    collectCosts({ dispatch, getters }) {
+      dispatch("withdrawFunds", getters.get_totalCosts);
     },
   },
   modules: {},

@@ -6,6 +6,11 @@ export default class Facility extends index {
     this.name = data.name;
     this.cost = data.cost;
     this.capacity = data.capacity;
+    this.storage = data.storage;
     this.status = data.status;
+    this.type = data.type;
+  }
+  getSellPrice() {
+    return this.cost * 0.4;
   }
 }

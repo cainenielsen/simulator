@@ -11,7 +11,7 @@
     <li>{{ $store.getters.getCurrencyFormat(positionData.compensation) }}</li>
 
     <h3>Location</h3>
-    <li>{{ $store.getters.get_officeById(positionData.location).name }}</li>
+    <li>{{ $store.getters.get_facilityById(positionData.location).name }}</li>
     <hr />
     <h2>Work</h2>
     <span v-if="$store.getters.get_taskById(positionData.selectedTask)"

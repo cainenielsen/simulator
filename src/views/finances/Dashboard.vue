@@ -28,17 +28,17 @@
           </line-item>
         </list>
         Total: {{ currencyDisplay($store.getters.get_totalResourceCost) }}
-        <h2>Office:</h2>
+        <h2>Facilities:</h2>
         <list>
           <line-item
-            v-for="office in $store.getters.get_ownedOffices"
-            :key="office.id"
+            v-for="facility in $store.getters.get_ownedFacilities"
+            :key="facility.id"
           >
-            <span>{{ office.name }}</span>
-            <span>{{ currencyDisplay(office.cost) }}</span>
+            <span>{{ facility.name }}</span>
+            <span>{{ currencyDisplay(facility.cost) }}</span>
           </line-item>
         </list>
-        Total: {{ currencyDisplay($store.getters.get_totalOfficeCost) }}
+        Total: {{ currencyDisplay($store.getters.get_totalFacilitiesCost) }}
         <h3>Total: {{ currencyDisplay($store.getters.get_totalCosts) }}</h3>
       </div>
       <div class="right card">

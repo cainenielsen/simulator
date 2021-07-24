@@ -1,5 +1,5 @@
 <template>
-  <div class="card">
+  <Card>
     <h1 :title="candidate.id">{{ candidate.getFullName() }}</h1>
     <ul>
       <li>Age: {{ candidate.age }}</li>
@@ -31,14 +31,16 @@
       @click="hireCandidate(candidate)"
       ><i class="fas fa-plus"></i> Hire Candidate</span
     >
-  </div>
+  </Card>
 </template>
 
 <script>
-import { toCurrency } from "../scripts/tools.js";
+import { toCurrency } from "@/scripts/tools.js";
+import card from "@/components/card.vue";
 
 export default {
   props: ["candidate"],
+  components: { Card: card },
   methods: {
     formatCurrency(input) {
       return toCurrency(input);

@@ -1,20 +1,20 @@
 export default {
-  path: "/office",
-  name: "Office",
+  path: "/facilities",
+  name: "Facilities",
   // route level code-splitting
   // this generates a separate chunk (about.[hash].js) for this route
   // which is lazy-loaded when the route is visited.
   component: () =>
-    import(/* webpackChunkName: "about" */ "@/views/office/index.vue"),
+    import(/* webpackChunkName: "about" */ "@/views/facilities/index.vue"),
 
   meta: {
     subNavItems: [
-      { name: "Capacity", icon: "far fa-map", to: "/office/capacity" },
-      { name: "Utilities", icon: "fas fa-plug", to: "/office/utilities" },
+      { name: "Capacity", icon: "far fa-map", to: "/facilities/capacity" },
+      { name: "Utilities", icon: "fas fa-plug", to: "/facilities/utilities" },
       {
         name: "Real Estate",
         icon: "fas fa-store-alt",
-        to: "/office/real-estate",
+        to: "/facilities/real-estate",
       },
     ],
   },
@@ -29,7 +29,9 @@ export default {
       // this generates a separate chunk (about.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
       component: () =>
-        import(/* webpackChunkName: "about" */ "@/views/office/Utilities.vue"),
+        import(
+          /* webpackChunkName: "about" */ "@/views/facilities/Utilities.vue"
+        ),
     },
     {
       path: "capacity",
@@ -41,7 +43,9 @@ export default {
       // this generates a separate chunk (about.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
       component: () =>
-        import(/* webpackChunkName: "about" */ "@/views/office/Capacity.vue"),
+        import(
+          /* webpackChunkName: "about" */ "@/views/facilities/Capacity.vue"
+        ),
     },
     {
       path: "real-estate",
@@ -53,11 +57,13 @@ export default {
       // this generates a separate chunk (about.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
       component: () =>
-        import(/* webpackChunkName: "about" */ "@/views/office/RealEstate.vue"),
+        import(
+          /* webpackChunkName: "about" */ "@/views/facilities/RealEstate.vue"
+        ),
     },
     {
       path: "",
-      redirect: "/office/real-estate",
+      redirect: "/facilities/real-estate",
     },
   ],
 };

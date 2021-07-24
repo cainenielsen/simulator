@@ -102,7 +102,7 @@ export default {
               this.$router.push("/work/positions");
             });
         } else {
-          alert("The selected office does not have enough capacity");
+          alert("The selected facility does not have enough capacity");
         }
       } else {
         alert("Enter a compensation amount");
@@ -126,7 +126,7 @@ export default {
     },
     locationNames() {
       let locations = [];
-      this.$store.getters.get_ownedOffices.forEach((location) => {
+      this.$store.getters.get_ownedFacilities.forEach((location) => {
         locations.push({ id: location.id, display: location.name });
       });
       return locations;

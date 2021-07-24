@@ -33,14 +33,6 @@ a {
   text-decoration: initial;
 }
 
-.card {
-  background-color: white;
-  border-radius: 16px;
-  padding: 16px;
-  margin: 16px;
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
-}
-
 .grid {
   display: grid;
   grid-template-columns: 19% 19% 19% 19% 19%;

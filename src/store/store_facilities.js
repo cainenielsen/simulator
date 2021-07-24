@@ -1,27 +1,19 @@
+import { selectRandom, randomNumberBetween } from "@/scripts/tools.js";
+
 import Facility from "@/defs/facility.js";
 import Resource from "@/defs/resource.js";
 
-const mod_Office = {
+const mod_Facilities = {
   state: () => ({
     rent: 3000,
-    offices: [
+    facilities: [
       new Facility({
         name: "Basement",
         cost: 1500,
         capacity: 5,
+        storage: 500,
         status: "owned",
-      }),
-      new Facility({
-        name: "Small Office",
-        cost: 5000,
-        capacity: 10,
-        status: "available",
-      }),
-      new Facility({
-        name: "Cottonwood Suites",
-        cost: 10000,
-        capacity: 25,
-        status: "available",
+        type: "office",
       }),
     ],
     resources: [
@@ -125,23 +117,25 @@ const mod_Office = {
     ],
   }),
   getters: {
-    get_officeState(state) {
+    get_facilitiesState(state) {
       return state;
     },
-    get_availableOffices(state) {
-      return state.offices.filter((element) => element.status === "available");
+    get_availableFacilities(state) {
+      return state.facilities.filter(
+        (element) => element.status === "available"
+      );
     },
-    get_ownedOffices(state) {
-      return state.offices.filter((element) => element.status === "owned");
+    get_ownedFacilities(state) {
+      return state.facilities.filter((element) => element.status === "owned");
     },
     get_capacity: (state) => (id) => {
-      return state.offices.find((element) => element.id === id).capacity;
+      return state.facilities.find((element) => element.id === id).capacity;
     },
-    get_officeByName: (state) => (name) => {
-      return state.offices.find((element) => element.name === name);
+    get_facilityByName: (state) => (name) => {
+      return state.facilities.find((element) => element.name === name);
     },
-    get_officeById: (state) => (id) => {
-      return state.offices.find((element) => element.id === id);
+    get_facilityById: (state) => (id) => {
+      return state.facilities.find((element) => element.id === id);
     },
     // State is required here for whatever reason
     get_remainingCapacity: (state, getters) => (id) => {
@@ -162,15 +156,15 @@ const mod_Office = {
     get_activeResources(state) {
       return state.resources.filter((element) => element.purchased === true);
     },
-    get_totalOfficeCost(state) {
-      let officeCost = 0;
-      const offices = state.offices.filter(
+    get_totalFacilitiesCost(state) {
+      let facilityCost = 0;
+      const facilities = state.facilities.filter(
         (element) => element.status === "owned"
       );
-      offices.forEach((office) => {
-        officeCost = officeCost + office.cost;
+      facilities.forEach((facility) => {
+        facilityCost = facilityCost + facility.cost;
       });
-      return officeCost;
+      return facilityCost;
     },
     get_totalResourceCost(state) {
       let resourceCost = 0;
@@ -192,15 +186,40 @@ const mod_Office = {
       let index = state.resources.findIndex((element) => element.id == item);
       state.resources[index].purchased = false;
     },
+    addFacility(state, facility) {
+      state.facilities.push(facility);
+    },
+    deleteFacility(state, facilityId) {
+      let index = state.facilities.findIndex(
+        (element) => element.id == facilityId
+      );
+      if (index > -1) {
+        state.facilities.splice(index, 1);
+      }
+    },
   },
   actions: {
-    createOffice() {
-      console.log("");
+    createFacility({ getters, commit }) {
+      const facility = new Facility({
+        name: selectRandom(getters.get_facilityNames),
+        cost: randomNumberBetween(5000, 50000),
+        capacity: randomNumberBetween(10, 500),
+        storage: randomNumberBetween(500, 5000),
+        status: "available",
+        type: selectRandom(["office", "storage", "storefront"]),
+      });
+      commit("addFacility", facility);
     },
-    deleteOffice() {
-      console.log("");
+    removeFacility({ getters, commit, dispatch }, facility) {
+      if (getters.get_ownedFacilities.length === 1) {
+        dispatch("depositFunds", facility.getSellPrice());
+        commit("deleteFacility", facility.id);
+        return "Location Deleted";
+      } else {
+        return "Cannot delete, only facility remaining, upgrade to full remote work to delete.";
+      }
     },
-    acceptOffice() {
+    acceptFacility() {
       console.log("");
     },
     purchaseItem({ commit }, item) {
@@ -213,4 +232,4 @@ const mod_Office = {
   modules: {},
 };
 
-export default mod_Office;
+export default mod_Facilities;

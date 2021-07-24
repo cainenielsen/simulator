@@ -1,5 +1,5 @@
 <template>
-  <div class="card staff-line">
+  <card class="staff-line">
     <span :title="member.id">{{ member.getFullName() }}</span>
     <span v-if="member.role" :title="member.role">{{
       $store.getters.get_typeById(
@@ -22,14 +22,16 @@
         textColor="var(--white)"
       ></Button>
     </router-link>
-  </div>
+  </card>
 </template>
 
 <script>
 import button from "@/components/button.vue";
+import card from "@/components/card.vue";
+
 export default {
   props: ["member"],
-  components: { Button: button },
+  components: { Button: button, Card: card },
 };
 </script>
 

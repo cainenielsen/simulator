@@ -1,5 +1,5 @@
 <template>
-  <div class="card">
+  <Card>
     <h1 :title="position.id">
       {{ $store.getters.get_typeById(position.type).name }}
       -
@@ -43,14 +43,15 @@
         name="Edit"
       ></Button>
     </router-link>
-  </div>
+  </Card>
 </template>
 
 <script>
 import button from "@/components/button.vue";
+import card from "@/components/card.vue";
 
 export default {
-  components: { Button: button },
+  components: { Button: button, Card: card },
   props: ["position"],
   data() {
     return {

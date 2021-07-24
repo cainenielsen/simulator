@@ -71,7 +71,7 @@
       <h4>Location</h4>
       <li>
         {{
-          $store.getters.get_officeById(
+          $store.getters.get_facilityById(
             $store.getters.get_positionById(staffData.role).location
           ).name
         }}

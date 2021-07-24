@@ -3,7 +3,7 @@ import { createStore } from "vuex";
 import mod_World from "./store_world";
 import mod_People from "./store_people";
 import mod_Finance from "./store_finance";
-import mod_Office from "./store_office";
+import mod_Facilities from "./store_facilities";
 import mod_Product from "./store_product";
 import mod_Work from "./store_work";
 
@@ -73,7 +73,7 @@ export default createStore({
       "NuclearBot",
       "MegaCorp",
     ],
-    random_officeNames: [
+    random_facilityNames: [
       "Berkshire Suites",
       "Code Platform",
       "Business Venture",
@@ -101,8 +101,11 @@ export default createStore({
     random_businessName(state) {
       return state.actions.selectRandom(state.random_businessNames);
     },
-    random_officeName(state) {
-      return state.actions.selectRandom(state.random_officeNames);
+    get_facilityNames(state) {
+      return state.random_facilityNames;
+    },
+    random_facilityName(state) {
+      return state.actions.selectRandom(state.random_facilityNames);
     },
     getCurrencyFormat: () => (num) => {
       return toCurrency(num);
@@ -113,7 +116,7 @@ export default createStore({
     world: mod_World,
     people: mod_People,
     finaces: mod_Finance,
-    office: mod_Office,
+    facilities: mod_Facilities,
     product: mod_Product,
     work: mod_Work,
   },
