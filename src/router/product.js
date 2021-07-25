@@ -10,31 +10,19 @@ export default {
   meta: {
     subNavItems: [
       { name: "Products", icon: "fas fa-compass", to: "/product/products" },
-      { name: "Research", icon: "fas fa-vials", to: "/product/research" },
       { name: "Features", icon: "fas fa-star", to: "/product/features" },
     ],
     layout: "dashboard",
+    color: "amethyst",
   },
   children: [
-    {
-      path: "research",
-      name: "Research",
-      meta: {
-        icon: "fas fa-vials",
-        layout: "dashboard",
-      },
-      // route level code-splitting
-      // this generates a separate chunk (about.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () =>
-        import(/* webpackChunkName: "about" */ "@/views/product/Research.vue"),
-    },
     {
       path: "products",
       name: "Products",
       meta: {
         icon: "fas fa-compass",
         layout: "dashboard",
+        color: "amethyst",
       },
       // route level code-splitting
       // this generates a separate chunk (about.[hash].js) for this route
@@ -48,6 +36,7 @@ export default {
       meta: {
         icon: "fas fa-star",
         layout: "dashboard",
+        color: "amethyst",
       },
       // route level code-splitting
       // this generates a separate chunk (about.[hash].js) for this route
@@ -57,7 +46,7 @@ export default {
     },
     {
       path: "",
-      redirect: "/product/research",
+      redirect: "/product/products",
     },
   ],
 };

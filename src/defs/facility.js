@@ -5,6 +5,7 @@ export default class Facility extends index {
     super(data);
     this.name = data.name;
     this.cost = data.cost;
+    this.rent = data.rent;
     this.capacity = data.capacity;
     this.storage = data.storage;
     this.status = data.status;

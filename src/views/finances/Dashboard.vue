@@ -4,7 +4,7 @@
       This is your financial dashboard, where you can see your costs and income.
     </p>
     <div class="layout">
-      <div class="left card">
+      <card class="left">
         <h1>Costs</h1>
         <h2>Payroll:</h2>
         <list>
@@ -35,13 +35,13 @@
             :key="facility.id"
           >
             <span>{{ facility.name }}</span>
-            <span>{{ currencyDisplay(facility.cost) }}</span>
+            <span>{{ currencyDisplay(facility.rent) }}/m</span>
           </line-item>
         </list>
-        Total: {{ currencyDisplay($store.getters.get_totalFacilitiesCost) }}
-        <h3>Total: {{ currencyDisplay($store.getters.get_totalCosts) }}</h3>
-      </div>
-      <div class="right card">
+        Total: {{ currencyDisplay($store.getters.get_totalFacilitiesCost) }}/m
+        <h3>Total: {{ currencyDisplay($store.getters.get_totalCosts) }}/m</h3>
+      </card>
+      <card class="right">
         <h1>Income</h1>
         <ul>
           <li>Product 1:</li>
@@ -50,13 +50,14 @@
           <li>Product 4:</li>
         </ul>
         <h3>Total:</h3>
-      </div>
+      </card>
     </div>
   </div>
 </template>
 
 <script>
 import List from "@/components/list.vue";
+import card from "@/components/card.vue";
 import lineItem from "@/components/line-item.vue";
 import { toCurrency } from "@/scripts/tools.js";
 export default {
@@ -64,6 +65,7 @@ export default {
   components: {
     "line-item": lineItem,
     list: List,
+    card
   },
   methods: {
     currencyDisplay(number) {

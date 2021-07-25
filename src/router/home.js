@@ -13,7 +13,8 @@ export default {
       { name: "Settings", icon: "fas fa-cogs", to: "/settings" },
     ],
     layout: "landing",
-    icon: "fas fa-door-open"
+    icon: "fas fa-door-open",
+    color: "peter-river",
   },
   children: [
     {
@@ -22,6 +23,7 @@ export default {
       meta: {
         layout: "landing",
         icon: "fas fa-door-open",
+        color: "peter-river",
       },
       component: () =>
         import(/* webpackChunkName: "about" */ "@/views/home/Welcome.vue"),
@@ -32,6 +34,7 @@ export default {
       meta: {
         layout: "landing",
         icon: "fas fa-upload",
+        color: "peter-river",
       },
       component: () =>
         import(/* webpackChunkName: "about" */ "@/views/home/LoadGame.vue"),
@@ -42,6 +45,7 @@ export default {
       meta: {
         layout: "landing",
         icon: "fas fa-plus",
+        color: "peter-river",
       },
       component: () =>
         import(/* webpackChunkName: "about" */ "@/views/home/NewGame.vue"),
@@ -52,6 +56,7 @@ export default {
       meta: {
         layout: "landing",
         icon: "fas fa-cogs",
+        color: "peter-river",
       },
       component: () =>
         import(/* webpackChunkName: "about" */ "@/views/home/Settings.vue"),

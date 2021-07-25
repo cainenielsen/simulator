@@ -2,12 +2,12 @@
   <hor-nav-bar id="bottom-nav-bar">
     <span class="bottom-left"><time-toggle></time-toggle></span>
     <span class="bottom-right">
-      <router-link to="/product/research">
+      <router-link to="/research">
         <nav-item class="color-amethyst"
           ><b><i class="fas fa-vial"></i>{{ $store.getters.get_research }}</b>
         </nav-item>
       </router-link>
-      <router-link to="/finances/dashboard">
+      <router-link to="/finances">
         <nav-item v-if="$store.getters.get_trend" class="color-emerald"
           ><b
             ><i class="fas fa-chevron-up"></i

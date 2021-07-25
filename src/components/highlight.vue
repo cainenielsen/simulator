@@ -1,5 +1,10 @@
 <template>
-  <div class="highlight background-color-emerald"><slot></slot></div>
+  <div
+    class="highlight"
+    :style="`background-color:var(--${$route.meta.color});`"
+  >
+    <slot></slot>
+  </div>
 </template>
 
 <script scoped>

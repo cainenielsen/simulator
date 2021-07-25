@@ -23,6 +23,7 @@ export default {
       },
     ],
     layout: "dashboard",
+    color: "pomegranate",
   },
   children: [
     {
@@ -31,6 +32,7 @@ export default {
       meta: {
         icon: "fas fa-grip-horizontal",
         layout: "dashboard",
+        color: "pomegranate",
       },
       // route level code-splitting
       // this generates a separate chunk (about.[hash].js) for this route
@@ -46,6 +48,7 @@ export default {
       meta: {
         icon: "fas fa-truck-loading",
         layout: "dashboard",
+        color: "pomegranate",
       },
       // route level code-splitting
       // this generates a separate chunk (about.[hash].js) for this route
@@ -61,6 +64,7 @@ export default {
       meta: {
         icon: "fas fa-boxes",
         layout: "dashboard",
+        color: "pomegranate",
       },
       // route level code-splitting
       // this generates a separate chunk (about.[hash].js) for this route
@@ -76,6 +80,7 @@ export default {
       meta: {
         icon: "fas fa-warehouse",
         layout: "dashboard",
+        color: "pomegranate",
       },
       // route level code-splitting
       // this generates a separate chunk (about.[hash].js) for this route

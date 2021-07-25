@@ -19,6 +19,7 @@ export default {
       },
     ],
     layout: "dashboard",
+    color: "turquoise",
   },
   children: [
     {
@@ -27,6 +28,7 @@ export default {
       meta: {
         icon: "fas fa-user-tie",
         layout: "dashboard",
+        color: "turquoise",
       },
       // route level code-splitting
       // this generates a separate chunk (about.[hash].js) for this route
@@ -37,6 +39,7 @@ export default {
     {
       path: "staff/member/:id",
       name: "Staff Member",
+      color: "turquoise",
       // route level code-splitting
       // this generates a separate chunk (about.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
@@ -48,6 +51,7 @@ export default {
         subNavItems: [{ name: "Back", to: "/people/staff" }],
         icon: "fas fa-user-tag",
         layout: "dashboard",
+        color: "turquoise",
       },
     },
     {
@@ -56,6 +60,7 @@ export default {
       meta: {
         icon: "fas fa-user-check",
         layout: "dashboard",
+        color: "turquoise",
       },
       // route level code-splitting
       // this generates a separate chunk (about.[hash].js) for this route
@@ -69,6 +74,7 @@ export default {
       meta: {
         icon: "fas fa-user-tag",
         layout: "dashboard",
+        color: "turquoise",
       },
       // route level code-splitting
       // this generates a separate chunk (about.[hash].js) for this route
@@ -82,6 +88,7 @@ export default {
       meta: {
         icon: "fas fa-hand-holding-usd",
         layout: "dashboard",
+        color: "turquoise",
       },
       // route level code-splitting
       // this generates a separate chunk (about.[hash].js) for this route

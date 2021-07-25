@@ -38,14 +38,16 @@
     <Card v-for="facility in filteredLocations" :key="facility.id">
       <h1>{{ facility.name }}</h1>
       {{ facility.type }}<br /><br />Capacity: {{ facility.capacity
-      }}<br /><br />Storage: {{ facility.storage }}<br /><br /><b
-        >{{ formatCurrency(facility.cost) }}/m</b
+      }}<br /><br />Storage: {{ facility.storage }}<br /><br />Up Front Cost:
+      <b>{{ formatCurrency(facility.cost) }}</b
       ><br /><br />
+      Rent:
+      <b>{{ formatCurrency(facility.rent) }}/m</b><br /><br />
       <Button
         name="Purchase"
         backgroundColor="var(--emerald)"
         textColor="white"
-        @click="purchaseFacility(facility.id)"
+        @click="purchaseFacility(facility)"
       />
     </Card>
   </div>
@@ -62,15 +64,25 @@ export default {
     formatCurrency(num) {
       return toCurrency(num);
     },
+    purchaseFacility(facility) {
+      this.$store.dispatch("purchaseFacility", facility).then((resp) => {
+        alert(resp);
+      });
+    },
   },
   computed: {
+    sortedLocations() {
+      return this.$store.getters.get_availableFacilities
+        .slice(0)
+        .sort((a, b) => a.cost - b.cost);
+    },
     filteredLocations() {
       if (this.$route.query.type) {
-        return this.$store.getters.get_availableFacilities.filter(
+        return this.sortedLocations.filter(
           (location) => location.type === this.$route.query.type
         );
       } else {
-        return this.$store.getters.get_availableFacilities;
+        return this.sortedLocations;
       }
     },
   },

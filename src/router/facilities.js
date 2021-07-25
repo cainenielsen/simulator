@@ -10,14 +10,15 @@ export default {
   meta: {
     subNavItems: [
       { name: "Capacity", icon: "far fa-map", to: "/facilities/capacity" },
-      { name: "Utilities", icon: "fas fa-plug", to: "/facilities/utilities" },
       {
         name: "Real Estate",
         icon: "fas fa-store-alt",
         to: "/facilities/real-estate",
       },
+      { name: "Utilities", icon: "fas fa-plug", to: "/facilities/utilities" },
     ],
     layout: "dashboard",
+    color: "midnight-blue",
   },
   children: [
     {
@@ -26,6 +27,7 @@ export default {
       meta: {
         icon: "fas fa-plug",
         layout: "dashboard",
+        color: "midnight-blue",
       },
       // route level code-splitting
       // this generates a separate chunk (about.[hash].js) for this route
@@ -41,6 +43,7 @@ export default {
       meta: {
         icon: "far fa-map",
         layout: "dashboard",
+        color: "midnight-blue",
       },
       // route level code-splitting
       // this generates a separate chunk (about.[hash].js) for this route
@@ -56,6 +59,7 @@ export default {
       meta: {
         icon: "fas fa-store-alt",
         layout: "dashboard",
+        color: "midnight-blue",
       },
       // route level code-splitting
       // this generates a separate chunk (about.[hash].js) for this route
@@ -67,7 +71,7 @@ export default {
     },
     {
       path: "",
-      redirect: "/facilities/real-estate",
+      redirect: "/facilities/capacity",
     },
   ],
 };

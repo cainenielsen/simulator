@@ -10,6 +10,7 @@ const mod_Facilities = {
       new Facility({
         name: "Basement",
         cost: 1500,
+        rent: 200,
         capacity: 5,
         storage: 500,
         status: "owned",
@@ -162,7 +163,7 @@ const mod_Facilities = {
         (element) => element.status === "owned"
       );
       facilities.forEach((facility) => {
-        facilityCost = facilityCost + facility.cost;
+        facilityCost = facilityCost + facility.rent;
       });
       return facilityCost;
     },
@@ -179,11 +180,15 @@ const mod_Facilities = {
   },
   mutations: {
     purchaseItem(state, item) {
-      let index = state.resources.findIndex((element) => element.id == item);
+      let index = state.resources.findIndex((element) => element.id === item);
       state.resources[index].purchased = true;
     },
+    claimFacility(state, item) {
+      let index = state.facilities.findIndex((element) => element.id === item);
+      state.facilities[index].status = "owned";
+    },
     cancelItem(state, item) {
-      let index = state.resources.findIndex((element) => element.id == item);
+      let index = state.resources.findIndex((element) => element.id === item);
       state.resources[index].purchased = false;
     },
     addFacility(state, facility) {
@@ -203,6 +208,7 @@ const mod_Facilities = {
       const facility = new Facility({
         name: selectRandom(getters.get_facilityNames),
         cost: randomNumberBetween(5000, 50000),
+        rent: randomNumberBetween(100, 2000),
         capacity: randomNumberBetween(10, 500),
         storage: randomNumberBetween(500, 5000),
         status: "available",
@@ -211,7 +217,7 @@ const mod_Facilities = {
       commit("addFacility", facility);
     },
     removeFacility({ getters, commit, dispatch }, facility) {
-      if (getters.get_ownedFacilities.length === 1) {
+      if (getters.get_ownedFacilities.length > 1) {
         dispatch("depositFunds", facility.getSellPrice());
         commit("deleteFacility", facility.id);
         return "Location Deleted";
@@ -219,8 +225,14 @@ const mod_Facilities = {
         return "Cannot delete, only facility remaining, upgrade to full remote work to delete.";
       }
     },
-    acceptFacility() {
-      console.log("");
+    purchaseFacility({ commit, getters, dispatch }, facility) {
+      if (getters.get_capital >= facility.cost) {
+        dispatch("withdrawFunds", facility.cost);
+        commit("claimFacility", facility.id);
+        return "Facility Purchased";
+      } else {
+        return "Not enough cpaital.";
+      }
     },
     purchaseItem({ commit }, item) {
       commit("purchaseItem", item);

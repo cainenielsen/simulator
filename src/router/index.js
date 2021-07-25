@@ -6,8 +6,18 @@ import finances from "@/router/finances.js";
 import facilities from "@/router/facilities.js";
 import resources from "@/router/resources.js";
 import product from "@/router/product.js";
+import research from "@/router/research.js";
 
-const routes = [home, people, work, finances, facilities, resources, product];
+const routes = [
+  home,
+  people,
+  work,
+  finances,
+  facilities,
+  resources,
+  product,
+  research,
+];
 
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),

@@ -14,6 +14,7 @@ export default {
       { name: "Tasks", icon: "fas fa-check-double", to: "/work/tasks" },
     ],
     layout: "dashboard",
+    color: "orange",
   },
   children: [
     {
@@ -21,6 +22,7 @@ export default {
       name: "Output",
       meta: {
         icon: "far fa-lightbulb",
+        color: "orange",
       },
       // route level code-splitting
       // this generates a separate chunk (about.[hash].js) for this route
@@ -34,6 +36,7 @@ export default {
       meta: {
         icon: "far fa-id-badge",
         layout: "dashboard",
+        color: "orange",
       },
       // route level code-splitting
       // this generates a separate chunk (about.[hash].js) for this route
@@ -44,6 +47,7 @@ export default {
     {
       path: "positions/new",
       name: "New Position",
+      color: "orange",
       // route level code-splitting
       // this generates a separate chunk (about.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
@@ -53,6 +57,7 @@ export default {
         subNavItems: [{ name: "Back", icon: "far fa-id-badge", to: "./" }],
         icon: "far fa-id-badge",
         layout: "dashboard",
+        color: "orange",
       },
     },
     {
@@ -66,6 +71,7 @@ export default {
       meta: {
         subNavItems: [{ name: "Back", to: "/work/positions" }],
         icon: "far fa-id-badge",
+        color: "orange",
       },
     },
     {
@@ -74,6 +80,7 @@ export default {
       meta: {
         icon: "fas fa-check-double",
         layout: "dashboard",
+        color: "orange",
       },
       // route level code-splitting
       // this generates a separate chunk (about.[hash].js) for this route

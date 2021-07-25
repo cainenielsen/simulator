@@ -22,14 +22,16 @@ export default {
       },
     ],
     layout: "dashboard",
+    color: "emerald",
   },
   children: [
     {
       path: "dashboard",
-      name: "Dashboard",
+      name: "Finances Dashboard",
       meta: {
         icon: "fas fa-columns",
         layout: "dashboard",
+        color: "emerald",
       },
       // route level code-splitting
       // this generates a separate chunk (about.[hash].js) for this route
@@ -45,6 +47,7 @@ export default {
       meta: {
         icon: "fas fa-chart-area",
         layout: "dashboard",
+        color: "emerald",
       },
       // route level code-splitting
       // this generates a separate chunk (about.[hash].js) for this route
@@ -60,6 +63,7 @@ export default {
       meta: {
         icon: "far fa-list-alt",
         layout: "dashboard",
+        color: "emerald",
       },
       // route level code-splitting
       // this generates a separate chunk (about.[hash].js) for this route
