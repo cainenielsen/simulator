@@ -15,12 +15,12 @@ const mod_Work = {
       new Role({
         name: "Recruiter",
         researchCost: 300,
-        tasks: ["recruit-candidates"],
+        tasks: ["interview-candidates", "manage-job-listings"],
       }),
       new Role({
         name: "Manager",
         researchCost: 350,
-        tasks: [""],
+        tasks: ["manage-employees", "recruit-candidates"],
       }),
       new Role({
         name: "Analyst",
@@ -35,32 +35,37 @@ const mod_Work = {
       new Role({
         name: "Support",
         researchCost: 150,
-        tasks: [""],
+        tasks: ["handle-support-requests"],
       }),
       new Role({
         name: "Engineer",
         researchCost: 400,
-        tasks: [""],
+        tasks: ["write-code"],
       }),
       new Role({
-        name: "Researcher",
+        name: "Technician",
         researchCost: 250,
-        tasks: ["research"],
+        tasks: ["build-components"],
+      }),
+      new Role({
+        name: "Truck Driver",
+        researchCost: 250,
+        tasks: ["drive-vehicles"],
       }),
       new Role({
         name: "Marketeer",
         researchCost: 200,
-        tasks: [""],
+        tasks: ["run-campaigns"],
       }),
       new Role({
         name: "Salesmen",
         researchCost: 150,
-        tasks: [""],
+        tasks: ["handle-sales-requests"],
       }),
       new Role({
         name: "Admin",
         researchCost: 500,
-        tasks: [""],
+        tasks: ["write-code", "manage-servers"],
       }),
     ],
     positionLevels: [
@@ -96,8 +101,8 @@ const mod_Work = {
         name: "Manage Job Listings",
       }),
       new Task({
-        tag: "recruit-candidates",
-        name: "Recruit Candidates",
+        tag: "interview-candidates",
+        name: "Intreview Candidates",
       }),
       new Task({
         tag: "manage-servers",
@@ -112,16 +117,16 @@ const mod_Work = {
         name: "Manage Employees",
       }),
       new Task({
-        tag: "send-marketing-emails",
-        name: "Send Marketing Emails",
+        tag: "run-campaigns",
+        name: "Run Campaigns",
       }),
       new Task({
-        tag: "support-clients",
-        name: "Support Clients",
+        tag: "handle-support-requests",
+        name: "Handle Support Requests",
       }),
       new Task({
-        tag: "make-sales-calls",
-        name: "Make Sales Calls",
+        tag: "handle-sales-requests",
+        name: "Handle Sales Requests",
       }),
       new Task({
         tag: "drive-vehicles",

@@ -4,27 +4,32 @@
       v-model="location"
       name="Location"
       :disabled="false"
+      :default="{ id: null, display: 'Select a Location' }"
       :options="locationNames"
     ></Select>
     <br />
     <b>Open Seats: </b>
-    <span v-if="location">{{
+    <span v-if="location.id !== null">{{
       $store.getters.get_remainingCapacity(location.id)
     }}</span>
     <br />
     <br />
     <b>Total Capacity: </b>
-    <span v-if="location">{{ $store.getters.get_capacity(location.id) }}</span>
+    <span v-if="location.id !== null">{{
+      $store.getters.get_capacity(location.id)
+    }}</span>
     <Select
       v-model="type"
       name="Type"
       :disabled="false"
+      :default="{ id: null, display: 'Select a Type' }"
       :options="positionNames"
     ></Select>
     <Select
       v-model="level"
       name="Level"
       :disabled="false"
+      :default="{ id: null, display: 'Select a Level' }"
       :options="positionLevels"
     ></Select>
     <Input
@@ -42,14 +47,19 @@
       name="Create Position"
       v-if="location"
       @click="createPosition"
-      :disabled="$store.getters.get_remainingCapacity(location.id) < 1"
+      :disabled="
+        location.id === null ||
+        $store.getters.get_remainingCapacity(location.id) < 1
+      "
     ></Button>
-    <p
-      class="color-carrot"
-      v-if="location && $store.getters.get_remainingCapacity(location.id) < 1"
-    >
-      This location does not have any available seats.
-    </p>
+    <span v-if="location.id !== null">
+      <p
+        class="color-carrot"
+        v-if="location && $store.getters.get_remainingCapacity(location.id) < 1"
+      >
+        This location does not have any available seats.
+      </p>
+    </span>
 
     <p>{{ type.display }}</p>
 
@@ -63,7 +73,7 @@
     No position types researched.
     <router-link
       style="color: var(--peter-river); font-weight: bold"
-      to="/research/hub"
+      to="/research/positions"
       >Research new position types</router-link
     >
     then create new positions.
@@ -81,26 +91,34 @@ export default {
   },
   data() {
     return {
-      compensation: null,
-      type: "",
-      level: "",
-      location: "",
+      compensation: 0,
+      type: { id: null, display: "Select a Type" },
+      level: { id: null, display: "Select a Level" },
+      location: { id: null, display: "Select a Location" },
     };
   },
   methods: {
     createPosition() {
-      if (this.compensation !== null) {
+      if (this.compensation > 0) {
         if (this.$store.getters.get_remainingCapacity(this.location.id) > 0) {
-          this.$store
-            .dispatch("createPosition", {
-              compensation: this.compensation,
-              type: this.type.id,
-              level: this.level.id,
-              location: this.location.id,
-            })
-            .then(() => {
-              this.$router.push("/work/positions");
-            });
+          if (
+            this.type.id !== null &&
+            this.level.id !== null &&
+            this.location.id !== null
+          ) {
+            this.$store
+              .dispatch("createPosition", {
+                compensation: parseInt(this.compensation),
+                type: this.type.id,
+                level: this.level.id,
+                location: this.location.id,
+              })
+              .then(() => {
+                this.$router.push("/work/positions");
+              });
+          } else {
+            alert("Select a position type, location, and level.");
+          }
         } else {
           alert("The selected facility does not have enough capacity");
         }

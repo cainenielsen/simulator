@@ -12,11 +12,6 @@ const mod_Product = {
         type: "material",
       }),
       new Material({
-        name: "Metals 1",
-        cost: 500,
-        type: "material",
-      }),
-      new Material({
         name: "Plastics 1",
         cost: 500,
         type: "material",
