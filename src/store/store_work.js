@@ -10,7 +10,7 @@ const mod_Work = {
         selectable: false,
         researchCost: 0,
         researchable: false,
-        tasks: ["research", "manage-employees", "recruit-candidates"],
+        tasks: ["research", "manage-employees", "interview-candidates"],
       }),
       new Role({
         name: "Recruiter",
@@ -20,7 +20,7 @@ const mod_Work = {
       new Role({
         name: "Manager",
         researchCost: 350,
-        tasks: ["manage-employees", "recruit-candidates"],
+        tasks: ["manage-employees", "interview-candidates"],
       }),
       new Role({
         name: "Analyst",
