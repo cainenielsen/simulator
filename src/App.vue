@@ -1,6 +1,6 @@
 <template>
   <layout>
-    <highlight><i :class="$route.meta.icon"></i> {{ $route.name }}</highlight>
+    <highlight />
     <div id="page">
       <div id="sub-navigation-bar">
         <Button
@@ -18,7 +18,6 @@
   </layout>
 </template>
 <script>
-// import timeToggle from "@/components/timeToggle.vue";
 import highlight from "@/components/highlight.vue";
 import button from "@/components/sub-nav-button.vue";
 import { toCurrency, randomNumberBetween } from "@/scripts/tools.js";
@@ -26,7 +25,6 @@ import layout from "@/layouts/index.vue";
 
 export default {
   components: {
-    // "time-toggle": timeToggle,
     highlight: highlight,
     Button: button,
     layout,

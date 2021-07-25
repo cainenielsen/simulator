@@ -27,7 +27,7 @@ export default {
   children: [
     {
       path: "dashboard",
-      name: "Finances Dashboard",
+      name: "Dashboard",
       meta: {
         icon: "fas fa-columns",
         layout: "dashboard",

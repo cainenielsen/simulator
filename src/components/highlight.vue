@@ -3,7 +3,9 @@
     class="highlight"
     :style="`background-color:var(--${$route.meta.color});`"
   >
-    <slot></slot>
+    <i :class="$route.meta.icon"></i>&nbsp;
+    <span v-if="$route.matched[0]">{{ $route.matched[0].name }} ></span>
+    {{ $route.name }}
   </div>
 </template>
 

@@ -63,7 +63,7 @@
     No position types researched.
     <router-link
       style="color: var(--peter-river); font-weight: bold"
-      to="/research/dashboard"
+      to="/research/hub"
       >Research new position types</router-link
     >
     then create new positions.

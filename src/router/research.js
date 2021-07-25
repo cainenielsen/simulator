@@ -9,19 +9,27 @@ export default {
 
   meta: {
     subNavItems: [
-      { name: "Dashboard", icon: "fas fa-vials", to: "/research/dashboard" },
+      { name: "Hub", icon: "fas fa-vials", to: "/research/hub" },
       { name: "Positions", icon: "far fa-id-badge", to: "/research/positions" },
       { name: "Materials", icon: "fas fa-gem", to: "/research/materials" },
-      { name: "Components", icon: "fas fa-microchip", to: "/research/components" },
-      { name: "Software", icon: "fas fa-compact-disc", to: "/research/software" },
+      {
+        name: "Components",
+        icon: "fas fa-microchip",
+        to: "/research/components",
+      },
+      {
+        name: "Software",
+        icon: "fas fa-compact-disc",
+        to: "/research/software",
+      },
     ],
     layout: "dashboard",
     color: "amethyst",
   },
   children: [
     {
-      path: "dashboard",
-      name: "Research Dashboard",
+      path: "hub",
+      name: "Hub",
       meta: {
         icon: "fas fa-vials",
         layout: "dashboard",
@@ -31,13 +39,13 @@ export default {
       // this generates a separate chunk (about.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
       component: () =>
-        import(/* webpackChunkName: "about" */ "@/views/research/Research.vue"),
+        import(/* webpackChunkName: "about" */ "@/views/research/Hub.vue"),
     },
     {
       path: "positions",
       name: "Research Positions",
       meta: {
-        icon: "fas fa-compass",
+        icon: "far fa-id-badge",
         layout: "dashboard",
         color: "amethyst",
       },
@@ -53,7 +61,7 @@ export default {
       path: "components",
       name: "Research Components",
       meta: {
-        icon: "fas fa-compass",
+        icon: "fas fa-microchip",
         layout: "dashboard",
         color: "amethyst",
       },
@@ -69,7 +77,7 @@ export default {
       path: "materials",
       name: "Research Materials",
       meta: {
-        icon: "fas fa-star",
+        icon: "fas fa-gem",
         layout: "dashboard",
         color: "amethyst",
       },
@@ -85,7 +93,7 @@ export default {
       path: "software",
       name: "Research Software",
       meta: {
-        icon: "fas fa-star",
+        icon: "fas fa-compact-disc",
         layout: "dashboard",
         color: "amethyst",
       },
@@ -97,7 +105,7 @@ export default {
     },
     {
       path: "",
-      redirect: "/research/dashboard",
+      redirect: "/research/hub",
     },
   ],
 };
