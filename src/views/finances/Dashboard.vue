@@ -61,7 +61,7 @@ import card from "@/components/card.vue";
 import lineItem from "@/components/line-item.vue";
 import { toCurrency } from "@/scripts/tools.js";
 export default {
-  name: "Finance",
+  name: "Finances",
   components: {
     "line-item": lineItem,
     list: List,

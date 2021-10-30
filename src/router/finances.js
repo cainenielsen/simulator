@@ -20,6 +20,11 @@ export default {
         icon: "fas fa-chart-area",
         to: "/finances/investments",
       },
+      {
+        name: "Loans",
+        icon: "fas fa-credit-card",
+        to: "/finances/loans",
+      },
     ],
     layout: "dashboard",
     color: "emerald",
@@ -71,6 +76,22 @@ export default {
       component: () =>
         import(
           /* webpackChunkName: "about" */ "@/views/finances/Transactions.vue"
+        ),
+    },
+    {
+      path: "loans",
+      name: "Loans",
+      meta: {
+        icon: "fas fa-credit-card",
+        layout: "dashboard",
+        color: "emerald",
+      },
+      // route level code-splitting
+      // this generates a separate chunk (about.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () =>
+        import(
+          /* webpackChunkName: "about" */ "@/views/finances/Loans.vue"
         ),
     },
     {

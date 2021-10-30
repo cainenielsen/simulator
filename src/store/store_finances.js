@@ -1,7 +1,35 @@
-const mod_Finance = {
+import Loan from "../defs/loan";
+
+const mod_Finances = {
   state: () => ({
     capital: 50000,
     trend: false,
+    loans: [
+      new Loan({
+        name: "Dad's Offer",
+        amount: 500,
+        cost: 100,
+        interest: 0,
+      }),
+      new Loan({
+        name: "Small Loan",
+        amount: 1000,
+        cost: 100,
+        interest: 0.15,
+      }),
+      new Loan({
+        name: "Medium Loan",
+        amount: 2500,
+        cost: 100,
+        interest: 0.20,
+      }),
+      new Loan({
+        name: "Large Loan",
+        amount: 5000,
+        cost: 100,
+        interest: 0.25,
+      }),
+    ]
   }),
   getters: {
     get_totalCosts(state, getters) {
@@ -17,6 +45,9 @@ const mod_Finance = {
     get_trend(state) {
       return state.trend;
     },
+    get_loans(state) {
+      return state.loans;
+    }
   },
   mutations: {
     updateBalance(state, cost) {
@@ -37,4 +68,4 @@ const mod_Finance = {
   modules: {},
 };
 
-export default mod_Finance;
+export default mod_Finances;

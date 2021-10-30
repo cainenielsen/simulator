@@ -2,7 +2,7 @@ import { createStore } from "vuex";
 
 import mod_World from "@/store/store_world";
 import mod_People from "@/store/store_people";
-import mod_Finance from "@/store/store_finance";
+import mod_Finances from "@/store/store_finances";
 import mod_Facilities from "@/store/store_facilities";
 import mod_Product from "@/store/store_product";
 import mod_Work from "@/store/store_work";
@@ -115,7 +115,7 @@ export default createStore({
   modules: {
     world: mod_World,
     people: mod_People,
-    finaces: mod_Finance,
+    finaces: mod_Finances,
     facilities: mod_Facilities,
     product: mod_Product,
     work: mod_Work,
