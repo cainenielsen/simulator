@@ -4,7 +4,7 @@ import Script from "@/defs/script.js";
 
 const mod_Product = {
   state: () => ({
-    researchPoints: 400,
+    researchPoints: 500,
     research: [
       new Material({
         name: "Metals 1",
@@ -183,6 +183,21 @@ const mod_Product = {
     get_softwareResearch(state) {
       return state.research.filter((element) => element.type === "software");
     },
+    get_researchedMaterials(state) {
+      return state.research.filter(
+        (element) => element.type === "material" && element.researched === true
+      );
+    },
+    get_researchedComponents(state) {
+      return state.research.filter(
+        (element) => element.type === "component" && element.researched === true
+      );
+    },
+    get_researchedSoftware(state) {
+      return state.research.filter(
+        (element) => element.type === "software" && element.researched === true
+      );
+    },
     get_research(state) {
       return state.researchPoints;
     },
@@ -204,7 +219,7 @@ const mod_Product = {
     addResourceCount(state, id) {
       let index = state.research.findIndex((element) => element.id === id);
       state.research[index].count++;
-    }
+    },
   },
   actions: {
     researchItem({ state, commit, getters }, data) {
