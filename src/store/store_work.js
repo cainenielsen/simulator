@@ -10,22 +10,22 @@ const mod_Work = {
         selectable: false,
         researchCost: 0,
         researchable: false,
-        tasks: ["research", "manage-employees", "interview-candidates"],
-      }),
-      new Role({
-        name: "Recruiter",
-        researchCost: 300,
-        tasks: ["interview-candidates", "manage-job-listings"],
-      }),
-      new Role({
-        name: "Manager",
-        researchCost: 350,
-        tasks: ["manage-employees", "interview-candidates"],
+        tasks: ["research", "manage_employees", "interview_candidates"],
       }),
       new Role({
         name: "Analyst",
         researchCost: 250,
         tasks: ["research"],
+      }),
+      new Role({
+        name: "Recruiter",
+        researchCost: 300,
+        tasks: ["interview_candidates", "manage_job_listings"],
+      }),
+      new Role({
+        name: "Manager",
+        researchCost: 350,
+        tasks: ["manage_employees", "interview_candidates"],
       }),
       new Role({
         name: "Product Manager",
@@ -35,37 +35,37 @@ const mod_Work = {
       new Role({
         name: "Support",
         researchCost: 150,
-        tasks: ["handle-support-requests"],
+        tasks: ["handle_support_requests"],
       }),
       new Role({
         name: "Engineer",
         researchCost: 400,
-        tasks: ["write-code"],
+        tasks: ["write_code"],
       }),
       new Role({
         name: "Technician",
         researchCost: 250,
-        tasks: ["build-components"],
+        tasks: ["build_components"],
       }),
       new Role({
         name: "Truck Driver",
         researchCost: 250,
-        tasks: ["drive-vehicles"],
+        tasks: ["drive_vehicles"],
       }),
       new Role({
         name: "Marketeer",
         researchCost: 200,
-        tasks: ["run-campaigns"],
+        tasks: ["run_campaigns"],
       }),
       new Role({
         name: "Salesmen",
         researchCost: 150,
-        tasks: ["handle-sales-requests"],
+        tasks: ["handle_sales_requests"],
       }),
       new Role({
         name: "Admin",
         researchCost: 500,
-        tasks: ["write-code", "manage-servers"],
+        tasks: ["write_code", "manage_servers"],
       }),
     ],
     positionLevels: [
@@ -93,43 +93,43 @@ const mod_Work = {
     ],
     tasks: [
       new Task({
-        tag: "write-code",
+        tag: "write_code",
         name: "Write Code",
       }),
       new Task({
-        tag: "manage-job-listing",
+        tag: "manage_job_listing",
         name: "Manage Job Listings",
       }),
       new Task({
-        tag: "interview-candidates",
-        name: "Intreview Candidates",
+        tag: "interview_candidates",
+        name: "Interview Candidates",
       }),
       new Task({
-        tag: "manage-servers",
+        tag: "manage_servers",
         name: "Manage Servers",
       }),
       new Task({
-        tag: "build-components",
+        tag: "build_components",
         name: "Build Components",
       }),
       new Task({
-        tag: "manage-employees",
+        tag: "manage_employees",
         name: "Manage Employees",
       }),
       new Task({
-        tag: "run-campaigns",
+        tag: "run_campaigns",
         name: "Run Campaigns",
       }),
       new Task({
-        tag: "handle-support-requests",
+        tag: "handle_support_requests",
         name: "Handle Support Requests",
       }),
       new Task({
-        tag: "handle-sales-requests",
+        tag: "handle_sales_requests",
         name: "Handle Sales Requests",
       }),
       new Task({
-        tag: "drive-vehicles",
+        tag: "drive_vehicles",
         name: "Drive Vehicles",
       }),
       new Task({
@@ -200,6 +200,9 @@ const mod_Work = {
       }
     },
     task_research({ commit }) {
+      commit("addResearchPoint");
+    },
+    task_write_code({ commit }) {
       commit("addResearchPoint");
     },
   },

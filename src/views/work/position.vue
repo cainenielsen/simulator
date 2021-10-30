@@ -18,9 +18,11 @@
       >{{ $store.getters.get_taskById(positionData.selectedTask).name }}
       <label for="work"></label>
       <br />
-      <progress id="work" max="100" :value="positionData.taskComplete">
-        70%
-      </progress>
+      <progress
+        id="work"
+        max="100"
+        :value="positionData.taskComplete"
+      ></progress>
     </span>
 
     <span v-else><i>No task selected</i></span>

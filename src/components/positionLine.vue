@@ -36,6 +36,8 @@
       >
     </span>
     <br />
+    <progress id="work" max="100" :value="position.taskComplete"></progress>
+    <br />
     <router-link :to="`/work/positions/position/${position.id}`">
       <Button
         backgroundColor="var(--emerald)"

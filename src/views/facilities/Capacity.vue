@@ -104,11 +104,11 @@ export default {
 
 .active-red {
   background-color: var(--carrot-200) !important;
-  color: var(--peter-river-900) !important;
+  color: var(--carrot-900) !important;
 }
 
 .active-green {
   background-color: var(--emerald-200) !important;
-  color: var(--peter-river-900) !important;
+  color: var(--emerald-900) !important;
 }
 </style>
