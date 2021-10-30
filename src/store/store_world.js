@@ -1,3 +1,5 @@
+import Game from "@/defs/game";
+
 const mod_World = {
   state: () => ({
     createdDateTime: new Date("January 1, 2000 08:00:00"),
@@ -5,10 +7,23 @@ const mod_World = {
     currentTime: new Date("January 1, 2000 08:00:00"),
     running: false,
     mode: "default", // free play, default, challenge, master mode
+    games: [
+      new Game({
+        businessName: "Super Business",
+        difficulty: 0,
+      }),
+      new Game({
+        businessName: "Google",
+        difficulty: 1,
+      }),
+    ],
   }),
   getters: {
     get_worldState(state) {
       return state;
+    },
+    get_games(state) {
+      return state.games;
     },
   },
   mutations: {

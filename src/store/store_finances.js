@@ -21,7 +21,7 @@ const mod_Finances = {
         name: "Medium Loan",
         amount: 2500,
         cost: 100,
-        interest: 0.20,
+        interest: 0.2,
       }),
       new Loan({
         name: "Large Loan",

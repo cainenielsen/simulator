@@ -4,8 +4,8 @@
     :style="`background-color:var(--${$route.meta.color});`"
   >
     <i :class="$route.meta.icon"></i>&nbsp;
-    <span v-if="$route.matched[0]">{{ $route.matched[0].name }} ></span>
-    {{ $route.name }}
+    <span v-if="$route.matched[0]">{{ $route.matched[0].name }}&nbsp;•</span
+    >&nbsp;{{ $route.name }}
   </div>
 </template>
 
