@@ -1,7 +1,6 @@
 import { selectRandom, randomNumberBetween } from "@/scripts/tools.js";
 
 import Facility from "@/defs/facility.js";
-import Resource from "@/defs/resource.js";
 
 const mod_Facilities = {
   state: () => ({
@@ -15,105 +14,6 @@ const mod_Facilities = {
         storage: 500,
         status: "owned",
         type: "office",
-      }),
-    ],
-    resources: [
-      new Resource({
-        name: "RosterIt",
-        cost: 200,
-        purchased: false,
-        type: "apps",
-      }),
-      new Resource({
-        name: "SuperMeeting",
-        cost: 200,
-        purchased: false,
-        type: "apps",
-      }),
-      new Resource({
-        tag: "job-lister",
-        name: "JobLister",
-        cost: 200,
-        purchased: false,
-        type: "apps",
-      }),
-      new Resource({
-        name: "StorageMist",
-        cost: 200,
-        purchased: false,
-        type: "apps",
-      }),
-      new Resource({
-        name: "Email",
-        cost: 200,
-        purchased: false,
-        type: "apps",
-      }),
-      new Resource({
-        name: "MegaChat",
-        cost: 200,
-        purchased: false,
-        type: "apps",
-      }),
-      new Resource({
-        name: "DesignHub",
-        cost: 200,
-        purchased: false,
-        type: "apps",
-      }),
-      new Resource({
-        name: "CodeBox",
-        cost: 200,
-        purchased: false,
-        type: "apps",
-      }),
-      new Resource({
-        name: "HelpDex",
-        cost: 200,
-        purchased: false,
-        type: "apps",
-      }),
-      new Resource({
-        name: "MiniHost",
-        cost: 200,
-        purchased: false,
-        type: "apps",
-      }),
-      new Resource({
-        name: "Printer",
-        cost: 200,
-        purchased: false,
-        type: "appliances",
-      }),
-      new Resource({
-        name: "3D Printer",
-        cost: 200,
-        purchased: false,
-        type: "appliances",
-      }),
-      new Resource({
-        name: "Film Camera",
-        cost: 200,
-        purchased: false,
-        type: "appliances",
-      }),
-      new Resource({
-        name: "Small Van",
-        cost: 200,
-        purchased: false,
-        type: "vehicles",
-      }),
-      new Resource({
-        name: "Utility Truck",
-        cost: 200,
-        purchased: false,
-        type: "vehicles",
-      }),
-      new Resource({
-        name: "Semi Truck",
-        cost: 200,
-        purchased: false,
-        type: "vehicles",
       }),
     ],
   }),
@@ -142,21 +42,6 @@ const mod_Facilities = {
     get_remainingCapacity: (state, getters) => (id) => {
       return getters.get_capacity(id) - getters.get_positionsInLocation(id);
     },
-    get_resourceById: (state) => (id) => {
-      return state.resources.find((element) => element.id == id);
-    },
-    get_resourceByTag: (state) => (tag) => {
-      return state.resources.find((element) => element.tag == tag);
-    },
-    list_resources(state) {
-      return state.resources;
-    },
-    list_resourcesByType: (state) => (type) => {
-      return state.resources.filter((element) => element.type === type);
-    },
-    get_activeResources(state) {
-      return state.resources.filter((element) => element.purchased === true);
-    },
     get_totalFacilitiesCost(state) {
       let facilityCost = 0;
       const facilities = state.facilities.filter(
@@ -167,29 +52,11 @@ const mod_Facilities = {
       });
       return facilityCost;
     },
-    get_totalResourceCost(state) {
-      let resourceCost = 0;
-      const resources = state.resources.filter(
-        (element) => element.purchased === true
-      );
-      resources.forEach((resource) => {
-        resourceCost = resourceCost + resource.cost;
-      });
-      return resourceCost;
-    },
   },
   mutations: {
-    purchaseItem(state, item) {
-      let index = state.resources.findIndex((element) => element.id === item);
-      state.resources[index].purchased = true;
-    },
     claimFacility(state, item) {
       let index = state.facilities.findIndex((element) => element.id === item);
       state.facilities[index].status = "owned";
-    },
-    cancelItem(state, item) {
-      let index = state.resources.findIndex((element) => element.id === item);
-      state.resources[index].purchased = false;
     },
     addFacility(state, facility) {
       state.facilities.push(facility);
@@ -233,12 +100,6 @@ const mod_Facilities = {
       } else {
         return "Not enough cpaital.";
       }
-    },
-    purchaseItem({ commit }, item) {
-      commit("purchaseItem", item);
-    },
-    cancelItem({ commit }, item) {
-      commit("cancelItem", item);
     },
   },
   modules: {},

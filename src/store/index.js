@@ -4,6 +4,7 @@ import mod_World from "@/store/store_world";
 import mod_People from "@/store/store_people";
 import mod_Finances from "@/store/store_finances";
 import mod_Facilities from "@/store/store_facilities";
+import mod_Resources from "@/store/store_resources";
 import mod_Product from "@/store/store_product";
 import mod_Work from "@/store/store_work";
 
@@ -117,6 +118,7 @@ export default createStore({
     people: mod_People,
     finaces: mod_Finances,
     facilities: mod_Facilities,
+    resources: mod_Resources,
     product: mod_Product,
     work: mod_Work,
   },
