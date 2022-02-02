@@ -1,19 +1,15 @@
 <template>
-  <ver-nav-bar id="right-nav-bar" @click="add">
+  <ver-nav-bar id="right-nav-bar">
     <div id="notification-grid">
-      <div
-        class="slide"
-        v-for="notification in visibleNotifications"
-        :key="notification.title"
-        style="height: 48px"
-      >
-        <nav-item
+      <transition-group name="fade">
+        <notification
           :class="{ wiggle: notification.wiggle }"
-          type="button"
-          :highlight="notification.color"
-          ><i :class="notification.icon"></i
-        ></nav-item>
-      </div>
+          v-for="notification in visibleNotifications"
+          :key="notification.id"
+          :notification="notification"
+        />
+      </transition-group>
+
       <nav-item
         v-if="moreNotifications > 0"
         class="animate"
@@ -34,81 +30,31 @@
 <script>
 import verNavBar from "@/components/navigation/ver-nav-bar.vue";
 import navItem from "@/components/navigation/nav-item.vue";
+import notification from "@/components/notification.vue";
 
 export default {
   data() {
     return {
       limit: 5,
-      notifications: [
-        {
-          title: "Hub Update",
-          link: "",
-          color: "--wisteria",
-          icon: "fas fa-vials",
-        },
-        // {
-        //   title: "Work Update",
-        //   link: "",
-        //   color: "--orange",
-        //   icon: "far fa-id-badge",
-        // },
-        // {
-        //   title: "Resources Update",
-        //   link: "",
-        //   color: "--pomegranate",
-        //   icon: "fas fa-grip-horizontal",
-        // },
-        // {
-        //   title: "Products Update",
-        //   link: "",
-        //   color: "--peter-river",
-        //   icon: "fas fa-compass",
-        // },
-        // {
-        //   title: "Dashboard Update",
-        //   link: "",
-        //   color: "--emerald",
-        //   icon: "fas fa-columns",
-        // },
-        // {
-        //   title: "Staff Update",
-        //   link: "",
-        //   color: "--turquoise",
-        //   icon: "fas fa-user-tie",
-        // },
-        // {
-        //   title: "Capacity Update",
-        //   link: "",
-        //   color: "--midnight-blue",
-        //   icon: "far fa-map",
-        // },
-      ],
     };
   },
   components: {
     "ver-nav-bar": verNavBar,
     "nav-item": navItem,
-  },
-  methods: {
-    add() {
-      this.notifications.push({
-        title: "Capacity Update",
-        link: "",
-        color: "--midnight-blue",
-        icon: "far fa-map",
-      });
-    },
+    notification,
   },
   async created() {
     const wiggle = true;
     const wiggleBlock = () => {
-      var item = this.visibleNotifications[
-        Math.floor(Math.random() * this.visibleNotifications.length)
-      ];
-      item.wiggle = true;
-      setTimeout(() => {
-        item.wiggle = false;
-      }, 2000);
+      if (this.visibleNotifications.length > 0) {
+        var item = this.visibleNotifications[
+          Math.floor(Math.random() * this.visibleNotifications.length)
+        ];
+        item.wiggle = true;
+        setTimeout(() => {
+          item.wiggle = false;
+        }, 2000);
+      }
     };
     while (wiggle) {
       await new Promise((resolve) =>
@@ -121,10 +67,10 @@ export default {
   },
   computed: {
     visibleNotifications() {
-      return this.notifications.slice(0, this.limit);
+      return this.$store.getters.getNotifications.slice(0, this.limit);
     },
     moreNotifications() {
-      return this.notifications.length - this.limit;
+      return this.$store.getters.getNotifications.length - this.limit;
     },
   },
 };
@@ -143,15 +89,24 @@ export default {
   align-items: center;
 }
 
-.slide {
-  animation-name: slide;
-  animation-duration: 0.5s;
-  position: relative;
-}
-
 .wiggle {
   animation-name: wiggle;
   animation-duration: 2s;
   animation-iteration-count: 1;
+}
+
+.fade-enter-active {
+  transition: opacity 0.5s;
+}
+
+.fade-leave-active {
+  transition: opacity 2s;
+}
+.fade-enter {
+  opacity: 0;
+}
+
+.fade-leave-to {
+  opacity: 0;
 }
 </style>

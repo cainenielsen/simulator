@@ -182,7 +182,7 @@ const mod_People = {
     togglePositionListing({ commit }, position) {
       commit("toggleListing", position);
     },
-    createCandidate({ commit, rootState }, data) {
+    createCandidate({ commit, rootState, dispatch }, data) {
       let gender = selectRandom(rootState.random_genders);
       let firstName = null;
       switch (gender) {
@@ -212,6 +212,12 @@ const mod_People = {
         listing: data.listingId,
       });
       commit("saveCandidate", candidate);
+      dispatch("createNotification", {
+        name: "Staff Update",
+        link: "/people/candidates",
+        color: "--turquoise",
+        icon: "fas fa-user-tie",
+      });
     },
     acceptCandidate({ commit }, data) {
       const teamMember = new staffMember({

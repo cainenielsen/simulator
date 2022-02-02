@@ -41,6 +41,7 @@ export default {
   text-align: center;
   border-radius: 8px;
   line-height: 48px;
+  position: relative;
 }
 
 .nav-item:hover {

@@ -7,6 +7,7 @@ import mod_Facilities from "@/store/store_facilities";
 import mod_Resources from "@/store/store_resources";
 import mod_Product from "@/store/store_product";
 import mod_Work from "@/store/store_work";
+import mod_Notifications from "@/store/store_notifications";
 
 import { toCurrency } from "@/scripts/tools.js";
 
@@ -116,10 +117,11 @@ export default createStore({
   modules: {
     world: mod_World,
     people: mod_People,
-    finaces: mod_Finances,
+    finances: mod_Finances,
     facilities: mod_Facilities,
     resources: mod_Resources,
     product: mod_Product,
     work: mod_Work,
+    notifications: mod_Notifications
   },
 });

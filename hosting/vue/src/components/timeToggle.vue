@@ -1,4 +1,5 @@
 <template>
+<div>
   <nav-item
     type="button"
     class="time background-color-orange color-orange-50"
@@ -46,6 +47,7 @@
     <i class="fas fa-clock"></i>
     {{ toTimeFormat($store.getters.get_worldState.currentTime) }}
   </nav-item>
+  </div>
 </template>
 
 <script>

@@ -9,7 +9,7 @@ export default class index {
     this.tag = data.tag || null;
     this.dateCreated = new Date();
     this.status = "default" || data.status;
-    this.perminant = data.perminant || false;
+    this.permanent = data.permanent || false;
   }
 }
 
