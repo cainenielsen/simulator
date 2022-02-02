@@ -28,12 +28,10 @@
 
 <script>
 import candidateLine from "@/components/candidateLine.vue";
-import Card from "@/components/card.vue";
 
 export default {
   components: {
     "candidate-line": candidateLine,
-    Card
   },
 };
 </script>
