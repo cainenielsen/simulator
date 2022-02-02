@@ -1,4 +1,5 @@
 <template>
+<div>
   <p
     class="text-align-center"
     v-if="$store.getters.get_peopleState.candidates.length === 0"
@@ -22,13 +23,17 @@
     :key="candidate"
     :candidate="candidate"
   ></candidate-line>
+  </div>
 </template>
 
 <script>
 import candidateLine from "@/components/candidateLine.vue";
+import Card from "@/components/card.vue";
+
 export default {
   components: {
     "candidate-line": candidateLine,
+    Card
   },
 };
 </script>

@@ -69,6 +69,9 @@ const mod_People = {
     get_staffMember: (state) => (id) => {
       return state.staff.find((element) => element.id === id);
     },
+    get_Candidate: (state) => (id) => {
+      return state.candidates.find((element) => element.id === id);
+    },
     get_self(state) {
       return state.staff.find((element) => element.self === true);
     },
@@ -234,6 +237,7 @@ const mod_People = {
       });
       commit("saveTeamMember", teamMember);
       commit("deleteCandidate", data.id);
+      return teamMember.id;
     },
     setSelectedTask({ state, commit }, data) {
       let position = state.positions.find(

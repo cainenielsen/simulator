@@ -15,7 +15,7 @@
     <span v-else></span>
     <router-link :to="{ name: 'Staff Member', params: { id: member.id } }">
       <Button
-        icon="fas fa-plus"
+        icon="fas fa-location-arrow"
         name="Edit"
         :disabled="false"
         backgroundColor="var(--emerald)"
