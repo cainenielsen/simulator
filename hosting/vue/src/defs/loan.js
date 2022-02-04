@@ -3,7 +3,6 @@ import index from "@/defs/index.js";
 export default class Loan extends index {
   constructor(data) {
     super(data);
-    this.name = data.name;
     this.amount = data.amount;
     this.cost = data.cost;
     this.interest = data.interest;

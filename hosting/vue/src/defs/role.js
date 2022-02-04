@@ -3,7 +3,6 @@ import index from "@/defs/index.js";
 export default class Role extends index {
   constructor(data) {
     super(data);
-    this.name = data.name;
     if (typeof data.selectable != "undefined") {
       this.selectable = data.selectable;
     } else {
