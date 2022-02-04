@@ -4,21 +4,22 @@
     <span class="bottom-right">
       <router-link to="/research">
         <nav-item class="color-amethyst"
-          ><b><i class="fas fa-vial"></i>{{ $store.getters.get_research }}</b>
+          ><b><i class="fas fa-vial"></i>&nbsp;{{ $store.getters.get_research }}</b>
         </nav-item>
       </router-link>
       <router-link to="/finances">
         <nav-item v-if="$store.getters.get_trend" class="color-emerald"
           ><b
-            ><i class="fas fa-chevron-up"></i
-            >{{ formatCurrency($store.getters.get_capital) }}</b
-          ></nav-item
-        >
+            ><i class="fas fa-money-bill"></i
+            >&nbsp;{{ formatCurrency($store.getters.get_capital) }}</b
+          >&nbsp;<i class="fas fa-chevron-up"></i
+        ></nav-item>
         <nav-item v-else class="color-pomegranate"
           ><b
-            ><i class="fas fa-chevron-down"></i
-            >{{ formatCurrency($store.getters.get_capital) }}</b
-          >
+            ><i class="fas fa-money-bill"></i
+            >&nbsp; {{ formatCurrency($store.getters.get_capital)
+            }}&nbsp;<i class="fas fa-chevron-down"></i
+          ></b>
         </nav-item>
       </router-link>
     </span>
