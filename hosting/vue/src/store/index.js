@@ -8,6 +8,7 @@ import mod_Resources from "@/store/store_resources";
 import mod_Products from "@/store/store_products";
 import mod_Work from "@/store/store_work";
 import mod_Notifications from "@/store/store_notifications";
+import mod_Research from "@/store/store_research";
 
 import { toCurrency } from "@/scripts/tools.js";
 
@@ -122,6 +123,7 @@ export default createStore({
     resources: mod_Resources,
     products: mod_Products,
     work: mod_Work,
-    notifications: mod_Notifications
+    notifications: mod_Notifications,
+    research: mod_Research
   },
 });

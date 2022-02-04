@@ -192,7 +192,7 @@ const mod_Work = {
   actions: {
     unlockPosition({ rootState, commit, getters }, data) {
       const positionToResearch = getters.get_typeById(data);
-      if (rootState.product.researchPoints >= positionToResearch.researchCost) {
+      if (rootState.research.researchPoints >= positionToResearch.researchCost) {
         commit("chargeResearch", positionToResearch.researchCost);
         commit("researchPosition", positionToResearch.id);
       } else {
