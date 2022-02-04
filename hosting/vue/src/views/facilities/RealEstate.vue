@@ -43,6 +43,9 @@
       ><br /><br />
       Rent:
       <b>{{ formatCurrency(facility.rent) }}/m</b><br /><br />
+      Traffic:
+      <b>{{ facility.traffic }}</b
+      ><br /><br />
       <Button
         name="Purchase"
         backgroundColor="var(--emerald)"

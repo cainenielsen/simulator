@@ -14,6 +14,7 @@ const mod_Facilities = {
         storage: 500,
         status: "owned",
         type: "office",
+        traffic: 0.1
       }),
     ],
   }),
@@ -80,6 +81,7 @@ const mod_Facilities = {
         storage: randomNumberBetween(500, 5000),
         status: "available",
         type: selectRandom(["office", "storage", "storefront"]),
+        traffic: randomNumberBetween(0.1, 1),
       });
       commit("addFacility", facility);
     },

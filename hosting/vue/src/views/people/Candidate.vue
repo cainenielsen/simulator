@@ -59,12 +59,14 @@ export default {
       return toCurrency(input);
     },
     hireCandidate(candidate) {
-      this.$store.dispatch("acceptCandidate", candidate).then((staffMemberId) => {
-        this.$router.replace({
-          name: "Staff Member",
-          params: { id: staffMemberId },
+      this.$store
+        .dispatch("acceptCandidate", candidate)
+        .then((staffMemberId) => {
+          this.$router.replace({
+            name: "Staff Member",
+            params: { id: staffMemberId },
+          });
         });
-      });
     },
   },
   beforeMount() {

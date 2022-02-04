@@ -4,6 +4,8 @@ import "@/registerServiceWorker";
 import router from "@/router";
 import store from "@/store";
 
+import "./scripts/proto";
+
 import "./scripts/firebase/firebase";
 import "./scripts/firebase/firebase-analytics";
 import "./scripts/firebase/firebase-app-check";

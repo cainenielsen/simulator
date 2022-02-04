@@ -42,7 +42,8 @@
       {{ $store.getters.get_positionsInLocation(facility.id) }}/{{
         facility.capacity
       }}<br /><br />Storage: XXX/{{ facility.storage }}<br /><br />Rent:
-      <b>{{ formatCurrency(facility.rent) }}/m</b><br /><br /><Button
+      <b>{{ formatCurrency(facility.rent) }}/m</b><br /><br />Traffic:
+      <b>{{ facility.traffic }}</b><br /><br /><Button
         :name="`Sell - ${formatCurrency(facility.getSellPrice())}`"
         backgroundColor="var(--emerald)"
         textColor="white"

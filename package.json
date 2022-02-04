@@ -7,7 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "serve": "firebase emulators:start --only hosting",
     "kill-ports": "npx kill-port 8080",
-    "deploy": "firebase deploy"
+    "deploy": "firebase deploy",
+    "deploy-hosting": "firebase deploy --only hosting"
   },
   "repository": {
     "type": "git",

@@ -12,24 +12,29 @@ function selectRandom(input) {
 }
 
 function randomNumberBetween(min, max) {
-  return Math.floor(Math.random() * (max - min + 1) + min);
+  let random = (Math.random() * (max - min) + min).toFixed(2);;
+  if (min.between(0, 1) || max.between(0, 1)) {
+    return random;
+  } else {
+    return random = Math.floor(random);
+  }
 }
 
 function idGenerator() {
   this.length = 8;
   this.timestamp = +new Date();
 
-  var _getRandomInt = function (min, max) {
+  const _getRandomInt = function (min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
   };
 
   this.generate = function () {
-    var ts = this.timestamp.toString();
-    var parts = ts.split("").reverse();
-    var id = "";
+    const ts = this.timestamp.toString();
+    const parts = ts.split("").reverse();
+    let id = "";
 
-    for (var i = 0; i < this.length; ++i) {
-      var index = _getRandomInt(0, parts.length - 1);
+    for (let i = 0; i < this.length; ++i) {
+      const index = _getRandomInt(0, parts.length - 1);
       id += parts[index];
     }
 
