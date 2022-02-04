@@ -24,8 +24,8 @@
           ><i class="fas fa-database"></i> Resources</nav-item
         ></router-link
       >
-      <router-link to="/product"
-        ><nav-item><i class="fab fa-buffer"></i> Product</nav-item></router-link
+      <router-link to="/products"
+        ><nav-item><i class="fab fa-buffer"></i> Products</nav-item></router-link
       >
     </span>
     <span class="top-right">

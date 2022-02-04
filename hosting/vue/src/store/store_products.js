@@ -3,7 +3,7 @@ import Component from "@/defs/component.js";
 import Script from "@/defs/script.js";
 import Product from "@/defs/product.js";
 
-const mod_Product = {
+const mod_Products = {
   state: () => ({
     researchPoints: 500,
     products: [
@@ -247,4 +247,4 @@ const mod_Product = {
   },
 };
 
-export default mod_Product;
+export default mod_Products;

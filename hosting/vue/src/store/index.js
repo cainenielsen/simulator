@@ -5,7 +5,7 @@ import mod_People from "@/store/store_people";
 import mod_Finances from "@/store/store_finances";
 import mod_Facilities from "@/store/store_facilities";
 import mod_Resources from "@/store/store_resources";
-import mod_Product from "@/store/store_product";
+import mod_Products from "@/store/store_products";
 import mod_Work from "@/store/store_work";
 import mod_Notifications from "@/store/store_notifications";
 
@@ -120,7 +120,7 @@ export default createStore({
     finances: mod_Finances,
     facilities: mod_Facilities,
     resources: mod_Resources,
-    product: mod_Product,
+    products: mod_Products,
     work: mod_Work,
     notifications: mod_Notifications
   },

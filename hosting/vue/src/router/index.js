@@ -5,7 +5,7 @@ import work from "@/router/work.js";
 import finances from "@/router/finances.js";
 import facilities from "@/router/facilities.js";
 import resources from "@/router/resources.js";
-import product from "@/router/product.js";
+import products from "@/router/products.js";
 import research from "@/router/research.js";
 
 const routes = [
@@ -15,7 +15,7 @@ const routes = [
   finances,
   facilities,
   resources,
-  product,
+  products,
   research,
 ];
 

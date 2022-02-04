@@ -3,7 +3,7 @@
     <p class="text-align-center">
       This is a list of products that you can sell.
     </p>
-    <router-link to="/product/products/new">
+    <router-link to="/products/products/new">
       <Button name="New Product"></Button>
     </router-link>
     <card v-for="product in $store.getters.get_allProducts" :key="product.id">

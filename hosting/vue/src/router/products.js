@@ -1,16 +1,16 @@
 export default {
-  path: "/product",
-  name: "Product",
+  path: "/products",
+  name: "Products",
   // route level code-splitting
   // this generates a separate chunk (about.[hash].js) for this route
   // which is lazy-loaded when the route is visited.
   component: () =>
-    import(/* webpackChunkName: "about" */ "@/views/product/index.vue"),
+    import(/* webpackChunkName: "about" */ "@/views/products/index.vue"),
 
   meta: {
     subNavItems: [
-      { name: "Products", icon: "fas fa-compass", to: "/product/products" },
-      { name: "Features", icon: "fas fa-star", to: "/product/features" },
+      { name: "Products", icon: "fas fa-compass", to: "/products/products" },
+      { name: "Features", icon: "fas fa-star", to: "/products/features" },
     ],
     layout: "dashboard",
     color: "peter-river",
@@ -28,7 +28,7 @@ export default {
       // this generates a separate chunk (about.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
       component: () =>
-        import(/* webpackChunkName: "about" */ "@/views/product/Products.vue"),
+        import(/* webpackChunkName: "about" */ "@/views/products/Products.vue"),
     },
     {
       path: "products/new",
@@ -44,7 +44,7 @@ export default {
       // which is lazy-loaded when the route is visited.
       component: () =>
         import(
-          /* webpackChunkName: "about" */ "@/views/product/NewProduct.vue"
+          /* webpackChunkName: "about" */ "@/views/products/NewProduct.vue"
         ),
     },
     {
@@ -59,11 +59,11 @@ export default {
       // this generates a separate chunk (about.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
       component: () =>
-        import(/* webpackChunkName: "about" */ "@/views/product/Features.vue"),
+        import(/* webpackChunkName: "about" */ "@/views/products/Features.vue"),
     },
     {
       path: "",
-      redirect: "/product/products",
+      redirect: "/products/products",
     },
   ],
 };
